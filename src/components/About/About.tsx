@@ -1,0 +1,76 @@
+import React from 'react'
+
+const About = () => {
+    return (
+        <section className="about-section">
+            {/* <div className="image-layer" style="background-image:url(images/resource/about-1.jpg)"></div> */}
+            <div className="image-layer"></div>
+            <div className="container">
+                <div className="row clearfix">
+                    <div className="content-column col-lg-6 col-md-12 col-sm-12">
+                        <div className="inner-column">
+                            <div className="section-title">
+                                <div className="title">
+                                    Notaría cuarta de Daule
+                                </div>
+                                <h3>
+                                    Brindamos asesoramiento y atención
+                                    personalizada en la realización de sus{' '}
+                                    <span>trámites y procesos legales</span>
+                                </h3>
+                            </div>
+
+                            <div className="text">
+                                <p>
+                                    En la Notaría IV de Daule nos complace poder
+                                    brindarles nuestros servicios legales en
+                                    línea, para que puedan realizar sus trámites
+                                    desde la comodidad de su hogar o lugar de
+                                    trabajo. Ofrecemos a nuestros clientes un
+                                    servicio de alta calidad, con
+                                    profesionalismo, ética y transparencia.
+                                </p>
+                                <p>
+                                    Estamos comprometidos en brindarles una
+                                    experiencia satisfactoria y confiable en
+                                    cada uno de los trámites que realicen con
+                                    nosotros Gracias por visitarnos y confiar en
+                                    nuestros servicios.
+                                </p>
+
+                                <h4 className='title'>
+                                   Atentamente{' '}
+                                    <span>Notaría 4 de Daule</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="image-column col-lg-6 col-md-8 col-sm-12">
+                        <div
+                            className="inner-column wow fadeInRight"
+                            data-wow-delay="0ms"
+                            data-wow-duration="1500ms"
+                        >
+                            <div className="image">
+                                <img src="images/resource/about-2.jpg" alt="" />
+                                <div className="overlay-box">
+                                    <div className="overlay-inner">
+                                        <div className="content">
+                                            <h2>
+                                                35{' '}
+                                                <span>years of experience</span>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
+
+export default About

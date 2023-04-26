@@ -12,7 +12,7 @@ const App: FC = () => {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="quines-somos" element={<AboutUs />} />
-            <Route path="servicios" element={<Services />} />
+            <Route path="tramites-en-linea" element={<Services />} />
             <Route path="testimonios" element={<Testimonials />} />
             <Route path="preguntas-frecuentes" element={<Faqs />} />
             <Route path="contacto" element={<Contact />} />

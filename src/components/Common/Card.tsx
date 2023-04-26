@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 export interface CardInterface {
-    icon: IconProp
+    icon?: IconProp
     title: string
     content: any;
     overlay?: boolean | false
@@ -23,7 +23,7 @@ const Card: FC<{ card: CardInterface }> = ({ card }) => {
                     <FontAwesomeIcon className='icon' icon={icon}/>
                 </div>
                 <h3>{title}</h3>
-                <div className="text">{content}</div>
+                <div className="text text-start">{content}</div>
 
                 {overlay && (
                     <div className="overlay-box">

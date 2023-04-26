@@ -91,7 +91,7 @@ a {
 a:hover,
 a:focus,
 a:visited {
-    text-decoration: underline;
+    /* text-decoration: underline; */
     outline: none !important;
     color: #b22831;
 }
@@ -328,6 +328,10 @@ img {
     display: inline-block;
     max-width: 100%;
     height: auto;
+}
+
+.text-justify {
+    text-align: justify;
 }
 
 /*** 
@@ -2095,7 +2099,7 @@ img {
     width: 100%;
     height: 100%;
     display: block;
-    background-color: rgba(48, 51, 53);
+    background-color: rgba(48, 51, 53,0.5);
 }
 
 .about-section .content-column {
@@ -2208,7 +2212,7 @@ img {
 .about-section .image-column .inner-column {
     position: relative;
     margin-left: 60px;
-    padding-top: 120px;
+    padding-top: 178px;
 }
 
 .about-section .image-column .inner-column.style-two {
@@ -2217,7 +2221,7 @@ img {
 
 .about-section .image-column .inner-column .image {
     position: relative;
-    max-width: 300px;
+    max-width: 322px;
     width: 100%;
 }
 
@@ -2225,6 +2229,7 @@ img {
     position: relative;
     width: 100%;
     display: block;
+    height: 386px;
 }
 
 .about-section .image-column .inner-column .image .overlay-box {
@@ -2234,13 +2239,13 @@ img {
     right: 10px;
     bottom: 10px;
     padding: 0px 30px 60px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .about-section .image-column .inner-column .image .overlay-box .content {
     position: absolute;
     left: 20px;
-    bottom: 60px;
+    bottom: 0px;
 }
 
 .about-section .image-column .inner-column .image .overlay-box .content h2 {

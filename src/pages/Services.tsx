@@ -104,11 +104,11 @@ const Services = () => {
 
     return (
         <Website>
-            <PageTitle title="Servicios" />
+            <PageTitle title="Trámites en línea" />
             <section className="services-section-four">
                 <div className="container">
                     <div className="section-title centered">
-                        <div className="title">Servicios</div>
+                        <div className="title">Trámites en línea</div>
                         <h3>
                             ofrecemos una gran variedad de <br />
                             servicios con nuestra <span>experiencia</span>

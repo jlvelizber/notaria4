@@ -55,8 +55,8 @@ export const Menu: FC<MenuInterface> = ({ onOpenSidebar }) => {
             path: '/quines-somos',
         },
         {
-            name: 'Servicios',
-            path: '/servicios',
+            name: 'Trámites en línea',
+            path: '/tramites-en-linea',
         },
         {
             name: 'Preguntas frecuentes',

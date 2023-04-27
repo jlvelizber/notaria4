@@ -1,10 +1,11 @@
 import React from 'react'
+import BgSection5 from './../../assets/images/home/home-section-contact.webp';
 
 const Section5 = () => {
     return (
         <section
             className="form-section"
-            // style="background-image: url(images/background/2.jpg)"
+            style={{backgroundImage: `url(${BgSection5})`}}
         >
             <div className="container">
                 <div className="upper-content">

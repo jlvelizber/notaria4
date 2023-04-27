@@ -1,4 +1,5 @@
 import React from 'react'
+import BgSection6 from './../../assets/images/home/newsletter.jpg'
 
 const Section6 = () => {
     return (
@@ -6,7 +7,7 @@ const Section6 = () => {
             <div className="container">
                 <div
                     className="inner-container"
-                    // style="background-image: url(images/background/3.jpg)"
+                    style={{backgroundImage: `url(${BgSection6})`}}
                 >
                     <h2>
                         Subscribe Your Email for Newsletter <br />& Promotion

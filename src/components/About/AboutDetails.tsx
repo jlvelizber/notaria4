@@ -170,7 +170,7 @@ function AboutDetails() {
                     </div>
                     <div className="row clearfix">
                         {ValoresItems.map((valor: CardInterface, key: Key) => (
-                            <Card key={key} card={valor} />
+                            <Card  key={key} card={valor} />
                         ))}
                     </div>
                 </div>

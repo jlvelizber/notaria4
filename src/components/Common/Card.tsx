@@ -5,7 +5,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core'
 export interface CardInterface {
     icon?: IconProp
     title: string
-    content: any;
+    content?: any;
     overlay?: boolean | false
     overlayTitle?: string
     overlayTitleAction?: string;
@@ -19,8 +19,7 @@ const Card: FC<{ card: CardInterface }> = ({ card }) => {
         <div className="services-block-two style-two col-lg-4 col-md-6 col-sm-12">
             <div className="inner-box">
                 <div className="icon-box">
-                    {/* <span className="icon flaticon-internet"></span> */}
-                    <FontAwesomeIcon className='icon' icon={icon}/>
+                    {icon && (<FontAwesomeIcon className='icon' icon={icon}/>)}
                 </div>
                 <h3>{title}</h3>
                 <div className="text text-start">{content}</div>
@@ -29,7 +28,7 @@ const Card: FC<{ card: CardInterface }> = ({ card }) => {
                     <div className="overlay-box">
                         <div className="overlay-inner">
                             <div className="content">
-                                <span className="icon flaticon-internet"></span>
+                                {icon && (<FontAwesomeIcon className='icon' icon={icon}/>)}
                                 <h4>
                                     <a onClick={overLayCallAction}>
                                         {overlayTitle}

@@ -1,341 +1,81 @@
 import React from 'react'
+import homeData from './../../data/home.json';
+import Card, { CardInterface } from '../Common/Card';
+import { useNavigate } from 'react-router';
+import { faFileCircleCheck, faPlane } from '@fortawesome/free-solid-svg-icons';
+import Comments from '../Comment/Comments';
+import BgSection3 from './../../assets/images/home/home-section-services.webp'
 
 const Section3 = () => {
+
+    const navigate = useNavigate();
+
+    const {tramitesEnLInea} = homeData;
+
+    const goToContact = () => {
+        return navigate('/contacto')
+      }
+
+    const servicesOnHome :CardInterface[] =  [
+        {
+            title: "Permisos de Salida",
+            overLayCallAction: () => goToContact(),
+            overlay: true,
+            overlayTitle: "Permisos de Salida",
+            overlayTitleAction : "Contactar",
+            icon: faPlane,
+            content:<p className='text-justify'>Documento mediante el cual el padre, la madre o de quien ejerce la patria potestad, autoriza la SALIDA DEL ECUADOR de un menor de edad.</p>
+        },
+        {
+            title: "Declaración Juramentada",
+            overLayCallAction: () => goToContact(),
+            overlay: true,
+            overlayTitle: "Declaración Juramentada",
+            overlayTitleAction : "Contactar",
+            icon: faFileCircleCheck,
+            content:<p className='text-justify'>Acto mediante el cual los ciudadanos manifiestan de forma escrita, bajo juramento, sobre actos o hechos de los cuales tiene certeza y/o conocimiento.</p>
+        },
+        {
+            title: "Copia Certificada",
+            overLayCallAction: () => goToContact(),
+            overlay: true,
+            overlayTitle: "Copia Certificada",
+            overlayTitleAction : "Contactar",
+            icon: faFileCircleCheck,
+            content:<p className='text-justify'>Una copia certificada consiste en la reproducción total o parcial de un documento oficial. Solo se debe tener una copia y el original a certificar
+            </p>
+        },
+        {
+            title: "Poderes Generales",
+            overLayCallAction: () => goToContact(),
+            overlay: true,
+            overlayTitle: "Poderes Generales",
+            overlayTitleAction : "Contactar",
+            icon: faFileCircleCheck,
+            content:<p className='text-justify'>Una copia certificada consiste en la reproducción total o parcial de un documento oficial. Solo se debe tener una copia y el original a certificar
+            </p>
+        },
+    ]
+    
     return (
         <section
             className="services-section-two"
-            // style="background-image: url(images/background/1.jpg)"
+            style={{backgroundImage: `url(${BgSection3})`}}
         >
             <div className="container">
                 <div className="section-title light centered">
-                    <div className="title">Services</div>
+                    <div className="title">Trámites en línea</div>
                     <h3>
-                        We are here to fight against any <br />
-                        violance with <span>experience</span>
+                    {tramitesEnLInea?.title}  <span>{tramitesEnLInea?.titleEnphasis}</span>
                     </h3>
                 </div>
                 <div className="row clearfix">
-                    <div className="services-block-two col-lg-4 col-md-6 col-sm-12">
-                        <div className="inner-box">
-                            <div className="icon-box">
-                                <span className="icon flaticon-internet"></span>
-                            </div>
-                            <h3>Business Law</h3>
-                            <div className="text">
-                                It is a long established fact that areader will
-                                be distracted by the readable content of a page
-                                when looking.
-                            </div>
-                            <div
-                                className="overlay-box"
-                                // style="
-                                //     background-image: url(images/resource/service-1.jpg);
-                                // "
-                            >
-                                <div className="overlay-inner">
-                                    <div className="content">
-                                        <span className="icon flaticon-internet"></span>
-                                        <h4>
-                                            <a href="services-detail.html">
-                                                Business Law
-                                            </a>
-                                        </h4>
-                                        <a
-                                            href="services-detail.html"
-                                            className="theme-btn btn-style-one"
-                                        >
-                                            consult now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="services-block-two col-lg-4 col-md-6 col-sm-12">
-                        <div className="inner-box">
-                            <div className="icon-box">
-                                <span className="icon flaticon-museum"></span>
-                            </div>
-                            <h3>Civil Law</h3>
-                            <div className="text">
-                                It is a long established fact that areader will
-                                be distracted by the readable content of a page
-                                when looking.
-                            </div>
-                            <div
-                                className="overlay-box"
-                                // style="
-                                //     background-image: url(images/resource/service-1.jpg);
-                                // "
-                            >
-                                <div className="overlay-inner">
-                                    <div className="content">
-                                        <span className="icon flaticon-museum"></span>
-                                        <h4>
-                                            <a href="services-detail.html">
-                                                Civil Law
-                                            </a>
-                                        </h4>
-                                        <a
-                                            href="services-detail.html"
-                                            className="theme-btn btn-style-one"
-                                        >
-                                            consult now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="services-block-two col-lg-4 col-md-6 col-sm-12">
-                        <div className="inner-box">
-                            <div className="icon-box">
-                                <span className="icon flaticon-gun"></span>
-                            </div>
-                            <h3>Criminal Law</h3>
-                            <div className="text">
-                                It is a long established fact that areader will
-                                be distracted by the readable content of a page
-                                when looking.
-                            </div>
-                            <div
-                                className="overlay-box"
-                                // style="
-                                //     background-image: url(images/resource/service-1.jpg);
-                                // "
-                            >
-                                <div className="overlay-inner">
-                                    <div className="content">
-                                        <span className="icon flaticon-gun"></span>
-                                        <h4>
-                                            <a href="services-detail.html">
-                                                Criminal Law
-                                            </a>
-                                        </h4>
-                                        <a
-                                            href="services-detail.html"
-                                            className="theme-btn btn-style-one"
-                                        >
-                                            consult now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="services-block-two col-lg-4 col-md-6 col-sm-12">
-                        <div className="inner-box">
-                            <div className="icon-box">
-                                <span className="icon flaticon-plan"></span>
-                            </div>
-                            <h3>Business Law</h3>
-                            <div className="text">
-                                It is a long established fact that areader will
-                                be distracted by the readable content of a page
-                                when looking.
-                            </div>
-                            <div
-                                className="overlay-box"
-                                // style="
-                                //     background-image: url(images/resource/service-1.jpg);
-                                // "
-                            >
-                                <div className="overlay-inner">
-                                    <div className="content">
-                                        <span className="icon flaticon-plan"></span>
-                                        <h4>
-                                            <a href="services-detail.html">
-                                                Business Law
-                                            </a>
-                                        </h4>
-                                        <a
-                                            href="services-detail.html"
-                                            className="theme-btn btn-style-one"
-                                        >
-                                            consult now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="services-block-two col-lg-4 col-md-6 col-sm-12">
-                        <div className="inner-box">
-                            <div className="icon-box">
-                                <span className="icon flaticon-book"></span>
-                            </div>
-                            <h3>Education Law</h3>
-                            <div className="text">
-                                It is a long established fact that areader will
-                                be distracted by the readable content of a page
-                                when looking.
-                            </div>
-                            <div
-                                className="overlay-box"
-                                // style="
-                                //     background-image: url(images/resource/service-1.jpg);
-                                // "
-                            >
-                                <div className="overlay-inner">
-                                    <div className="content">
-                                        <span className="icon flaticon-book"></span>
-                                        <h4>
-                                            <a href="services-detail.html">
-                                                Education Law
-                                            </a>
-                                        </h4>
-                                        <a
-                                            href="services-detail.html"
-                                            className="theme-btn btn-style-one"
-                                        >
-                                            consult now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="services-block-two col-lg-4 col-md-6 col-sm-12">
-                        <div className="inner-box">
-                            <div className="icon-box">
-                                <span className="icon flaticon-house-outline"></span>
-                            </div>
-                            <h3>Real Estate law</h3>
-                            <div className="text">
-                                It is a long established fact that areader will
-                                be distracted by the readable content of a page
-                                when looking.
-                            </div>
-                            <div
-                                className="overlay-box"
-                                // style="
-                                //     background-image: url(images/resource/service-1.jpg);
-                                // "
-                            >
-                                <div className="overlay-inner">
-                                    <div className="content">
-                                        <span className="icon flaticon-house-outline"></span>
-                                        <h4>
-                                            <a href="services-detail.html">
-                                                Real Estate law
-                                            </a>
-                                        </h4>
-                                        <a
-                                            href="services-detail.html"
-                                            className="theme-btn btn-style-one"
-                                        >
-                                            consult now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {
+                        servicesOnHome.map( (service: CardInterface, idx: React.Key) => <Card card={service} key={idx}/>   )
+                    }
                 </div>
 
-                <div className="lower-section">
-                    <div className="carousel-box">
-                        <div className="content">
-                            <div className="single-item-carousel owl-carousel owl-theme">
-                                <div className="testimonial-block">
-                                    <div className="inner-box">
-                                        <div className="testimonial-content">
-                                            <span className="quote-icon flaticon-left-quote"></span>
-                                            <div className="text">
-                                                Aenean tincidunt id mauris id
-                                                auctor. Donec at ligula lacus.
-                                                Nulla dignissim mi quis neque
-                                                interdum, quis porta sem
-                                                finibus. Them to gho ifndtp, no.
-                                            </div>
-                                            <div className="lower-box">
-                                                <div className="box-inner">
-                                                    <div className="image">
-                                                        <img
-                                                            src="images/resource/author-2.jpg"
-                                                            alt=""
-                                                        />
-                                                    </div>
-                                                    <h3>Willem Eduard</h3>
-                                                    <div className="designation">
-                                                        Envato Author
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="testimonial-block">
-                                    <div className="inner-box">
-                                        <div className="testimonial-content">
-                                            <span className="quote-icon flaticon-left-quote"></span>
-                                            <div className="text">
-                                                Aenean tincidunt id mauris id
-                                                auctor. Donec at ligula lacus.
-                                                Nulla dignissim mi quis neque
-                                                interdum, quis porta sem
-                                                finibus. Them to gho ifndtp, no.
-                                            </div>
-                                            <div className="lower-box">
-                                                <div className="box-inner">
-                                                    <div className="image">
-                                                        <img
-                                                            src="images/resource/author-2.jpg"
-                                                            alt=""
-                                                        />
-                                                    </div>
-                                                    <h3>Willem Eduard</h3>
-                                                    <div className="designation">
-                                                        Envato Author
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="testimonial-block">
-                                    <div className="inner-box">
-                                        <div className="testimonial-content">
-                                            <span className="quote-icon flaticon-left-quote"></span>
-                                            <div className="text">
-                                                Aenean tincidunt id mauris id
-                                                auctor. Donec at ligula lacus.
-                                                Nulla dignissim mi quis neque
-                                                interdum, quis porta sem
-                                                finibus. Them to gho ifndtp, no.
-                                            </div>
-                                            <div className="lower-box">
-                                                <div className="box-inner">
-                                                    <div className="image">
-                                                        <img
-                                                            src="images/resource/author-2.jpg"
-                                                            alt=""
-                                                        />
-                                                    </div>
-                                                    <h3>Willem Eduard</h3>
-                                                    <div className="designation">
-                                                        Envato Author
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="image">
-                        <img src="images/resource/author-1.png" alt="" />
-                    </div>
-                </div>
+                <Comments/>
             </div>
         </section>
     )

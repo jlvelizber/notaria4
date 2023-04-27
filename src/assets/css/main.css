@@ -2320,9 +2320,9 @@ img {
     border-color: #c9c9c9;
 }
 
-.services-block-two.style-two .inner-box h3 {
+/* .services-block-two.style-two .inner-box h3 {
     color: #191514;
-}
+} */
 
 .services-block-two .inner-box .icon-box {
     position: relative;
@@ -3506,7 +3506,7 @@ img {
     position: relative;
     padding: 30px 50px 50px;
     background-size: cover;
-    box-shadow: inset 0px 10px 20px rgba(213, 170, 109, 0.4);
+    box-shadow: inset 0px 10px 20px rgba(233, 28, 28, 0.4);
 }
 
 .subscribe-section .inner-container h2 {

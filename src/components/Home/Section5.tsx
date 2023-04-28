@@ -1,11 +1,13 @@
 import React from 'react'
-import BgSection5 from './../../assets/images/home/home-section-contact.webp';
+import BgSection5 from './../../assets/images/home/home-section-contact.webp'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBuilding, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 
 const Section5 = () => {
     return (
         <section
             className="form-section"
-            style={{backgroundImage: `url(${BgSection5})`}}
+            style={{ backgroundImage: `url(${BgSection5})` }}
         >
             <div className="container">
                 <div className="upper-content">
@@ -13,10 +15,11 @@ const Section5 = () => {
                         <div className="title-column col-lg-5 col-md-12 col-sm-12">
                             <div className="inner-column">
                                 <div className="section-title light">
-                                    <div className="title">Contact us</div>
+                                    <div className="title">Contacto</div>
                                     <h3>
-                                        Feel free to ask somthing <br />
-                                        we are <span>here</span>
+                                        Sientete en libertad de escribirnos{' '}
+                                        <br />
+                                        estamos <span>aquí</span> para ti
                                     </h3>
                                 </div>
                             </div>
@@ -28,22 +31,28 @@ const Section5 = () => {
                                     <div className="column col-lg-6 col-md-6 col-sm-12">
                                         <ul className="list-style-two">
                                             <li>
-                                                <span className="icon flaticon-placeholder-1"></span>
-                                                4 G-ral. Traian Mosoiu Street, A
-                                                Building, 2nd Entrance, Flat 30,
-                                                Cluj-Napoca, Romania
+                                                <FontAwesomeIcon
+                                                    icon={faBuilding}
+                                                />
+                                                Dirección: Avenida León Febres
+                                                Cordero Ribadeneyra, Edificio
+                                                Platinium II, Daule 091910{' '}
                                             </li>
                                         </ul>
                                     </div>
                                     <div className="column col-lg-6 col-md-6 col-sm-12">
                                         <ul className="list-style-two">
-                                            <li>
-                                                <span className="icon flaticon-phone-call"></span>
-                                                +012 (3456) 7890
+                                        <li>
+                                                <FontAwesomeIcon
+                                                    icon={faPhone}
+                                                />
+                                                (04) 214-5544
                                             </li>
                                             <li>
-                                                <span className="icon flaticon-chat"></span>
-                                                support@lawsight.com
+                                                <FontAwesomeIcon
+                                                    icon={faEnvelope}
+                                                />
+                                                info@notaria4.com
                                             </li>
                                         </ul>
                                     </div>
@@ -61,7 +70,7 @@ const Section5 = () => {
                                         type="text"
                                         name="firstname"
                                         value=""
-                                        placeholder="First name.."
+                                        placeholder="Nombres"
                                         required
                                     />
                                 </div>
@@ -71,7 +80,7 @@ const Section5 = () => {
                                         type="text"
                                         name="email"
                                         value=""
-                                        placeholder="Last name.."
+                                        placeholder="Apellidos"
                                         required
                                     />
                                 </div>
@@ -81,7 +90,7 @@ const Section5 = () => {
                                         type="text"
                                         name="phone"
                                         value=""
-                                        placeholder="Email Address.."
+                                        placeholder="Correo electrónico"
                                         required
                                     />
                                 </div>
@@ -89,7 +98,7 @@ const Section5 = () => {
                                 <div className="form-group col-lg-12 col-md-12 col-sm-12">
                                     <textarea
                                         name="message"
-                                        placeholder="Write..."
+                                        placeholder="Mensaje"
                                     ></textarea>
                                 </div>
 
@@ -98,7 +107,7 @@ const Section5 = () => {
                                         type="submit"
                                         className="theme-btn btn-style-one"
                                     >
-                                        Submit
+                                        Enviar
                                     </button>
                                 </div>
                             </div>

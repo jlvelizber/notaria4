@@ -2293,7 +2293,7 @@ img {
     top: 0px;
     right: 0px;
     bottom: 0px;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .services-section-two .row {
@@ -2546,8 +2546,8 @@ img {
 .testimonial-block .inner-box .quote-icon {
     position: absolute;
     left: 0px;
-    top: -38px;
-    color: #2e2e2e;
+    /* top: -38px; */
+    color: #B22831;
     font-size: 41px;
     line-height: 1em;
 }

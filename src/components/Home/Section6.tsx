@@ -10,7 +10,7 @@ const Section6 = () => {
                     style={{backgroundImage: `url(${BgSection6})`}}
                 >
                     <h2>
-                        Subscribe Your Email for Newsletter <br />& Promotion
+                        Sucríbete a nuestro canal de <br />noticias
                     </h2>
                     <div className="subscribe-form">
                         <form method="post" action="contact.html">
@@ -19,14 +19,14 @@ const Section6 = () => {
                                     type="email"
                                     name="email"
                                     value=""
-                                    placeholder="Email address.."
+                                    placeholder="Correo electrónico"
                                     required
                                 />
                                 <button
                                     type="submit"
                                     className="theme-btn subscribe-btn"
                                 >
-                                    Subscribe
+                                    Suscribirse
                                 </button>
                             </div>
                         </form>

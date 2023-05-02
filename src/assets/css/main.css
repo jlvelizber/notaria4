@@ -1074,7 +1074,7 @@ img {
     width: 100%;
     padding: 0px 0px;
     /* background: #222222; */
-    background: #767879;
+    background: #ffffff;
     z-index: 0;
     transition: all 500ms ease;
     -moz-transition: all 500ms ease;
@@ -1115,7 +1115,7 @@ img {
 
 .sticky-header .main-menu .navigation > li > a {
     padding: 19px 0px !important;
-    color: #ffffff !important;
+    color: #191514 !important;
 }
 
 .sticky-header .main-menu .navigation > li > a:after {
@@ -1187,7 +1187,8 @@ img {
     top: 0px;
     height: 100%;
     width: 3000px;
-    background-color: rgba(48, 51, 53, 0.5);
+    /* background-color: rgba(48, 51, 53, 0.5); */
+    background-color: #ffffff;
 }
 
 .fixed-header .main-menu:before {
@@ -1258,7 +1259,7 @@ img {
 .main-menu .navigation > li > a {
     position: relative;
     display: block;
-    color: #ffffff;
+    color: #191514;
     text-align: center;
     line-height: 30px;
     text-transform: capitalize;
@@ -2293,7 +2294,7 @@ img {
     top: 0px;
     right: 0px;
     bottom: 0px;
-    background-color: rgba(0, 0, 0, 0.7);
+    /* background-color: rgba(0, 0, 0, 0.2); */
 }
 
 .services-section-two .row {
@@ -2317,7 +2318,8 @@ img {
 }
 
 .services-block-two.style-two .inner-box {
-    border-color: #c9c9c9;
+    /* border-color: #c9c9c9; */
+    border-color: #890606;
 }
 
 /* .services-block-two.style-two .inner-box h3 {
@@ -2364,7 +2366,8 @@ img {
 
 .services-block-two .inner-box .text {
     position: relative;
-    color: #999999;
+    /* color: #999999; */
+    color: #191514;
     font-size: 14px;
     line-height: 1.9em;
 }
@@ -2408,7 +2411,7 @@ img {
     top: 0px;
     right: 0px;
     bottom: 0px;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(48, 51, 53, 0.2);
 }
 
 .services-block-two .inner-box .overlay-box .overlay-inner {
@@ -2488,7 +2491,7 @@ img {
 
 .services-section-two .lower-section .image {
     position: absolute;
-    right: 0px;
+    right: -50px;
     bottom: 0px;
 }
 
@@ -2503,7 +2506,7 @@ img {
 .services-section-two .lower-section .carousel-box .content {
     position: relative;
     padding: 60px 70px 70px;
-    background-image: -ms-linear-gradient(left, #0f0f0f 0%, #383838 100%);
+    /* background-image: -ms-linear-gradient(left, #0f0f0f 0%, #383838 100%);
     background-image: -moz-linear-gradient(left, #0f0f0f 0%, #383838 100%);
     background-image: -o-linear-gradient(left, #0f0f0f 0%, #383838 100%);
     background-image: -webkit-gradient(
@@ -2514,7 +2517,8 @@ img {
         color-stop(100, #383838)
     );
     background-image: -webkit-linear-gradient(left, #0f0f0f 0%, #383838 100%);
-    background-image: linear-gradient(to right, #0f0f0f 0%, #383838 100%);
+    background-image: linear-gradient(to right, #0f0f0f 0%, #383838 100%); */
+    border: 2px dotted #890606;
 }
 
 .services-section-two .lower-section .owl-carousel .owl-stage-outer {
@@ -2537,7 +2541,8 @@ img {
 
 .testimonial-block .inner-box .text {
     position: relative;
-    color: #c6c6c6;
+    /* color: #c6c6c6; */
+    color:#191514;
     font-size: 16px;
     line-height: 1.9em;
     padding-left: 65px;
@@ -2578,7 +2583,8 @@ img {
     position: relative;
     font-size: 17px;
     font-weight: 600;
-    color: #ffffff;
+    /* color: #ffffff; */
+    color:#191514;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -3056,12 +3062,12 @@ img {
     -o-transition: all 500ms ease;
     background: -webkit-linear-gradient(
         top,
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0.8)
+        rgba(48, 51, 53, 0),
+        rgba(48, 51, 53, 0.8)
     );
-    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
-    background: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
-    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+    background: -moz-linear-gradient(top, rgba(48, 51, 53, 0), rgba(48, 51, 53, 0.8));
+    background: -o-linear-gradient(top, rgba(48, 51, 53, 0), rgba(48, 51, 53, 0.8));
+    background: -ms-linear-gradient(top, rgba(48, 51, 53, 0), rgba(48, 51, 53, 0.8));
 }
 
 .portfolio-block .inner-box:hover .image .overlay-box .content {

@@ -4,7 +4,10 @@ import Card, { CardInterface } from '../Common/Card';
 import { useNavigate } from 'react-router';
 import { faFileCircleCheck, faPlane } from '@fortawesome/free-solid-svg-icons';
 import Comments from '../Comment/Comments';
-import BgSection3 from './../../assets/images/home/home-section-services.webp'
+import OverlayPermisoSalida from './../../assets/images/home/permiso-salida-notaria4.webp'
+import OverdeclaracionJurada from './../../assets/images/home/declaracion-jurada.webp'
+import OverCopiaCertificada from './../../assets/images/home/copia-certificada.webp'
+import OverFirmaPoderes from './../../assets/images/home/firma-poderes.webp'
 
 const Section3 = () => {
 
@@ -24,7 +27,8 @@ const Section3 = () => {
             overlayTitle: "Permisos de Salida",
             overlayTitleAction : "Contactar",
             icon: faPlane,
-            content:<p className='text-justify'>Documento mediante el cual el padre, la madre o de quien ejerce la patria potestad, autoriza la SALIDA DEL ECUADOR de un menor de edad.</p>
+            content:<p className='text-justify'>Documento mediante el cual el padre, la madre o de quien ejerce la patria potestad, autoriza la SALIDA DEL ECUADOR de un menor de edad.</p>,
+            overlayImg: OverlayPermisoSalida
         },
         {
             title: "Declaración Juramentada",
@@ -33,7 +37,8 @@ const Section3 = () => {
             overlayTitle: "Declaración Juramentada",
             overlayTitleAction : "Contactar",
             icon: faFileCircleCheck,
-            content:<p className='text-justify'>Acto mediante el cual los ciudadanos manifiestan de forma escrita, bajo juramento, sobre actos o hechos de los cuales tiene certeza y/o conocimiento.</p>
+            content:<p className='text-justify'>Acto mediante el cual los ciudadanos manifiestan de forma escrita, bajo juramento, sobre actos o hechos de los cuales tiene certeza y/o conocimiento.</p>,
+            overlayImg: OverdeclaracionJurada
         },
         {
             title: "Copia Certificada",
@@ -43,7 +48,8 @@ const Section3 = () => {
             overlayTitleAction : "Contactar",
             icon: faFileCircleCheck,
             content:<p className='text-justify'>Una copia certificada consiste en la reproducción total o parcial de un documento oficial. Solo se debe tener una copia y el original a certificar
-            </p>
+            </p>,
+            overlayImg:OverCopiaCertificada
         },
         {
             title: "Poderes Generales",
@@ -53,17 +59,18 @@ const Section3 = () => {
             overlayTitleAction : "Contactar",
             icon: faFileCircleCheck,
             content:<p className='text-justify'>Una copia certificada consiste en la reproducción total o parcial de un documento oficial. Solo se debe tener una copia y el original a certificar
-            </p>
+            </p>,
+            overlayImg:OverFirmaPoderes
         },
     ]
     
     return (
         <section
             className="services-section-two"
-            style={{backgroundImage: `url(${BgSection3})`}}
+            // style={{backgroundImage: `url(${BgSection3})`}}
         >
             <div className="container">
-                <div className="section-title light centered">
+                <div className="section-title centered">
                     <div className="title">Trámites en línea</div>
                     <h3>
                     {tramitesEnLInea?.title}  <span>{tramitesEnLInea?.titleEnphasis}</span>

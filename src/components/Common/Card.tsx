@@ -7,16 +7,18 @@ export interface CardInterface {
     title: string
     content?: any;
     overlay?: boolean | false
+    overlayImg?: string;
     overlayTitle?: string
     overlayTitleAction?: string;
-    overLayCallAction?: (param?: any) => void
+    overLayCallAction?: (param?: any) => void;
+    classes?:string |'col-lg-4 col-md-6 col-sm-12';
 }
 
 const Card: FC<{ card: CardInterface }> = ({ card }) => {
-    const { content, title, icon, overlay, overlayTitle, overLayCallAction, overlayTitleAction } =
+    const { content, title, icon, overlay, overlayTitle, overLayCallAction, overlayTitleAction, overlayImg, classes } =
         card
     return (
-        <div className="services-block-two style-two col-lg-4 col-md-6 col-sm-12">
+        <div className={`services-block-two style-two ${classes}`}>
             <div className="inner-box">
                 <div className="icon-box">
                     {icon && (<FontAwesomeIcon className='icon' icon={icon}/>)}
@@ -25,7 +27,7 @@ const Card: FC<{ card: CardInterface }> = ({ card }) => {
                 <div className="text text-start">{content}</div>
 
                 {overlay && (
-                    <div className="overlay-box">
+                    <div className="overlay-box"  style={{backgroundImage: overlayImg ? `url(${overlayImg})` : undefined}}>
                         <div className="overlay-inner">
                             <div className="content">
                                 {icon && (<FontAwesomeIcon className='icon' icon={icon}/>)}

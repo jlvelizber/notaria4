@@ -1,5 +1,5 @@
 import React from 'react'
-import BgSection5 from './../../assets/images/home/home-section-contact.webp'
+// import BgSection5 from './../../assets/images/home/home-section-contact.webp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBuilding, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 
@@ -7,14 +7,14 @@ const Section5 = () => {
     return (
         <section
             className="form-section"
-            style={{ backgroundImage: `url(${BgSection5})` }}
+            // style={{ backgroundImage: `url(${BgSection5})` }}
         >
             <div className="container">
                 <div className="upper-content">
                     <div className="row clearfix">
                         <div className="title-column col-lg-5 col-md-12 col-sm-12">
                             <div className="inner-column">
-                                <div className="section-title light">
+                                <div className="section-title">
                                     <div className="title">Contacto</div>
                                     <h3>
                                         Sientete en libertad de escribirnos{' '}

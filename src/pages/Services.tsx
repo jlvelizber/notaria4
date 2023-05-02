@@ -12,7 +12,9 @@ import {
 import { useNavigate } from 'react-router'
 
 const Services = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const classesCard : string = "col-lg-4 col-md-6 col-sm-12";
 
     const goToContact = () => {
         return navigate('/contacto')
@@ -84,6 +86,7 @@ const Services = () => {
             overlayTitle: 'Escrituras públicas',
             overlayTitleAction: 'Contáctanos',
             overLayCallAction: () => goToContact(),
+            classes: classesCard
         },
         {
             title: 'Constitución de compañías',
@@ -132,6 +135,7 @@ const Services = () => {
             overlayTitle: 'Constitución de compañías',
             overlayTitleAction: 'Contáctanos',
             overLayCallAction: () => goToContact(),
+            classes: classesCard
         },
         {
             title: 'Poderes',
@@ -174,6 +178,7 @@ const Services = () => {
             overlayTitle: 'Poderes',
             overlayTitleAction: 'Contáctanos',
             overLayCallAction: () => goToContact(),
+            classes: classesCard
         },
         {
             title: 'Testamentos',
@@ -204,6 +209,7 @@ const Services = () => {
             overlayTitle: 'Testamentos',
             overlayTitleAction: 'Contáctanos',
             overLayCallAction: () => goToContact(),
+            classes: classesCard
         },
         {
             title: 'Trámites ante el Registro de la Propiedad',
@@ -240,6 +246,7 @@ const Services = () => {
             overlayTitle: 'Trámites ante el Registro de la Propiedad',
             overlayTitleAction: 'Contáctanos',
             overLayCallAction: () => goToContact(),
+            classes: classesCard
         },
     ]
 

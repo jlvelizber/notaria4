@@ -1,5 +1,9 @@
 import React from 'react'
 
+import ImgPostOne from '../../assets/images/home/post1.jpg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCalendar, faUser } from '@fortawesome/free-solid-svg-icons'
+
 const Section4 = () => {
     return (
         <section className="news-section style-two">
@@ -8,18 +12,9 @@ const Section4 = () => {
                     <div className="clearfix">
                         <div className="pull-left">
                             <h3>
-                                Entérate de las novedades en <br /> nuestro {' '}
+                                Entérate de las novedades en <br /> nuestro{' '}
                                 <span>blog</span>
                             </h3>
-                        </div>
-                        <div className="pull-right">
-                            <div className="text">
-                                Aenean tincidunt id mauris idology auctor. Donec
-                                at ligula lacus. Nulla dig nissimmi quis neque
-                                interdum. An Ohio man allegedly punched his
-                                lawyer in the face in court Tuesday upon finding
-                                out he was sentenced.
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -32,7 +27,7 @@ const Section4 = () => {
                             data-wow-duration="1500ms"
                         >
                             <div className="image">
-                                <img src="images/resource/news-1.jpg" alt="" />
+                                <img src={ImgPostOne} alt="" />
                                 <div className="overlay-box">
                                     <a
                                         href="images/resource/news-1.jpg"
@@ -45,11 +40,11 @@ const Section4 = () => {
                             <div className="lower-content">
                                 <ul className="post-meta">
                                     <li>
-                                        <span className="fa fa-calendar"></span>
+                                        <FontAwesomeIcon icon={faCalendar} />
                                         September 12, 2019
                                     </li>
                                     <li>
-                                        <span className="fa fa-user"></span>
+                                        <FontAwesomeIcon icon={faUser} />
                                         Admin
                                     </li>
                                 </ul>
@@ -62,7 +57,7 @@ const Section4 = () => {
                                     href="blog-single.html"
                                     className="theme-btn btn-style-two"
                                 >
-                                    View more
+                                    Ver más
                                 </a>
                             </div>
                         </div>
@@ -71,14 +66,14 @@ const Section4 = () => {
                     <div className="news-block col-lg-4 col-md-6 col-sm-12">
                         <div
                             className="inner-box wow fadeInLeft"
-                            data-wow-delay="300ms"
+                            data-wow-delay="0ms"
                             data-wow-duration="1500ms"
                         >
                             <div className="image">
-                                <img src="images/resource/news-2.jpg" alt="" />
+                                <img src={ImgPostOne} alt="" />
                                 <div className="overlay-box">
                                     <a
-                                        href="images/resource/news-2.jpg"
+                                        href="images/resource/news-1.jpg"
                                         data-fancybox="news"
                                         data-caption=""
                                         className="plus flaticon-plus"
@@ -88,25 +83,24 @@ const Section4 = () => {
                             <div className="lower-content">
                                 <ul className="post-meta">
                                     <li>
-                                        <span className="fa fa-calendar"></span>
+                                        <FontAwesomeIcon icon={faCalendar} />
                                         September 12, 2019
                                     </li>
                                     <li>
-                                        <span className="fa fa-user"></span>
+                                        <FontAwesomeIcon icon={faUser} />
                                         Admin
                                     </li>
                                 </ul>
                                 <h5>
                                     <a href="blog-single.html">
-                                        What we are capable of usually gets
-                                        discovered.
+                                        Strategy for Norway's Peion Fund Global.
                                     </a>
                                 </h5>
                                 <a
                                     href="blog-single.html"
                                     className="theme-btn btn-style-two"
                                 >
-                                    View more
+                                    Ver más
                                 </a>
                             </div>
                         </div>
@@ -115,14 +109,14 @@ const Section4 = () => {
                     <div className="news-block col-lg-4 col-md-6 col-sm-12">
                         <div
                             className="inner-box wow fadeInLeft"
-                            data-wow-delay="600ms"
+                            data-wow-delay="0ms"
                             data-wow-duration="1500ms"
                         >
                             <div className="image">
-                                <img src="images/resource/news-3.jpg" alt="" />
+                                <img src={ImgPostOne} alt="" />
                                 <div className="overlay-box">
                                     <a
-                                        href="images/resource/news-3.jpg"
+                                        href="images/resource/news-1.jpg"
                                         data-fancybox="news"
                                         data-caption=""
                                         className="plus flaticon-plus"
@@ -132,25 +126,24 @@ const Section4 = () => {
                             <div className="lower-content">
                                 <ul className="post-meta">
                                     <li>
-                                        <span className="fa fa-calendar"></span>
+                                        <FontAwesomeIcon icon={faCalendar} />
                                         September 12, 2019
                                     </li>
                                     <li>
-                                        <span className="fa fa-user"></span>
+                                        <FontAwesomeIcon icon={faUser} />
                                         Admin
                                     </li>
                                 </ul>
                                 <h5>
                                     <a href="blog-single.html">
-                                        Food industry leaders often change their
-                                        promoters.
+                                        Strategy for Norway's Peion Fund Global.
                                     </a>
                                 </h5>
                                 <a
                                     href="blog-single.html"
                                     className="theme-btn btn-style-two"
                                 >
-                                    View more
+                                    Ver más
                                 </a>
                             </div>
                         </div>

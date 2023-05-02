@@ -14,6 +14,7 @@ const Section3 = () => {
     const navigate = useNavigate();
 
     const {tramitesEnLInea} = homeData;
+    const classesCard : string = "col-lg-6 col-md-6 col-sm-12";
 
     const goToContact = () => {
         return navigate('/contacto')
@@ -28,7 +29,8 @@ const Section3 = () => {
             overlayTitleAction : "Contactar",
             icon: faPlane,
             content:<p className='text-justify'>Documento mediante el cual el padre, la madre o de quien ejerce la patria potestad, autoriza la SALIDA DEL ECUADOR de un menor de edad.</p>,
-            overlayImg: OverlayPermisoSalida
+            overlayImg: OverlayPermisoSalida,
+            classes: classesCard
         },
         {
             title: "Declaración Juramentada",
@@ -38,7 +40,8 @@ const Section3 = () => {
             overlayTitleAction : "Contactar",
             icon: faFileCircleCheck,
             content:<p className='text-justify'>Acto mediante el cual los ciudadanos manifiestan de forma escrita, bajo juramento, sobre actos o hechos de los cuales tiene certeza y/o conocimiento.</p>,
-            overlayImg: OverdeclaracionJurada
+            overlayImg: OverdeclaracionJurada,
+            classes: classesCard
         },
         {
             title: "Copia Certificada",
@@ -49,7 +52,8 @@ const Section3 = () => {
             icon: faFileCircleCheck,
             content:<p className='text-justify'>Una copia certificada consiste en la reproducción total o parcial de un documento oficial. Solo se debe tener una copia y el original a certificar
             </p>,
-            overlayImg:OverCopiaCertificada
+            overlayImg:OverCopiaCertificada,
+            classes: classesCard
         },
         {
             title: "Poderes Generales",
@@ -60,7 +64,8 @@ const Section3 = () => {
             icon: faFileCircleCheck,
             content:<p className='text-justify'>Una copia certificada consiste en la reproducción total o parcial de un documento oficial. Solo se debe tener una copia y el original a certificar
             </p>,
-            overlayImg:OverFirmaPoderes
+            overlayImg:OverFirmaPoderes,
+            classes: classesCard
         },
     ]
     
@@ -76,7 +81,7 @@ const Section3 = () => {
                     {tramitesEnLInea?.title}  <span>{tramitesEnLInea?.titleEnphasis}</span>
                     </h3>
                 </div>
-                <div className="row clearfix">
+                <div className="row clearfix px-5">
                     {
                         servicesOnHome.map( (service: CardInterface, idx: React.Key) => <Card card={service} key={idx}/>   )
                     }

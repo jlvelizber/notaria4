@@ -2,28 +2,37 @@ import React, { FC } from 'react'
 import Website from '../layouts/Website'
 import SliderWrapper from '../components/Slider/SliderWrapper'
 import { SliderInterface } from '../components/Slider/SliderInterface'
-import slider1 from '../assets/images/main-slider/1.jpg';
-import slider2 from '../assets/images/main-slider/2.jpg';
+import slider1 from '../assets/images/main-slider/notaria-slider.jpg';
+import slider2 from '../assets/images/main-slider/notaria-slider-2.jpg';
 import Section1 from '../components/Home/Section1';
 import Section2 from '../components/Home/Section2';
 import Section3 from '../components/Home/Section3';
 import Section4 from '../components/Home/Section4';
 import Section5 from '../components/Home/Section5';
 import Section6 from '../components/Home/Section6';
+import { useNavigate } from 'react-router';
 const Home: FC = () => {
+
+	const navigate = useNavigate();
+
+
+	const goToContact = () => {
+        return navigate('/contacto')
+      }
+
 
 	const slides : SliderInterface[] = [
 		{
-			title: 'Introduce with LawSight',
-			description: 'We are here to protect',
+			title: 'Notaria IV de Daule',
+			description: 'Trámites en línea',
 			img: slider1,
-			callToAction: 'any',
+			callToAction: () => goToContact(),
 		},
 		{
-			title: 'Introduce with LawSight2',
-			description: 'We are here to protect2',
+			title: 'Notaria IV de Daule',
+			description: 'Trámites en línea',
 			img: slider2,
-			callToAction: 'any',
+			callToAction: () => goToContact(),
 		}
 	]
 

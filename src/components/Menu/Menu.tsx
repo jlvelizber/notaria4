@@ -42,7 +42,7 @@ export const Menu: FC<MenuInterface> = ({ onOpenSidebar }) => {
     
 
     useEffect(() => {
-        window.addEventListener('scroll', handleNavigation)
+        // window.addEventListener('scroll', handleNavigation)
     }, [])
 
     const menuItems = [
@@ -70,7 +70,7 @@ export const Menu: FC<MenuInterface> = ({ onOpenSidebar }) => {
 
     return (
         <header className="main-header" ref={ref}>
-            <div className="header-upper">
+            {/* <div className="header-upper">
                 <Container>
                     <div className="clearfix">
                         <div className="float-start logo-box">
@@ -137,7 +137,7 @@ export const Menu: FC<MenuInterface> = ({ onOpenSidebar }) => {
                         </div>
                     </div>
                 </Container>
-            </div>
+            </div> */}
 
             <div className="sticky-header">
                 <div className="container clearfix">

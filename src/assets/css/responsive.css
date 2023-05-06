@@ -194,7 +194,7 @@
     .main-slider .tparrows,
     .fixed-header .sticky-header,
     .banner-section-two .left-side {
-        display: none;
+        /* display: none; */
     }
 
     .main-menu .navigation > li > a {

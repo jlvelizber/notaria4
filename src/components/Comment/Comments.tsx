@@ -16,19 +16,19 @@ const Comments = () => {
                 'Excelente atención en Notaría 4ta Daule . Los trámites salen en el mismo día cuando se trata de diligencia diarias tales como reconocimiento de firma de vehículos. Declaraciones..poderes especiales.u otros tramites. .compraventas en dos días listas para la firma..promesas de compraventas en el mismo día a mucho de un día para otro..',
             name: 'Glenda isabel Huacon garcia',
             role: 'Cliente',
-            avatar: TestimonialImg1,
+            avatar: TestimonialImg2,
         },
         {
             content:
                 'Muy buena atención profesional  y asesoramiento en los trámites , fácil parqueo , definitivamente no hay mejor lugar para hacer trámites y cerrar negocios',
             name: 'Ivan Heredia',
             role: 'Cliente',
-            avatar: TestimonialImg2,
+            avatar: TestimonialImg1,
         },
         {
             content:
                 'La atención en esta notaría es muy buena , el trato que recibí fue exelente y pude tener mis documentos a tiempo',
-            name: 'Ivan Heredia',
+            name: 'Julia Paredes',
             role: 'Cliente',
             avatar: TestimonialImg3,
         },

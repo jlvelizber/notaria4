@@ -11,6 +11,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router'
 
+import ImgTitle from './../assets/images/services/servicios-title.jpg';
+
 const Services = () => {
     const navigate = useNavigate();
 
@@ -252,7 +254,7 @@ const Services = () => {
 
     return (
         <Website>
-            <PageTitle title="Trámites en línea" />
+            <PageTitle title="Trámites en línea" background={ImgTitle}/>
             <section className="services-section-four">
                 <div className="container">
                     <div className="section-title centered">

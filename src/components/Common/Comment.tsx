@@ -1,6 +1,7 @@
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC } from 'react'
+import ClienteSatisfechoImg from './../../assets/images/home/rating.png'
 
 export interface CommentInterface {
     content: string;
@@ -33,6 +34,7 @@ const Comment : FC<{comment: CommentInterface}> = ({comment}) => {
                             </div>
                             <h3>{name}</h3>
                             {role && <div className="designation">{role}</div>}
+                            <img src={ClienteSatisfechoImg}/>
                         </div>
                     </div>
                 </div>

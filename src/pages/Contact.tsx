@@ -9,6 +9,7 @@ import {
     faBuilding,
     faClock
 } from '@fortawesome/free-solid-svg-icons'
+import ImgTitle from './../assets/images/contact/title.jpg';
 
 const Contact: FC = () => {
     return (
@@ -16,7 +17,7 @@ const Contact: FC = () => {
             <>
                 {/* <!--Page Title--> */}
                 {/* <section className="page-title" style="background-image:url(images/background/4.jpg)"> */}
-                <PageTitle title="Contacto" />
+                <PageTitle title="Contacto" background={ImgTitle}/>
 
                 {/* <!--End Page Title--> */}
                 {/* <!-- Contact Page Section --> */}

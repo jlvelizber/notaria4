@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { SliderInterface } from './SliderInterface'
+import { Link } from 'react-router-dom'
 
 const Slider : FC<{slide: SliderInterface}> = ({slide}) => {
     return (
@@ -12,9 +13,9 @@ const Slider : FC<{slide: SliderInterface}> = ({slide}) => {
                     </h1>
                     {
                         slide.img && (
-                            <a href="#" className="theme-btn btn-style-one">
-                            Contact us today
-                        </a>
+                            <Link to={'/contacto'} className="theme-btn btn-style-one">
+                            Contacto
+                        </Link>
                         )
                     }
                    

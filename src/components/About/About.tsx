@@ -1,12 +1,16 @@
 import React from 'react'
 import notaria4 from './../../assets/images/about/notaria4-daule-abogacia.jpg'
 import abogado from './../../assets/images/about/abogado.webp'
+import ImageColumn from '../Common/ImageColumn'
 
 const About = () => {
     return (
         <section className="about-section">
             {/* <div className="image-layer" style="background-image:url(images/resource/about-1.jpg)"></div> */}
-            <div className="image-layer" style={{backgroundImage:`url(${notaria4})`}}></div>
+            <div
+                className="image-layer"
+                style={{ backgroundImage: `url(${notaria4})` }}
+            ></div>
             <div className="container">
                 <div className="row clearfix">
                     <div className="content-column col-lg-6 col-md-12 col-sm-12">
@@ -40,32 +44,23 @@ const About = () => {
                                     nuestros servicios.
                                 </p>
 
-                                <h4 className='title'>
-                                   Atentamente{' '}
-                                    <span>Notaría 4 de Daule</span>
+                                <h4 className="title">
+                                    Atentamente <span>Notaría 4 de Daule</span>
                                 </h4>
                             </div>
                         </div>
                     </div>
 
                     <div className="image-column col-lg-6 col-md-8 col-sm-12">
-                        <div
-                            className="inner-column wow fadeInRight"
-                        >
-                            <div className='image'>
-                                <img src={abogado}alt="Notaria 4 de Daule" />
-                                <div className="overlay-box">
-                                    <div className="overlay-inner">
-                                        <div className="content">
-                                            <h2>
-                                                23{' '}
-                                                <span>años de experiencia</span>
-                                            </h2>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <ImageColumn
+                            image={abogado}
+                            content={
+                                <>
+                                    23
+                                    <span>años de experiencia</span>
+                                </>
+                            }
+                        />
                     </div>
                 </div>
             </div>

@@ -1183,12 +1183,12 @@ img {
 
 .main-header .main-menu:before {
     /* position: absolute; */
-    content: '';
+    /* content: '';
     right: 0px;
     top: 0px;
     height: 100%;
     width: 3000px;
-    background-color: rgba(48, 51, 53, 0.5);
+    background-color: rgba(48, 51, 53, 0.5); */
     /* background-color: #ffffff; */
 }
 

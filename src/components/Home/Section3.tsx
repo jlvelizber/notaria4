@@ -75,13 +75,13 @@ const Section3 = () => {
             // style={{backgroundImage: `url(${BgSection3})`}}
         >
             <div className="container">
-                <div className="section-title centered">
+                <div className="section-title centered text-center text-md-start">
                     <div className="title">Trámites en línea</div>
                     <h3>
                     {tramitesEnLInea?.title}  <span>{tramitesEnLInea?.titleEnphasis}</span>
                     </h3>
                 </div>
-                <div className="row clearfix px-5">
+                <div className="row clearfix px-md-5">
                     {
                         servicesOnHome.map( (service: CardInterface, idx: React.Key) => <Card card={service} key={idx}/>   )
                     }

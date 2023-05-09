@@ -10,10 +10,12 @@ const Faq = () => {
         <section className="faq-page-section">
             <div className="container">
                 <div className="inner-container">
-                    <h2 className="text-center">
+                    <div className="section-title text-center text-md-start">
+                        <h3>
                         Despejamos todas tus <span>dudas</span>
-                    </h2>
-                    <div className="row clearfix p-4 mx-auto">
+                        </h3>
+                    </div>
+                    <div className="row clearfix p-md-4 mx-auto">
                         <div className="content-column col-lg-9 col-md-12 col-sm-12 mx-auto">
                             <Accordion>
                                 {faqs.map((faq: FaqInterface, idx: Key) => {

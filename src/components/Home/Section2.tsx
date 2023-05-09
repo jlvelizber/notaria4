@@ -1,6 +1,7 @@
 import React from 'react'
 import LaAbg from './../../assets/images/home/la-abogada-notaria4.webp'
 import HomeService from './../../assets/images/home/home-section-services.webp'
+import ImgSignature from './../../assets/images/home/signature.png';
 import ImageColumn from '../Common/ImageColumn'
 
 const Section2 = () => {
@@ -11,14 +12,14 @@ const Section2 = () => {
                 <div className="row clearfix">
                     <div className="content-column col-lg-6 col-md-12 col-sm-12">
                         <div className="inner-column">
-                            <div className="section-title">
+                            <div className="section-title text-center text-md-start">
                                 <div className="title">Bienvenidos</div>
                                 <h3>
                                     a la Notaría cuarta de <span>Daule</span>
                                 </h3>
                             </div>
 
-                            <div className="text">
+                            <div className="text text-justify">
                                 <p>
                                     La Notaria 4 de Daule ofrece a la ciudadania
                                     un servicio de alta calidad, con
@@ -30,10 +31,10 @@ const Section2 = () => {
                                 </p>
                                 <p>Atentamente.</p>
                             </div>
-                            <div className="signature">
+                            <div className="signature  text-center text-md-start">
                                 <div className="signature-img">
                                     <img
-                                        src="images/icons/signature.png"
+                                        src={ImgSignature}
                                         alt=""
                                     />
                                 </div>

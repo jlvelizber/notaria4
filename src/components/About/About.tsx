@@ -15,7 +15,7 @@ const About = () => {
                 <div className="row clearfix">
                     <div className="content-column col-lg-6 col-md-12 col-sm-12">
                         <div className="inner-column">
-                            <div className="section-title">
+                            <div className="section-title text-center text-md-start">
                                 <div className="title">
                                     Notaría cuarta de Daule
                                 </div>
@@ -26,7 +26,7 @@ const About = () => {
                                 </h3>
                             </div>
 
-                            <div className="text">
+                            <div className="text text-justify">
                                 <p>
                                     En la Notaría IV de Daule nos complace poder
                                     brindarles nuestros servicios legales en

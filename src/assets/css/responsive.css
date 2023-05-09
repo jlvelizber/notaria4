@@ -685,6 +685,11 @@
     .blog-single .post-share-options .post-tags a {
         margin-right: 0px;
     }
+
+
+    .about-section .image-column .inner-column .image{
+        margin: 0 auto;
+    }
 }
 
 @media only screen and (max-width: 599px) {

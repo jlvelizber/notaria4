@@ -8,7 +8,7 @@ const Section4 = () => {
     return (
         <section className="news-section style-two">
             <div className="container">
-                <div className="section-title">
+                <div className="section-title  text-center text-md-start">
                     <div className="clearfix">
                         <div className="pull-left">
                             <h3>

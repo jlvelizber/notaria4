@@ -104,7 +104,7 @@ function AboutDetails() {
             <section className="counter-section style-two">
                 <div className="container">
                     <div className="title-box">
-                        <div className="section-title">
+                        <div className="section-title ">
                             <div className="row clearfix">
                                 <div className="column col-lg-4 col-md-12 col-sm-12">
                                     <img
@@ -163,7 +163,7 @@ function AboutDetails() {
             </section>
             <section className="feature-section-two">
                 <div className="container">
-                    <div className="section-title">
+                    <div className="section-title text-center text-md-start">
                         <h3>
                             Nuestros <span>valores</span>
                         </h3>

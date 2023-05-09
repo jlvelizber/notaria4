@@ -56,7 +56,7 @@ const Comments = () => {
                 </div>
             </div>
 
-            <div className="image">
+            <div className="image d-none d-lg-block">
                 <img src={ClienteSatisfechoImg} alt="" />
             </div>
         </div>

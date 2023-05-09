@@ -14,8 +14,8 @@ const Section5 = () => {
                     <div className="row clearfix">
                         <div className="title-column col-lg-5 col-md-12 col-sm-12">
                             <div className="inner-column">
-                                <div className="section-title">
-                                    <div className="title">Contacto</div>
+                                <div className="section-title  text-center text-md-start">
+                                    <div className="title ">Contacto</div>
                                     <h3>
                                         Sientete en libertad de escribirnos{' '}
                                         <br />

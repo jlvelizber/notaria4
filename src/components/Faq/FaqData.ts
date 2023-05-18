@@ -40,4 +40,24 @@ export const FAQ_DATA: FaqInterface[] = [
         content:
             'El tiempo de realización de un trámite puede variar dependiendo del tipo de servicio que se requiera. En algunos casos, se puede realizar el mismo día de la solicitud, mientras que en otros puede tomar varios días o semanas. Lo mejor es consultar con la notaría en cuestión para conocer el tiempo aproximado del trámite que deseas realizar.',
     },
+    {
+        title: '¿Qué es una escritura pública?',
+        content:
+            'Una escritura pública es un documento legal que se realiza ante un notario público y tiene valor probatorio. Es utilizado para formalizar y dar fe de actos, contratos o disposiciones legales, como compraventas, hipotecas, testamentos, constitución de empresas, entre otros.',
+    },
+    {
+        title: '¿Cuál es el costo de una escritura pública?',
+        content:
+            'El costo de una escritura pública puede variar dependiendo del país, la complejidad del acto jurídico y los honorarios del notario. Generalmente, se establecen tarifas notariales y aranceles que regulan los costos de este tipo de documentos. Para brindarte los valores y asesoramiento en el trámite que estés realizando, contáctanos en este enlace y nos comunicaremos en seguida.',
+    },
+    {
+        title: '¿Es necesario tener una cuenta bancaria para realizar trámites notariales?',
+        content:
+            'No, no es necesario tener una cuenta bancaria para realizar trámites notariales. Los trámites notariales se refieren a la legalización y autenticación de documentos, contratos, actos jurídicos, entre otros, y no están directamente relacionados con la posesión de una cuenta bancaria',
+    },
+    {
+        title: '¿Cuánto tiempo tarda el proceso de constitución de una compañía?',
+        content:
+            'El tiempo que lleva el proceso de constitución de una compañía puede variar dependiendo del país, las regulaciones legales y el tipo de compañía. En general, el proceso implica el cumplimiento de ciertos requisitos legales, como la redacción de los estatutos, la obtención de permisos y licencias, el registro ante las autoridades correspondientes, entre otros.',
+    },
 ]

@@ -2272,6 +2272,11 @@ img {
     color: #000000;
 }
 
+.values-container{
+    display: flex;
+    justify-content: center;
+}
+
 /*** 
 
 ====================================================================

@@ -169,9 +169,11 @@ function AboutDetails() {
                         </h3>
                     </div>
                     <div className="row clearfix">
-                        {ValoresItems.map((valor: CardInterface, key: Key) => (
-                            <Card  key={key} card={valor} />
-                        ))}
+                        <div className='row values-container'>
+                            {ValoresItems.map((valor: CardInterface, key: Key) => (
+                                <Card  key={key} card={valor} />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>

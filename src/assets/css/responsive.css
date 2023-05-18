@@ -12,7 +12,15 @@
     }
 }
 
-@media only screen and (max-width: 1140px) {
+@media screen and (max-width: 1444px) {
+    .about-section .image-layer {
+        max-width: 686px;
+        height: 638px;
+        background-position: center;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
     .page-wrapper {
         overflow: hidden;
     }
@@ -93,6 +101,13 @@
 
     .banner-section-two .content-column h2 {
         font-size: 44px;
+    }
+    
+
+    .about-section .image-column {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .about-section .image-column .inner-column {

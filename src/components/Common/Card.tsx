@@ -11,11 +11,11 @@ export interface CardInterface {
     overlayTitle?: string
     overlayTitleAction?: string;
     overLayCallAction?: (param?: any) => void;
-    classes?:string |'col-lg-4 col-md-6 col-sm-12';
+    classes?:string ;
 }
 
 const Card: FC<{ card: CardInterface }> = ({ card }) => {
-    const { content, title, icon, overlay, overlayTitle, overLayCallAction, overlayTitleAction, overlayImg, classes } =
+    const { content, title, icon, overlay, overlayTitle, overLayCallAction, overlayTitleAction, overlayImg, classes = "col-12 col-sm-6 col-lg-4" } =
         card
     return (
         <div className={`services-block-two style-two ${classes}`}>

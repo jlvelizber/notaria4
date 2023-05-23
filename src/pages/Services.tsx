@@ -14,6 +14,7 @@ import { useNavigate } from 'react-router'
 import ImgTitle from './../assets/images/services/servicios-title.jpg'
 import { CommonTextInterface } from '../interfaces/Common.interface'
 import { Accordion } from 'react-bootstrap'
+import { InlineServices } from '../components/Common/InlineServices'
 
 const Services = () => {
     const navigate = useNavigate()
@@ -354,9 +355,8 @@ const Services = () => {
                         </h3>
                     </div>
                     <div className="row clearfix">
-                        {services.map((service: CardInterface, key: Key) => (
-                            <Card card={service} key={key} />
-                        ))}
+                        <InlineServices/>
+                        
                     </div>
                 </div>
             </section>
@@ -371,6 +371,9 @@ const Services = () => {
                         </h3>
                     </div>
                     <div className="row clearfix p-md-4 mx-auto">
+                    {services.map((service: CardInterface, key: Key) => (
+                            <Card card={service} key={key} />
+                        ))}
                     <Accordion>
                                 {otherServices.map((faq: CommonTextInterface, idx: Key) => {
                                     return (

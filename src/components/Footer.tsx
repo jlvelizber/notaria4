@@ -50,7 +50,7 @@ const Footer = () => {
                                                     className="icon"
                                                     icon={faEnvelope}
                                                 />
-                                                info@notaria4daule.com
+                                               <Link to={"mailto:info@notaria4daule.com"}> info@notaria4daule.com</Link>
                                             </li>
                                             <li>
                                                 <FontAwesomeIcon

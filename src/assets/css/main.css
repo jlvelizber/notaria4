@@ -89,11 +89,10 @@ a {
 }
 
 a:hover,
-a:focus,
-a:visited {
-    /* text-decoration: underline; */
+a:focus {
+    text-decoration: underline;
     outline: none !important;
-    color: #fff;
+    color: #b22831;
 }
 
 h1,
@@ -2084,7 +2083,7 @@ img {
 
 .about-section {
     position: relative;
-    padding: 110px 0px 80px;
+    padding: 110px 0px 20px;
 }
 
 .about-section .image-layer {

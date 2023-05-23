@@ -28,20 +28,30 @@ const About = () => {
 
                             <div className="text text-justify">
                                 <p>
+                                    Brindamos asesoramiento y atención
+                                    personalizada en la ejecución de sus
+                                    trámites y procesos legales.
+                                </p>
+                                <p>
                                     En la Notaría IV de Daule nos complace poder
                                     brindarles nuestros servicios legales en
-                                    línea, para que puedan realizar sus trámites
-                                    desde la comodidad de su hogar o lugar de
-                                    trabajo. Ofrecemos a nuestros clientes un
-                                    servicio de alta calidad, con
-                                    profesionalismo, ética y transparencia.
+                                    línea, innovando la manera en que sus
+                                    trámites se llevan a cabo.
+                                </p>
+                                <p>
+                                    Ofrecemos a nuestros clientes un servicio de
+                                    alta calidad, con profesionalismo, ética y
+                                    transparencia.
                                 </p>
                                 <p>
                                     Estamos comprometidos en brindarles una
                                     experiencia satisfactoria y confiable en
                                     cada uno de los trámites que realicen con
-                                    nosotros Gracias por visitarnos y confiar en
-                                    nuestros servicios.
+                                    nosotros
+                                </p>
+                                <p>
+                                    Gracias por visitarnos y confiar en nuestros
+                                    servicios.
                                 </p>
 
                                 <h4 className="title">

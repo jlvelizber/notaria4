@@ -8,7 +8,7 @@ const Preloader: FC = () => {
             ref.current?.classList.add('animate__fadeout')
             ref.current?.classList.add('animate__delay-3s')
             ref.current?.classList.remove('preloader')
-        },3000)
+        },2000)
     }, []);
 
     return <div ref={ref} className='preloader' />

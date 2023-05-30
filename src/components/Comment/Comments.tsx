@@ -6,6 +6,9 @@ import ClienteSatisfechoImg from './../../assets/images/home/cliente_satisfecho.
 import TestimonialImg1 from './../../assets/images/home/testimonial1.jpg'
 import TestimonialImg2 from './../../assets/images/home/testimonial2.jpg'
 import TestimonialImg3 from './../../assets/images/home/testimonial3.jpg'
+import TestimonialImg4 from './../../assets/images/home/testimonial4.jpg'
+import TestimonialImg5 from './../../assets/images/home/testimonial5.jpg'
+import TestimonialImg6 from './../../assets/images/home/testimonial6.jpg'
 import 'swiper/css'
 import 'swiper/css/autoplay'
 
@@ -32,6 +35,27 @@ const Comments = () => {
             role: 'Cliente',
             avatar: TestimonialImg3,
         },
+        {
+            content:
+                'Excelente atención en Notaría 4ta Daule . Los trámites salen en el mismo día cuando se trata de diligencia diarias tales como reconocimiento de firma de vehículos. Declaraciones..poderes especiales.u otros tramites. .compraventas en dos días listas para la firma..promesas de compraventas en el mismo día a mucho de un día para otro..',
+            name: 'Julio Huacon',
+            role: 'Cliente',
+            avatar: TestimonialImg4,
+        },
+        {
+            content:
+                'Muy buena atención profesional  y asesoramiento en los trámites , fácil parqueo , definitivamente no hay mejor lugar para hacer trámites y cerrar negocios',
+            name: 'Iván Heredia',
+            role: 'Cliente',
+            avatar: TestimonialImg5,
+        },
+        {
+            content:
+                'Excelente atención, facilidad de parqueo, buena ubicación, asesoramiento profesional para trámites notariales. Recomendable',
+            name: 'Xavier Nuñez',
+            role: 'Cliente',
+            avatar: TestimonialImg6,
+        },
     ]
 
     return (
@@ -42,7 +66,7 @@ const Comments = () => {
                         <Swiper
                             className="owl-theme main-slider-carousel"
                             modules={[Autoplay]}
-                            autoplay={{ delay: 5000, pauseOnMouseEnter: true }}
+                            autoplay={{ delay: 3000, pauseOnMouseEnter: true }}
                         >
                             {comments.map(
                                 (comment: CommentInterface, key: React.Key) => (

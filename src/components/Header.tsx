@@ -20,7 +20,7 @@ const Header: FC = () => {
 
     return (
         <>
-            <Preloader />
+            {/* <Preloader /> */}
             <Menu onOpenSidebar={openSidebar}/>
 
             {/* <!--Form Back Drop--> */}

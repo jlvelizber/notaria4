@@ -419,7 +419,7 @@ img {
     bottom: 0px;
     width: 40px;
     height: 3px;
-    background-color: #B22831;
+    background-color: #b22831;
 }
 
 .section-title .text {
@@ -2100,7 +2100,7 @@ img {
     width: 100%;
     height: 100%;
     display: block;
-    background-color: rgba(48, 51, 53,0.5);
+    background-color: rgba(48, 51, 53, 0.5);
 }
 
 .about-section .content-column {
@@ -2271,7 +2271,7 @@ img {
     color: #000000;
 }
 
-.values-container{
+.values-container {
     display: flex;
     justify-content: center;
 }
@@ -2348,7 +2348,7 @@ img {
 .services-block-two .inner-box h3 {
     position: relative;
     font-size: 20px;
-    color: #B22831;
+    color: #b22831;
     font-weight: 600;
     line-height: 1.4em;
     margin: 20px 0px 15px;
@@ -2357,7 +2357,7 @@ img {
 
 .services-block-two .inner-box h3 a {
     position: relative;
-    color: #B22831;
+    color: #b22831;
     transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
@@ -2366,7 +2366,7 @@ img {
 }
 
 .services-block-two .inner-box h3 a:hover {
-    color: #B22831;
+    color: #b22831;
 }
 
 .services-block-two .inner-box .text {
@@ -2459,7 +2459,7 @@ img {
 .services-block-two .inner-box .overlay-box h4 {
     position: relative;
     font-size: 20px;
-    color: #B22831;
+    color: #b22831;
     font-weight: 600;
     line-height: 1.4em;
     margin: 20px 0px 22px;
@@ -2468,7 +2468,7 @@ img {
 
 .services-block-two .inner-box .overlay-box h4 a {
     position: relative;
-    color: #B22831;
+    color: #b22831;
     transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
@@ -2477,7 +2477,7 @@ img {
 }
 
 .services-block-two .inner-box .overlay-box h4 a:hover {
-    color: #B22831;
+    color: #b22831;
 }
 
 .services-block-two .inner-box .overlay-box .overlay-text {
@@ -2547,7 +2547,7 @@ img {
 .testimonial-block .inner-box .text {
     position: relative;
     /* color: #c6c6c6; */
-    color:#191514;
+    color: #191514;
     font-size: 16px;
     line-height: 1.9em;
     padding-left: 65px;
@@ -2557,7 +2557,7 @@ img {
     position: absolute;
     left: 0px;
     /* top: -38px; */
-    color: #B22831;
+    color: #b22831;
     font-size: 41px;
     line-height: 1em;
 }
@@ -2589,7 +2589,7 @@ img {
     font-size: 17px;
     font-weight: 600;
     /* color: #ffffff; */
-    color:#191514;
+    color: #191514;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -3070,9 +3070,21 @@ img {
         rgba(48, 51, 53, 0),
         rgba(48, 51, 53, 0.8)
     );
-    background: -moz-linear-gradient(top, rgba(48, 51, 53, 0), rgba(48, 51, 53, 0.8));
-    background: -o-linear-gradient(top, rgba(48, 51, 53, 0), rgba(48, 51, 53, 0.8));
-    background: -ms-linear-gradient(top, rgba(48, 51, 53, 0), rgba(48, 51, 53, 0.8));
+    background: -moz-linear-gradient(
+        top,
+        rgba(48, 51, 53, 0),
+        rgba(48, 51, 53, 0.8)
+    );
+    background: -o-linear-gradient(
+        top,
+        rgba(48, 51, 53, 0),
+        rgba(48, 51, 53, 0.8)
+    );
+    background: -ms-linear-gradient(
+        top,
+        rgba(48, 51, 53, 0),
+        rgba(48, 51, 53, 0.8)
+    );
 }
 
 .portfolio-block .inner-box:hover .image .overlay-box .content {
@@ -3264,7 +3276,7 @@ img {
 
 .default-form .form-group textarea::-webkit-input-placeholder,
 .default-form .form-group input::-webkit-input-placeholder {
-    color: #777777
+    color: #777777;
 }
 
 .default-form textarea {
@@ -5820,7 +5832,7 @@ img {
 .contact-form input[type='password']:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
-    border-color: #B22831;
+    border-color: #b22831;
 }
 
 .contact-form .theme-btn {
@@ -7271,4 +7283,41 @@ img {
 }
 .faq-page-section a:hover {
     text-decoration: underline;
+}
+
+/**
+Maintance Page
+
+**/
+
+.maintance-body {
+    background-image: url('./../images/main-slider/notaria-slider.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.maintance-container {
+    background-color: #fff; /* Background color for the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect for the container */
+    padding: 20px;
+    max-width: 750px;
+    margin: 0 auto; /* Centers the container horizontally */
+    margin-top: 50px; /* Adds some top margin for spacing */
+    text-align: center;
+}
+
+.maintance-container h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #b22831;
+}
+
+.maintance-container p {
+    font-size: 24px;
+    margin-bottom: 40px;
 }

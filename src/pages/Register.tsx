@@ -11,7 +11,7 @@ const RegisterFieldsForm: RegisterUserInterface = {
     identification_type: '',
     identification: '',
     name: '',
-    middlename: '',
+    midle_name: '',
     first_last_name: '',
     second_last_name: '',
     email: '',
@@ -155,9 +155,9 @@ const Contact: FC = () => {
                                                     <div className="mb-3 col-12 col-md-6 ">
                                                         <input
                                                             type="text"
-                                                            name="middlename"
+                                                            name="midle_name"
                                                             value={
-                                                                formState?.middlename
+                                                                formState?.midle_name
                                                             }
                                                             placeholder="Segundo Nombre"
                                                             onChange={

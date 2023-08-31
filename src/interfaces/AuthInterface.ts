@@ -2,7 +2,7 @@ export interface RegisterUserInterface {
     identification_type: string
     identification: string
     name: string
-    middlename: string
+    midle_name: string
     first_last_name: string
     second_last_name: string
     email: string

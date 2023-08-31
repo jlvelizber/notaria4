@@ -15,6 +15,11 @@ export interface ErrorMessagesRegisterUserInterface {
     errors: RegisterUserInterface
 }
 
+export interface LoginUserInterface {
+    email: string
+    password: string
+}
+
 export interface AuthTokenDataInterface {
     token: {
         plainTextToken: string

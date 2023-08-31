@@ -8,6 +8,7 @@ import Services from './pages/Services';
 import Testimonials from './pages/Testimonials';
 import Faqs from './pages/Faqs';
 import { Maintance } from './pages/Maintance';
+import Login from './pages/Login';
 
 const App: FC = () => {
     return (
@@ -20,6 +21,7 @@ const App: FC = () => {
             <Route path="preguntas-frecuentes" element={<Faqs />} />
             <Route path="contacto" element={<Contact />} />
             <Route path="registro" element={<Register />} />
+            <Route path="ingreso" element={<Login />} />
         </Routes>
     )
 }

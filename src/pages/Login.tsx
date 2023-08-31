@@ -3,10 +3,10 @@ import Website from '../layouts/Website'
 import PageTitle from '../components/PageTitle/PageTitle'
 import ImgTitle from './../assets/images/contact/title.jpg'
 
-import { RegisterForm } from '../components/RegisterForm'
+import { LoginForm } from '../components/LoginForm'
 import { Link } from 'react-router-dom'
 
-const Contact: FC = () => {
+const Login: FC = () => {
     return (
         <Website>
             <>
@@ -19,7 +19,7 @@ const Contact: FC = () => {
                     <div className="container">
                         <div className="inner-container">
                             <h2 className="text-center">
-                                Crea un usuario para realizar tus trámites en{' '}
+                                Ingresa con tu usuario para realizar tus trámites en{' '}
                                 <span>línea</span>
                             </h2>
                             <div className="row clearfix">
@@ -45,9 +45,9 @@ const Contact: FC = () => {
                                         </div>
 
                                         <div className="contact-form">
-                                            <RegisterForm />
+                                            <LoginForm />
                                         </div>
-                                        <p>Si ya tienes cuenta puedes acceder presionando  <Link to={'/ingreso'}>aquí</Link></p>
+                                        <p>No tienes cuenta? puedes crear una presionando <Link to={'/registro'}>aquí</Link></p>
                                     </div>
                                 </div>
                             </div>
@@ -59,4 +59,4 @@ const Contact: FC = () => {
     )
 }
 
-export default Contact
+export default Login

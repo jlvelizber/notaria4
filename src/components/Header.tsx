@@ -1,5 +1,4 @@
 import React, { FC, useRef } from 'react';
-import Preloader from './Preloader/Preloader';
 import { Menu } from './Menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRemove } from '@fortawesome/free-solid-svg-icons';
@@ -20,7 +19,6 @@ const Header: FC = () => {
 
     return (
         <>
-            {/* <Preloader /> */}
             <Menu onOpenSidebar={openSidebar}/>
 
             {/* <!--Form Back Drop--> */}

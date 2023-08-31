@@ -9,3 +9,9 @@ export interface RegisterUserInterface {
     password: string
     password_confirmation: string
 }
+
+
+export interface AuthTokenInterface {
+    status: "checking" | "authenticated" | "not-authenticated",
+    plainTextToken: string
+}

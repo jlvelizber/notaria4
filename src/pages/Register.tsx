@@ -2,8 +2,10 @@ import React, { FC, SyntheticEvent, useEffect } from 'react'
 import Website from '../layouts/Website'
 import PageTitle from '../components/PageTitle/PageTitle'
 import ImgTitle from './../assets/images/contact/title.jpg'
-import { useForm } from '../hooks'
-import { RegisterUserInterface } from '../interfaces/RegisterUserInterface'
+import { useAuthStore, useForm } from '../hooks'
+import { RegisterUserInterface } from '../interfaces/AuthInterface'
+import { RootState } from '../store'
+import { useSelector } from 'react-redux'
 
 const RegisterFieldsForm: RegisterUserInterface = {
     identification_type: '',
@@ -18,13 +20,17 @@ const RegisterFieldsForm: RegisterUserInterface = {
 }
 
 const Contact: FC = () => {
-    const { formState, onInputChange, errorMessage } =
-        useForm(RegisterFieldsForm)
+    const status = useSelector((state: RootState) => state.auth.status)
+    const { startRegister } = useAuthStore()
+    const { formState, onInputChange } = useForm(RegisterFieldsForm)
 
-    const handleSubmit = (event: SyntheticEvent<HTMLFormElement>) => {
-        event.stopPropagation();
-        event.preventDefault();
+    const handleSubmit = async (event: SyntheticEvent<HTMLFormElement>) => {
+        event.stopPropagation()
+        event.preventDefault()
         console.log(formState)
+        const register = await startRegister(formState)
+
+        console.log(register)
     }
 
     return (
@@ -89,6 +95,10 @@ const Contact: FC = () => {
                                                             onChange={
                                                                 onInputChange
                                                             }
+                                                            disabled={
+                                                                status ===
+                                                                'checking'
+                                                            }
                                                         >
                                                             <option value="">
                                                                 Tipo de
@@ -97,7 +107,7 @@ const Contact: FC = () => {
                                                             <option value="cedula">
                                                                 Cédula
                                                             </option>
-                                                            <option value="cedula">
+                                                            <option value="pasaporte">
                                                                 Pasaporte
                                                             </option>
                                                         </select>
@@ -114,6 +124,10 @@ const Contact: FC = () => {
                                                                 onInputChange
                                                             }
                                                             required
+                                                            disabled={
+                                                                status ===
+                                                                'checking'
+                                                            }
                                                         />
                                                     </div>
                                                 </div>
@@ -131,6 +145,10 @@ const Contact: FC = () => {
                                                             onChange={
                                                                 onInputChange
                                                             }
+                                                            disabled={
+                                                                status ===
+                                                                'checking'
+                                                            }
                                                         />
                                                     </div>
 
@@ -144,6 +162,10 @@ const Contact: FC = () => {
                                                             placeholder="Segundo Nombre"
                                                             onChange={
                                                                 onInputChange
+                                                            }
+                                                            disabled={
+                                                                status ===
+                                                                'checking'
                                                             }
                                                         />
                                                     </div>
@@ -162,6 +184,10 @@ const Contact: FC = () => {
                                                             onChange={
                                                                 onInputChange
                                                             }
+                                                            disabled={
+                                                                status ===
+                                                                'checking'
+                                                            }
                                                         />
                                                     </div>
                                                     <div className="mb-3 col-12 col-md-6 ">
@@ -174,6 +200,10 @@ const Contact: FC = () => {
                                                             placeholder="Segundo Apellido"
                                                             onChange={
                                                                 onInputChange
+                                                            }
+                                                            disabled={
+                                                                status ===
+                                                                'checking'
                                                             }
                                                         />
                                                     </div>
@@ -192,6 +222,10 @@ const Contact: FC = () => {
                                                         placeholder="Correo electrónico"
                                                         required
                                                         onChange={onInputChange}
+                                                        disabled={
+                                                            status ===
+                                                            'checking'
+                                                        }
                                                     />
                                                 </div>
                                                 <div className="mb-3">
@@ -204,6 +238,10 @@ const Contact: FC = () => {
                                                         placeholder="Contraseña"
                                                         required
                                                         onChange={onInputChange}
+                                                        disabled={
+                                                            status ===
+                                                            'checking'
+                                                        }
                                                     />
                                                 </div>
                                                 <div className="mb-3">
@@ -216,6 +254,10 @@ const Contact: FC = () => {
                                                         placeholder="Confirmar contraseña"
                                                         required
                                                         onChange={onInputChange}
+                                                        disabled={
+                                                            status ===
+                                                            'checking'
+                                                        }
                                                     />
                                                 </div>
 

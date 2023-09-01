@@ -1,9 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { AuthTokenInterface } from '../interfaces'
+import { AuthTokenDataInterface } from '../interfaces'
 
-const initialState: AuthTokenInterface = {
+const initialState: AuthTokenDataInterface = {
     status: 'not-authenticated',
-    plainTextToken: '',
+    token: {
+        plainTextToken: '',
+    },
 }
 
 const authSlice = createSlice({
@@ -14,11 +16,11 @@ const authSlice = createSlice({
             state.status = 'checking'
         },
         onLogin(state, { payload }: PayloadAction<string>) {
-            state.plainTextToken = payload
-            state.status = "authenticated"
+            state.token.plainTextToken = payload
+            state.status = 'authenticated'
         },
         onLogout(state) {
-            state.plainTextToken = ''
+            state.token.plainTextToken = ''
             state.status = 'not-authenticated'
         },
     },
@@ -26,4 +28,4 @@ const authSlice = createSlice({
 
 export const { onChecking, onLogin, onLogout } = authSlice.actions
 
-export default authSlice.reducer;
+export default authSlice.reducer

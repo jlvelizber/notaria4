@@ -21,6 +21,7 @@ export interface LoginUserInterface {
 }
 
 export interface AuthTokenDataInterface {
+    status: 'authenticated' | 'not-authenticated' | 'checking'
     token: {
         plainTextToken: string
     }

@@ -28,27 +28,47 @@ export const useAuthStore = () => {
     const [errorMessage, setErrorMessage] =
         useState<ErrorMessagesRegisterUserInterface>(initialState)
 
-
     const { status } = useSelector((state: RootState) => state.auth)
 
     const dispatch = useDispatch()
+
+    const initSanctumCookie = async () => {
+        try {
+            const result = await AuthApi.get('/sanctum/csrf-cookie', {
+                baseURL: 'http://notariaadmin.test/',
+            })
+
+            console.log(result)
+        } catch (error) {
+            if (error instanceof AxiosError) {
+                console.error(error)
+            }
+        }
+    }
 
     const startLogin = async (payload: Partial<RegisterUserInterface>) => {
         dispatch(onChecking())
         try {
             const { data }: AxiosResponse<AuthTokenDataInterface> =
-                await AuthApi.post('/auth', { ...payload })
+                await AuthApi.post('/login', { ...payload })
 
-            // localStorage.setItem('token', data?.plainTextToken as string)
-            // localStorage.setItem(
-            //     'token-init-time',
-            //     new Date().getTime().toString()
-            // )
+            console.log(data)
 
-            // dispatch(onLogin(data.plainTextToken))
+            localStorage.setItem('token', data?.token?.plainTextToken as string)
+            localStorage.setItem(
+                'token-init-time',
+                new Date().getTime().toString()
+            )
+
+            dispatch(onLogin(data?.token?.plainTextToken))
         } catch (error) {
+            if (error instanceof AxiosError) {
+                if (error.response?.status === 422) {
+                    console.log(error.response?.data)
+                    setErrorMessage(error.response?.data)
+                }
+            }
             dispatch(onLogout())
-            console.log(error)
         }
     }
 
@@ -66,8 +86,8 @@ export const useAuthStore = () => {
                 new Date().getTime().toString()
             )
 
-            dispatch(onLogin(''))
-                // resetea los mesajes de eeror 
+            dispatch(onLogin(data?.token?.plainTextToken))
+            // resetea los mesajes de eeror
             setErrorMessage(initialState)
         } catch (error) {
             if (error instanceof AxiosError) {
@@ -84,15 +104,17 @@ export const useAuthStore = () => {
         const token: string | null = localStorage.getItem('token')
         if (!token) return dispatch(onLogout())
 
-        try {
-            const { data } = await AuthApi.post('auth/renew')
-            localStorage.setItem('token', data.token)
-            localStorage.setItem(
-                'token-init-time',
-                new Date().getTime().toString()
-            )
+        dispatch(onChecking())
 
-            // dispatch(onLogin(data));
+        try {
+            // const { data } = await AuthApi.post('auth/renew')
+            // localStorage.setItem('token', data.token)
+            // localStorage.setItem(
+            //     'token-init-time',
+            //     new Date().getTime().toString()
+            // )
+
+            dispatch(onLogin(token));
         } catch (error) {
             localStorage.clear()
             return dispatch(onLogout())
@@ -112,5 +134,6 @@ export const useAuthStore = () => {
         startRegister,
         checkAuthToken,
         startLogout,
+        initSanctumCookie,
     }
 }

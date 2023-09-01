@@ -1,7 +1,8 @@
-import React, { SyntheticEvent } from 'react'
+import React, { SyntheticEvent, useEffect } from 'react'
 import { Alert } from 'react-bootstrap'
 import { useAuthStore, useForm } from '../../hooks'
 import { LoginUserInterface } from '../../interfaces'
+import { useNavigate } from 'react-router'
 
 const LoginFieldsForm: LoginUserInterface = {
     email: '',
@@ -9,15 +10,19 @@ const LoginFieldsForm: LoginUserInterface = {
 }
 
 export const LoginForm = () => {
-    const { startLogin, errorMessage } = useAuthStore()
+    const { startLogin, errorMessage, initSanctumCookie } = useAuthStore()
     const { formState, onInputChange } = useForm(LoginFieldsForm)
-
+   
     const handleSubmit = async (event: SyntheticEvent<HTMLFormElement>) => {
         event.stopPropagation()
         event.preventDefault()
-
         await startLogin(formState)
     }
+
+    useEffect(() => {
+        // Sacntum
+        initSanctumCookie()
+    }, [])
 
     return (
         <>

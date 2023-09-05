@@ -5,6 +5,11 @@ import { faArrowCircleUp } from '@fortawesome/free-solid-svg-icons'
 const ScrollTop = () => {
     const ref = useRef<HTMLDivElement>(null)
 
+    
+    useEffect(() => {
+        window.addEventListener('scroll', handleScrollTop)
+    }, [])
+
     const handleScrollTop = () => {
         const body = document.body //IE 'quirks'
         let bodyIe = document.documentElement //IE with doctype
@@ -17,9 +22,6 @@ const ScrollTop = () => {
         }
     }
 
-    useEffect(() => {
-        window.addEventListener('scroll', handleScrollTop)
-    }, [])
 
     const goTop = () => {
         window.scrollTo(0, 0)

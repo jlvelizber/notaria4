@@ -35,10 +35,7 @@ export const Menu: FC<MenuInterface> = ({ onOpenSidebar }) => {
         onOpenSidebar()
     }
 
-    useEffect(() => {
-        // window.addEventListener('scroll', handleNavigation)
-    }, [])
-
+ 
     const menuItems = [
         {
             name: 'Inicio',

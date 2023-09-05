@@ -12,6 +12,12 @@ const LoginFieldsForm: LoginUserInterface = {
 export const LoginForm = () => {
     const { startLogin, errorMessage, initSanctumCookie } = useAuthStore()
     const { formState, onInputChange } = useForm(LoginFieldsForm)
+
+    useEffect(() => {
+        // Sacntum
+        initSanctumCookie()
+    }, [])
+
    
     const handleSubmit = async (event: SyntheticEvent<HTMLFormElement>) => {
         event.stopPropagation()
@@ -19,11 +25,7 @@ export const LoginForm = () => {
         await startLogin(formState)
     }
 
-    useEffect(() => {
-        // Sacntum
-        initSanctumCookie()
-    }, [])
-
+ 
     return (
         <>
             {errorMessage?.message && (

@@ -14,13 +14,15 @@ import { MyAccount } from './components/MyAccount'
 const App: FC = () => {
     const { status: StatusAuth, checkAuthToken } = useAuthStore()
 
+    useEffect(() => {
+        checkAuthToken()
+    }, [])
+
     if (StatusAuth === 'checking') {
         return <h1>Cargando...</h1>
     }
 
-    useEffect(() => {
-        checkAuthToken()
-    }, [])
+   
 
     const getRoutesAuhtRoutes = () => {
         if (StatusAuth === 'not-authenticated') {

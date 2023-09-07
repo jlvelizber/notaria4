@@ -20,7 +20,7 @@ const RegisterFieldsForm: RegisterUserInterface = {
 export const RegisterForm: FC = () => {
     const status = useSelector((state: RootState) => state.auth.status)
 
-    const { startRegister, errorMessage } = useAuthStore()
+    const { startRegister, errorsMessage : errorMessage } = useAuthStore()
     const { formState, onInputChange } = useForm(RegisterFieldsForm)
 
     const handleSubmit = async (event: SyntheticEvent<HTMLFormElement>) => {
@@ -30,7 +30,7 @@ export const RegisterForm: FC = () => {
         await startRegister(formState)
     }
 
-    console.log(errorMessage)
+    console.log(formState)
 
     return (
         <>

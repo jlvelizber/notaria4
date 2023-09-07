@@ -1,11 +1,24 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { AuthTokenDataInterface } from '../interfaces'
+import { AuthTokenDataInterface, ErrorMessagesRegisterUserInterface } from '../interfaces'
 
 const initialState: AuthTokenDataInterface = {
     status: 'not-authenticated',
     token: {
         plainTextToken: '',
     },
+    errorsMessage: {
+        message: '',
+        errors: {
+            first_last_name: '',
+            identification_num: '',
+            identification_type: '',
+            midle_name: '',
+            name: '',
+            password: '',
+            second_last_name: '',
+            email: '',
+        },
+    }
 }
 
 const authSlice = createSlice({
@@ -23,9 +36,12 @@ const authSlice = createSlice({
             state.token.plainTextToken = ''
             state.status = 'not-authenticated'
         },
+        onSetErrors(state, { payload }: PayloadAction<ErrorMessagesRegisterUserInterface>) {
+            state.errorsMessage = payload
+        }
     },
 })
 
-export const { onChecking, onLogin, onLogout } = authSlice.actions
+export const { onChecking, onLogin, onLogout, onSetErrors } = authSlice.actions
 
 export default authSlice.reducer

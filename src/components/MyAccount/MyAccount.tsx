@@ -7,7 +7,7 @@ import PageTitle from '../PageTitle/PageTitle';
 export const MyAccount = () => {
     return (
         <Website>
-            <PageTitle title="Preguntas Frecuentes" background={""}/>
+            <PageTitle title="Mi Cuenta" background={""}/>
             <div>MyAccount</div>
         </Website>
     )

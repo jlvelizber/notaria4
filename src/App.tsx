@@ -17,6 +17,7 @@ const App: FC = () => {
     useEffect(() => {
         checkAuthToken()
     }, [])
+    
 
     if (StatusAuth === 'checking') {
         return <h1>Cargando...</h1>

@@ -30,6 +30,8 @@ export const RegisterForm: FC = () => {
         await startRegister(formState)
     }
 
+    console.log(errorMessage)
+
     return (
         <>
             {errorMessage?.message && (

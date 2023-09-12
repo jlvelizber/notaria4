@@ -28,8 +28,8 @@ export const useForm = (initialForm: any = {}, formValidations: any = {}) => {
         })
     }
 
-    const onResetForm = () => {
-        setFormState(initialForm)
+    const onResetForm = (formValues: any) => {
+        setFormState(formValues ? formValues : initialForm)
     }
 
     const createValidators = () => {

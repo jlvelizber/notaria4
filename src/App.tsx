@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Home from './pages/Home'
 import Contact from './pages/Contact'
@@ -10,45 +10,21 @@ import Faqs from './pages/Faqs'
 import Login from './pages/Login'
 import { useAuthStore } from './hooks'
 import { MyAccount } from './components/MyAccount'
+import { AuthenticateRoute, GuestRoute } from './components'
 
 const App: FC = () => {
-    const { status: StatusAuth, checkAuthToken } = useAuthStore()
+    const { checkAuthToken, status } = useAuthStore()
 
     useEffect(() => {
         checkAuthToken()
     }, [])
-    
 
-    if (StatusAuth === 'checking') {
+    if (status === 'checking') {
         return <h1>Cargando...</h1>
-    }
-
-   
-
-    const getRoutesAuhtRoutes = () => {
-        if (StatusAuth === 'not-authenticated') {
-            return (
-                <>
-                    <Route path="registro" element={<Register />} />
-                    <Route path="ingreso" element={<Login />} />
-                    <Route path="/*" element={<Navigate to="/" />} />
-                </>
-            )
-        } else if (StatusAuth === 'authenticated') {
-            return (
-                <>
-                    <Route path="mi-cuenta" element={<MyAccount />} />{' '}
-                    <Route path="/*" element={<Navigate to="/" />} />
-                </>
-            )
-        } else {
-            return <Route path="/*" element={<Navigate to="/" />} />
-        }
     }
 
     return (
         <Routes>
-            {/* <Route path="/*" element={<Maintance />} /> */}
             <Route path="/" element={<Home />} />
             <Route path="quines-somos" element={<AboutUs />} />
             <Route path="tramites-en-linea" element={<Services />} />
@@ -56,7 +32,36 @@ const App: FC = () => {
             <Route path="preguntas-frecuentes" element={<Faqs />} />
             <Route path="contacto" element={<Contact />} />
 
-            {getRoutesAuhtRoutes()}
+            <Route
+                path="registro"
+                element={
+                    <GuestRoute authenticated={status === 'not-authenticated'}>
+                        <Register />
+                    </GuestRoute>
+                }
+            />
+
+            <Route
+                path="ingreso"
+                element={
+                    <GuestRoute authenticated={status === 'not-authenticated'}>
+                        <Login />
+                    </GuestRoute>
+                }
+            />
+
+            <Route
+                path="mi-cuenta"
+                element={
+                    <AuthenticateRoute
+                        authenticated={status === 'authenticated'}
+                    >
+                        <MyAccount />
+                    </AuthenticateRoute>
+                }
+            />
+
+            <Route path="/*" element={<Navigate to="/" />} />
         </Routes>
     )
 }

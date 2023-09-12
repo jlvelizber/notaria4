@@ -1,7 +1,6 @@
-import React, { FC, SyntheticEvent } from 'react'
+import React, { FC, SyntheticEvent, useEffect } from 'react'
+import { useNavigate } from 'react-router'
 import { RegisterUserInterface } from '../../interfaces'
-import { RootState } from '../../store'
-import { useSelector } from 'react-redux'
 import { useAuthStore, useForm } from '../../hooks'
 import { Alert } from 'react-bootstrap'
 
@@ -18,25 +17,33 @@ const RegisterFieldsForm: RegisterUserInterface = {
 }
 
 export const RegisterForm: FC = () => {
-    const status = useSelector((state: RootState) => state.auth.status)
+    const navigate = useNavigate()
 
-    const { startRegister, errorsMessage : errorMessage } = useAuthStore()
-    const { formState, onInputChange } = useForm(RegisterFieldsForm)
+    const {
+        startRegister,
+        errors: { message: errorMessage, fieldValues, errors: fieldErrors },
+    } = useAuthStore()
+    const { formState, onInputChange, onResetForm } =
+        useForm(RegisterFieldsForm)
 
     const handleSubmit = async (event: SyntheticEvent<HTMLFormElement>) => {
         event.stopPropagation()
         event.preventDefault()
 
-        await startRegister(formState)
+        const wasSuccess = await startRegister(formState)
+        if (wasSuccess) navigate('/')
     }
 
-    console.log(formState)
+    // Una vez que hay error registramos en el use form los datos
+    useEffect(() => {
+        onResetForm(fieldValues)
+    }, [fieldValues])
 
     return (
         <>
-            {errorMessage?.message && (
+            {errorMessage && (
                 <Alert show={true} variant="danger" dismissible>
-                    {errorMessage.message}
+                    {errorMessage}
                 </Alert>
             )}
 
@@ -56,7 +63,7 @@ export const RegisterForm: FC = () => {
                             onChange={onInputChange}
                             disabled={status === 'checking'}
                             className={
-                                errorMessage?.errors.identification_type &&
+                                fieldErrors?.identification_type &&
                                 'is-invalid error'
                             }
                         >
@@ -66,7 +73,7 @@ export const RegisterForm: FC = () => {
                         </select>
 
                         <div className="invalid-feedback">
-                            {errorMessage?.errors.identification_type}
+                            {fieldErrors?.identification_type}
                         </div>
                     </div>
                     <div className="mb-3 col-12 col-md-6 ">
@@ -78,12 +85,12 @@ export const RegisterForm: FC = () => {
                             onChange={onInputChange}
                             disabled={status === 'checking'}
                             className={
-                                errorMessage?.errors.identification_num &&
+                                fieldErrors?.identification_num &&
                                 'is-invalid error'
                             }
                         />
                         <div className="invalid-feedback">
-                            {errorMessage?.errors.identification_num}
+                            {fieldErrors?.identification_num}
                         </div>
                     </div>
                 </div>
@@ -97,12 +104,10 @@ export const RegisterForm: FC = () => {
                             placeholder="Primer Nombre"
                             onChange={onInputChange}
                             disabled={status === 'checking'}
-                            className={
-                                errorMessage?.errors.name && 'is-invalid error'
-                            }
+                            className={fieldErrors?.name && 'is-invalid error'}
                         />
                         <div className="invalid-feedback">
-                            {errorMessage?.errors.name}
+                            {fieldErrors?.name}
                         </div>
                     </div>
 
@@ -115,12 +120,11 @@ export const RegisterForm: FC = () => {
                             onChange={onInputChange}
                             disabled={status === 'checking'}
                             className={
-                                errorMessage?.errors.midle_name &&
-                                'is-invalid error'
+                                fieldErrors?.midle_name && 'is-invalid error'
                             }
                         />
                         <div className="invalid-feedback">
-                            {errorMessage?.errors.midle_name}
+                            {fieldErrors?.midle_name}
                         </div>
                     </div>
                 </div>
@@ -136,12 +140,12 @@ export const RegisterForm: FC = () => {
                             onChange={onInputChange}
                             disabled={status === 'checking'}
                             className={
-                                errorMessage?.errors.first_last_name &&
+                                fieldErrors?.first_last_name &&
                                 'is-invalid error'
                             }
                         />
                         <div className="invalid-feedback">
-                            {errorMessage?.errors.first_last_name}
+                            {fieldErrors?.first_last_name}
                         </div>
                     </div>
                     <div className="mb-3 col-12 col-md-6 ">
@@ -153,12 +157,12 @@ export const RegisterForm: FC = () => {
                             onChange={onInputChange}
                             disabled={status === 'checking'}
                             className={
-                                errorMessage?.errors.second_last_name &&
+                                fieldErrors?.second_last_name &&
                                 'is-invalid error'
                             }
                         />
                         <div className="invalid-feedback">
-                            {errorMessage?.errors.second_last_name}
+                            {fieldErrors?.second_last_name}
                         </div>
                     </div>
                 </div>
@@ -174,13 +178,9 @@ export const RegisterForm: FC = () => {
                         placeholder="Correo electrónico"
                         onChange={onInputChange}
                         disabled={status === 'checking'}
-                        className={
-                            errorMessage?.errors.email && 'is-invalid error'
-                        }
+                        className={fieldErrors?.email && 'is-invalid error'}
                     />
-                    <div className="invalid-feedback">
-                        {errorMessage?.errors.email}
-                    </div>
+                    <div className="invalid-feedback">{fieldErrors?.email}</div>
                 </div>
                 <div className="mb-3">
                     <input
@@ -190,12 +190,10 @@ export const RegisterForm: FC = () => {
                         placeholder="Contraseña"
                         onChange={onInputChange}
                         disabled={status === 'checking'}
-                        className={
-                            errorMessage?.errors.password && 'is-invalid error'
-                        }
+                        className={fieldErrors?.password && 'is-invalid error'}
                     />
                     <div className="invalid-feedback">
-                        {errorMessage?.errors.password}
+                        {fieldErrors?.password}
                     </div>
                 </div>
                 <div className="mb-3">
@@ -207,12 +205,12 @@ export const RegisterForm: FC = () => {
                         onChange={onInputChange}
                         disabled={status === 'checking'}
                         className={
-                            errorMessage?.errors.password_confirmation &&
+                            fieldErrors?.password_confirmation &&
                             'is-invalid error'
                         }
                     />
                     <div className="invalid-feedback">
-                        {errorMessage?.errors.password_confirmation}
+                        {fieldErrors?.password_confirmation}
                     </div>
                 </div>
 

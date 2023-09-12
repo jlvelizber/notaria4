@@ -1,7 +1,8 @@
-import React, { SyntheticEvent } from 'react'
+import React, { SyntheticEvent, useEffect } from 'react'
 import { Alert } from 'react-bootstrap'
 import { useAuthStore, useForm } from '../../hooks'
 import { LoginUserInterface } from '../../interfaces'
+import { useNavigate } from 'react-router'
 
 const LoginFieldsForm: LoginUserInterface = {
     email: '',
@@ -9,20 +10,31 @@ const LoginFieldsForm: LoginUserInterface = {
 }
 
 export const LoginForm = () => {
-    const { startLogin, errorsMessage: errorMessage } = useAuthStore()
-    const { formState, onInputChange } = useForm(LoginFieldsForm)
+    const navigate = useNavigate()
+
+    const {
+        startLogin,
+        errors: { message: errorMessage, fieldValues, errors: fieldErrors },
+    } = useAuthStore()
+    const { formState, onInputChange, onResetForm } = useForm(LoginFieldsForm)
 
     const handleSubmit = async (event: SyntheticEvent<HTMLFormElement>) => {
         event.stopPropagation()
         event.preventDefault()
-        await startLogin(formState)
+        const wasSuccess = await startLogin(formState)
+        if (wasSuccess) navigate('/mi-cuenta')
     }
+
+    // Una vez que hay error registramos en el use form los datos
+    useEffect(() => {
+        onResetForm(fieldValues)
+    }, [fieldValues])
 
     return (
         <>
-            {errorMessage?.message && (
+            {errorMessage && (
                 <Alert show={true} variant="danger" dismissible>
-                    {errorMessage.message}
+                    {errorMessage}
                 </Alert>
             )}
 
@@ -39,13 +51,9 @@ export const LoginForm = () => {
                         placeholder="Correo electrónico"
                         onChange={onInputChange}
                         disabled={status === 'checking'}
-                        className={
-                            errorMessage?.errors.email && 'is-invalid error'
-                        }
+                        className={fieldErrors.email && 'is-invalid error'}
                     />
-                    <div className="invalid-feedback">
-                        {errorMessage?.errors.email}
-                    </div>
+                    <div className="invalid-feedback">{fieldErrors.email}</div>
                 </div>
                 <div className="mb-3">
                     <input
@@ -55,12 +63,10 @@ export const LoginForm = () => {
                         placeholder="Contraseña"
                         onChange={onInputChange}
                         disabled={status === 'checking'}
-                        className={
-                            errorMessage?.errors.password && 'is-invalid error'
-                        }
+                        className={fieldErrors.password && 'is-invalid error'}
                     />
                     <div className="invalid-feedback">
-                        {errorMessage?.errors.password}
+                        {fieldErrors.password}
                     </div>
                 </div>
                 <div className="mb-3">

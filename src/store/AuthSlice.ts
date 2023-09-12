@@ -1,12 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { AuthTokenDataInterface, ErrorMessagesRegisterUserInterface } from '../interfaces'
+import {
+    AuthTokenDataInterface,
+    ErrorMessagesRegisterUserInterface,
+    RegisterUserInterface,
+} from '../interfaces'
 
 const initialState: AuthTokenDataInterface = {
-    status: 'not-authenticated',
+    status: 'checking',
     token: {
         plainTextToken: '',
     },
-    errorsMessage: {
+    errors: {
         message: '',
         errors: {
             first_last_name: '',
@@ -18,7 +22,18 @@ const initialState: AuthTokenDataInterface = {
             second_last_name: '',
             email: '',
         },
-    }
+        fieldValues: {
+            first_last_name: '',
+            identification_num: '',
+            identification_type: '',
+            midle_name: '',
+            name: '',
+            second_last_name: '',
+            email: '',
+            password: '',
+            password_confirmation: '',
+        },
+    },
 }
 
 const authSlice = createSlice({
@@ -31,17 +46,56 @@ const authSlice = createSlice({
         onLogin(state, { payload }: PayloadAction<string>) {
             state.token.plainTextToken = payload
             state.status = 'authenticated'
+            state.errors = {
+                message: '',
+                errors: {
+                    first_last_name: '',
+                    identification_num: '',
+                    identification_type: '',
+                    midle_name: '',
+                    name: '',
+                    password: '',
+                    second_last_name: '',
+                    email: '',
+                },
+                fieldValues: {
+                    first_last_name: '',
+                    identification_num: '',
+                    identification_type: '',
+                    midle_name: '',
+                    name: '',
+                    second_last_name: '',
+                    email: '',
+                    password: '',
+                    password_confirmation: '',
+                },
+            }
         },
         onLogout(state) {
             state.token.plainTextToken = ''
             state.status = 'not-authenticated'
         },
-        onSetErrors(state, { payload }: PayloadAction<ErrorMessagesRegisterUserInterface>) {
-            state.errorsMessage = payload
-        }
+        onSetErrors(
+            state,
+            { payload }: PayloadAction<ErrorMessagesRegisterUserInterface>
+        ) {
+            state.errors = payload
+        },
+        onSetFieldsFormValues(
+            state,
+            { payload }: PayloadAction<RegisterUserInterface> 
+        ) {
+            state.errors.fieldValues = payload
+        },
     },
 })
 
-export const { onChecking, onLogin, onLogout, onSetErrors } = authSlice.actions
+export const {
+    onChecking,
+    onLogin,
+    onLogout,
+    onSetErrors,
+    onSetFieldsFormValues,
+} = authSlice.actions
 
 export default authSlice.reducer

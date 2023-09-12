@@ -12,8 +12,8 @@ import { Preloader } from './components/Preloader'
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
         <Provider store={store}>
+            <Preloader />
             <BrowserRouter>
-                <Preloader />
                 <App />
             </BrowserRouter>
         </Provider>

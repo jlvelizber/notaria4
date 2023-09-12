@@ -11,7 +11,7 @@ const Login: FC = () => {
         <Website>
             <>
                 {/* <!--Page Title--> */}
-                <PageTitle title="Registro" background={ImgTitle} />
+                <PageTitle title="Ingreso" background={ImgTitle} />
 
                 {/* <!--End Page Title--> */}
                 {/* <!-- Contact Page Section --> */}

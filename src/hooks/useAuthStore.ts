@@ -1,21 +1,23 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { RootState, onChecking, onLogin, onLogout, onSetErrors } from '../store'
+import {
+    RootState,
+    onChecking,
+    onLogin,
+    onLogout,
+    onSetErrors,
+    onSetFieldsFormValues,
+} from '../store'
 
 import { AxiosError, AxiosResponse } from 'axios'
 import { AuthApi } from '../api'
-import {
-    AuthTokenDataInterface,
-    RegisterUserInterface,
-} from '../interfaces'
-
+import { AuthTokenDataInterface, RegisterUserInterface } from '../interfaces'
 
 export const useAuthStore = () => {
-
-    const { status, errorsMessage } = useSelector((state: RootState) => state.auth)
+    const { status, errors } = useSelector((state: RootState) => state.auth)
 
     const dispatch = useDispatch()
 
-    const startLogin = async (payload: Partial<RegisterUserInterface>) => {
+    const startLogin = async (payload: RegisterUserInterface) => {
         dispatch(onChecking())
         try {
             const { data }: AxiosResponse<AuthTokenDataInterface> =
@@ -28,17 +30,26 @@ export const useAuthStore = () => {
             )
 
             dispatch(onLogin(data?.token?.plainTextToken))
+            return true
         } catch (error) {
             if (error instanceof AxiosError) {
                 if (error.response?.status === 422) {
                     dispatch(onSetErrors(error.response?.data))
                 }
             }
+            // se setea los valores ingresados
+
+            const payloadCopy = {
+                ...payload,
+                password: '',
+            }
+            dispatch(onSetFieldsFormValues(payloadCopy)) // Solo si regresa se le envia los valores ingresados
             dispatch(onLogout())
+            return false
         }
     }
 
-    const startRegister = async (payload: Partial<RegisterUserInterface>) => {
+    const startRegister = async (payload: RegisterUserInterface) => {
         dispatch(onChecking())
         try {
             const { data }: AxiosResponse<AuthTokenDataInterface> =
@@ -53,19 +64,26 @@ export const useAuthStore = () => {
             )
 
             dispatch(onLogin(data?.token?.plainTextToken))
-            // resetea los mesajes de eeror
-            // setErrorMessage(initialState)
+            return true
         } catch (error) {
             if (error instanceof AxiosError) {
                 if (error.response?.status === 422) {
                     dispatch(onSetErrors(error.response?.data))
                 }
             }
+            // se setea los valores ingresados
+            const payloadCopy = {
+                ...payload,
+                password: '',
+                password_confirmation: '',
+            }
+            dispatch(onSetFieldsFormValues(payloadCopy)) // Solo si regresa se le envia los valores ingresados
             dispatch(onLogout())
+            return false
         }
     }
 
-    const checkAuthToken = async () => {
+    const checkAuthToken =  () => {
         const token: string | null = localStorage.getItem('token')
         if (!token) return dispatch(onLogout())
 
@@ -93,7 +111,7 @@ export const useAuthStore = () => {
 
     return {
         status,
-        errorsMessage,
+        errors,
         // user,
         startLogin,
         startRegister,

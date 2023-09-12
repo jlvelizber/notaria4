@@ -7327,6 +7327,6 @@ Maintance Page
 Auth Menu
 **/
 
-.auth-menu li a {
+.auth-menu li a a {
     color: #191514 !important;
 }

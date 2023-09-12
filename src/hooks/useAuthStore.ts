@@ -64,7 +64,7 @@ export const useAuthStore = () => {
                 'token-init-time',
                 new Date().getTime().toString()
             )
-
+            await getUserData()
             dispatch(onLogin(data?.token?.plainTextToken))
             return true
         } catch (error) {

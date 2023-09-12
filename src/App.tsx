@@ -10,7 +10,7 @@ import Faqs from './pages/Faqs'
 import Login from './pages/Login'
 import { useAuthStore } from './hooks'
 import { MyAccount } from './components/MyAccount'
-import { AuthenticateRoute, GuestRoute } from './components'
+import { AuthenticateRoute, GuestRoute, MyRequests } from './components'
 
 const App: FC = () => {
     const { checkAuthToken, status } = useAuthStore()
@@ -19,6 +19,7 @@ const App: FC = () => {
         checkAuthToken()
     }, [])
 
+  
     if (status === 'checking') {
         return <h1>Cargando...</h1>
     }
@@ -57,6 +58,17 @@ const App: FC = () => {
                         authenticated={status === 'authenticated'}
                     >
                         <MyAccount />
+                    </AuthenticateRoute>
+                }
+            />
+
+            <Route
+                path="mis-solicitudes"
+                element={
+                    <AuthenticateRoute
+                        authenticated={status === 'authenticated'}
+                    >
+                        <MyRequests />
                     </AuthenticateRoute>
                 }
             />

@@ -10,3 +10,11 @@ export const AuthApi = axios.create({
 
 
 
+AuthApi.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+    config.headers["Authorization"] = `Bearer ${localStorage.getItem("token")}`
+    return config;
+  });
+  
+  
+  export default AuthApi;
+  

@@ -6,15 +6,17 @@ import {
     onLogout,
     onSetErrors,
     onSetFieldsFormValues,
+    onSetUserData,
 } from '../store'
 
 import { AxiosError, AxiosResponse } from 'axios'
 import { AuthApi } from '../api'
 import { AuthTokenDataInterface, RegisterUserInterface } from '../interfaces'
 
+
 export const useAuthStore = () => {
     const { status, errors } = useSelector((state: RootState) => state.auth)
-
+    
     const dispatch = useDispatch()
 
     const startLogin = async (payload: RegisterUserInterface) => {
@@ -28,7 +30,7 @@ export const useAuthStore = () => {
                 'token-init-time',
                 new Date().getTime().toString()
             )
-
+            await getUserData()
             dispatch(onLogin(data?.token?.plainTextToken))
             return true
         } catch (error) {
@@ -83,20 +85,14 @@ export const useAuthStore = () => {
         }
     }
 
-    const checkAuthToken =  () => {
+    const checkAuthToken = async () => {
         const token: string | null = localStorage.getItem('token')
         if (!token) return dispatch(onLogout())
 
         dispatch(onChecking())
 
         try {
-            // const { data } = await AuthApi.post('auth/renew')
-            // localStorage.setItem('token', data.token)
-            // localStorage.setItem(
-            //     'token-init-time',
-            //     new Date().getTime().toString()
-            // )
-
+            await getUserData()
             dispatch(onLogin(token))
         } catch (error) {
             localStorage.clear()
@@ -109,10 +105,17 @@ export const useAuthStore = () => {
         dispatch(onLogout())
     }
 
+    const getUserData = async () => {
+        // if (status !== 'authenticated') return
+        const { data }: AxiosResponse<RegisterUserInterface> =
+            await AuthApi.get('user')
+
+        dispatch(onSetUserData(data))
+    }
+
     return {
         status,
         errors,
-        // user,
         startLogin,
         startRegister,
         checkAuthToken,

@@ -7321,3 +7321,12 @@ Maintance Page
     font-size: 24px;
     margin-bottom: 40px;
 }
+
+
+/**
+Auth Menu
+**/
+
+.auth-menu li a {
+    color: #191514 !important;
+}

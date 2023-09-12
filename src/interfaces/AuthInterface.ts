@@ -26,6 +26,7 @@ export interface AuthTokenDataInterface {
     token: {
         plainTextToken: string
     },
+    user: RegisterUserInterface,
     errors: ErrorMessagesRegisterUserInterface
    
 }

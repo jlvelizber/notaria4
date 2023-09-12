@@ -1,16 +1,19 @@
 import React, { FC, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 import logo from './../../assets/images/logo-notaria4-daule.png'
 import logoSmall from './../../assets/images/logo-small.png'
+import { useAuthStore } from '../../hooks'
+import { GuestMenu } from '../GuestMenu'
+import { AuthenticatedMenu } from '../AuthenticatedMenu'
 
 interface MenuInterface {
     onOpenSidebar: () => void
 }
 
 export const Menu: FC<MenuInterface> = ({ onOpenSidebar }) => {
+    const { status: authStatus } = useAuthStore()
+
     const ref = useRef<HTMLDivElement>(null)
 
     const navigation = useLocation()
@@ -35,7 +38,6 @@ export const Menu: FC<MenuInterface> = ({ onOpenSidebar }) => {
         onOpenSidebar()
     }
 
- 
     const menuItems = [
         {
             name: 'Inicio',
@@ -62,13 +64,13 @@ export const Menu: FC<MenuInterface> = ({ onOpenSidebar }) => {
     return (
         <header className="main-header" ref={ref}>
             <div className="sticky-header">
-                <Container className="clearfix">
+                <Container className="clearfix px-5" fluid>
                     <div className="float-start  logo-box">
                         <Link to="/" className="img-responsive">
                             <img src={logoSmall} alt="" title="" />
                         </Link>
                     </div>
-                    <div className="right-col float-end">
+                    <div className="me-auto" style={{ margin: '0 auto' }}>
                         <Navbar
                             className="main-menu  py-0"
                             expand="md"
@@ -87,7 +89,7 @@ export const Menu: FC<MenuInterface> = ({ onOpenSidebar }) => {
                             >
                                 <Nav
                                     as={'ul'}
-                                    className="navigation clearfix"
+                                    className="m-auto navigation clearfix"
                                     navbar={false}
                                 >
                                     {menuItems.map((item, idx) => {
@@ -108,13 +110,18 @@ export const Menu: FC<MenuInterface> = ({ onOpenSidebar }) => {
                                         )
                                     })}
                                 </Nav>
+
+                                {authStatus === 'not-authenticated' ? (
+                                    <GuestMenu />
+                                ) : (
+                                    <AuthenticatedMenu />
+                                )}
                             </Navbar.Collapse>
                         </Navbar>
                     </div>
+                    <div className="right-col float-end"></div>
                 </Container>
             </div>
-
-            
         </header>
     )
 }

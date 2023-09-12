@@ -10,6 +10,16 @@ const initialState: AuthTokenDataInterface = {
     token: {
         plainTextToken: '',
     },
+    user: {
+        first_last_name: '',
+        identification_num: '',
+        identification_type: '',
+        midle_name: '',
+        name: '',
+        password: '',
+        second_last_name: '',
+        email: '',
+    },
     errors: {
         message: '',
         errors: {
@@ -74,6 +84,7 @@ const authSlice = createSlice({
         onLogout(state) {
             state.token.plainTextToken = ''
             state.status = 'not-authenticated'
+            localStorage.clear()
         },
         onSetErrors(
             state,
@@ -83,9 +94,15 @@ const authSlice = createSlice({
         },
         onSetFieldsFormValues(
             state,
-            { payload }: PayloadAction<RegisterUserInterface> 
+            { payload }: PayloadAction<RegisterUserInterface>
         ) {
             state.errors.fieldValues = payload
+        },
+        onSetUserData(
+            state,
+            { payload }: PayloadAction<RegisterUserInterface>
+        ) {
+            state.user = payload
         },
     },
 })
@@ -96,6 +113,7 @@ export const {
     onLogout,
     onSetErrors,
     onSetFieldsFormValues,
+    onSetUserData,
 } = authSlice.actions
 
 export default authSlice.reducer

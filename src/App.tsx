@@ -9,8 +9,9 @@ import Testimonials from './pages/Testimonials'
 import Faqs from './pages/Faqs'
 import Login from './pages/Login'
 import { useAuthStore } from './hooks'
-import { MyAccount } from './components/MyAccount'
-import { AuthenticateRoute, GuestRoute, MyRequests } from './components'
+import { AuthenticateRoute, GuestRoute } from './components'
+import { MyAccount } from './pages/MyAccount'
+import { MyRequests } from './pages/MyRequests'
 
 const App: FC = () => {
     const { checkAuthToken, status } = useAuthStore()

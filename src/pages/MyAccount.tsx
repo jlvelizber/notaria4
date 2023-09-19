@@ -1,7 +1,7 @@
 import React from 'react'
-import Website from '../../layouts/Website'
+import Website from '../layouts/Website'
 
-import PageTitle from '../PageTitle/PageTitle'
+import PageTitle from '../components/PageTitle/PageTitle'
 
 export const MyAccount = () => {
     return (

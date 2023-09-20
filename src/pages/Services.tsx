@@ -19,7 +19,7 @@ import { InlineServices } from '../components/Common/InlineServices'
 const Services = () => {
     const navigate = useNavigate()
 
-    const classesCard: string = 'col-lg-4 col-md-6 col-sm-12'
+    const classesCard= 'col-lg-4 col-md-6 col-sm-12'
 
     const goToContact = () => {
         return navigate('/contacto')

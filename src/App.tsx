@@ -29,10 +29,18 @@ const App: FC = () => {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="quines-somos" element={<AboutUs />} />
-            <Route path="tramites-en-linea" element={<Services />} />
+            
+            <Route path="tramites-en-linea">
+                <Route path='' element={<Services />}/>
+                <Route path='permiso-salida' element={<Services />}/>
+            </Route>
+
+
+
             <Route path="testimonios" element={<Testimonials />} />
             <Route path="preguntas-frecuentes" element={<Faqs />} />
             <Route path="contacto" element={<Contact />} />
+            
 
             <Route
                 path="registro"

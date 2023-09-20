@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router'
 export const InlineServices = () => {
     const navigate = useNavigate()
 
-    const classesCard: string = 'col-lg-6 col-md-6 col-sm-12'
+    const classesCard = 'col-lg-6 col-md-6 col-sm-12'
 
     const goToContact = () => {
         return navigate('/contacto')
@@ -22,7 +22,7 @@ export const InlineServices = () => {
             overLayCallAction: () => goToContact(),
             overlay: true,
             overlayTitle: 'Permisos de Salida',
-            overlayTitleAction: 'Contactar',
+            overlayTitleAction: 'Solicitar',
             icon: faPlane,
             content: (
                 <p className="text-justify">

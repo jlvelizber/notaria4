@@ -12,14 +12,14 @@ export const InlineServices = () => {
 
     const classesCard = 'col-lg-6 col-md-6 col-sm-12'
 
-    const goToContact = () => {
-        return navigate('/contacto')
+    const goPage = (pageUrl?: string) => {
+        return navigate(!pageUrl ? '/contacto' : `${pageUrl}`)
     }
 
     const servicesOnHome: CardInterface[] = [
         {
             title: 'Permisos de Salida',
-            overLayCallAction: () => goToContact(),
+            overLayCallAction: () => goPage('/tramites-en-linea/permiso-salida'),
             overlay: true,
             overlayTitle: 'Permisos de Salida',
             overlayTitleAction: 'Solicitar',
@@ -36,7 +36,7 @@ export const InlineServices = () => {
         },
         {
             title: 'Declaración Juramentada',
-            overLayCallAction: () => goToContact(),
+            overLayCallAction: () => goPage(),
             overlay: true,
             overlayTitle: 'Declaración Juramentada',
             overlayTitleAction: 'Contactar',
@@ -53,7 +53,7 @@ export const InlineServices = () => {
         },
         {
             title: 'Copia Certificada',
-            overLayCallAction: () => goToContact(),
+            overLayCallAction: () => goPage(),
             overlay: true,
             overlayTitle: 'Copia Certificada',
             overlayTitleAction: 'Contactar',
@@ -70,7 +70,7 @@ export const InlineServices = () => {
         },
         {
             title: 'Poderes Generales',
-            overLayCallAction: () => goToContact(),
+            overLayCallAction: () => goPage(),
             overlay: true,
             overlayTitle: 'Poderes Generales',
             overlayTitleAction: 'Contactar',

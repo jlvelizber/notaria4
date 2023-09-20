@@ -12,6 +12,7 @@ import { useAuthStore } from './hooks'
 import { AuthenticateRoute, GuestRoute } from './components'
 import { MyAccount } from './pages/MyAccount'
 import { MyRequests } from './pages/MyRequests'
+import PermisoSalidaPage from './pages/PermisoSalidaPage'
 
 const App: FC = () => {
     const { checkAuthToken, status } = useAuthStore()
@@ -20,7 +21,6 @@ const App: FC = () => {
         checkAuthToken()
     }, [])
 
-  
     if (status === 'checking') {
         return <h1>Cargando...</h1>
     }
@@ -29,18 +29,21 @@ const App: FC = () => {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="quines-somos" element={<AboutUs />} />
-            
+
             <Route path="tramites-en-linea">
-                <Route path='' element={<Services />}/>
-                <Route path='permiso-salida' element={<Services />}/>
+                <Route path="" element={<Services />} />
+
+                <Route path="permiso-salida">
+                    <Route path="" element={<PermisoSalidaPage />} />
+                    <Route path="autoriza-padre-madre" element={<PermisoSalidaPage />} />
+                    <Route path="menor-edad-viaja-solo" element={<PermisoSalidaPage />} />
+                    <Route path="poder-especial" element={<PermisoSalidaPage />} />
+                </Route>
             </Route>
-
-
 
             <Route path="testimonios" element={<Testimonials />} />
             <Route path="preguntas-frecuentes" element={<Faqs />} />
             <Route path="contacto" element={<Contact />} />
-            
 
             <Route
                 path="registro"

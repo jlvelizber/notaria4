@@ -19,10 +19,10 @@ import { InlineServices } from '../components/Common/InlineServices'
 const Services = () => {
     const navigate = useNavigate()
 
-    const classesCard= 'col-lg-4 col-md-6 col-sm-12'
+    const classesCard = 'col-lg-4 col-md-6 col-sm-12'
 
-    const goToContact = () => {
-        return navigate('/contacto')
+    const goPage = (pageUrl?: string) => {
+        return navigate(!pageUrl ? '/contacto' : `${pageUrl}`)
     }
 
     const services: CardInterface[] = [
@@ -90,7 +90,7 @@ const Services = () => {
             overlay: true,
             overlayTitle: 'Escrituras públicas',
             overlayTitleAction: 'Contáctanos',
-            overLayCallAction: () => goToContact(),
+            overLayCallAction: () => goPage(),
             classes: classesCard,
         },
         {
@@ -139,7 +139,7 @@ const Services = () => {
             overlay: true,
             overlayTitle: 'Constitución de compañías',
             overlayTitleAction: 'Contáctanos',
-            overLayCallAction: () => goToContact(),
+            overLayCallAction: () => goPage(),
             classes: classesCard,
         },
         {
@@ -182,7 +182,7 @@ const Services = () => {
             overlay: true,
             overlayTitle: 'Poderes',
             overlayTitleAction: 'Contáctanos',
-            overLayCallAction: () => goToContact(),
+            overLayCallAction: () => goPage(),
             classes: classesCard,
         },
         {
@@ -213,7 +213,7 @@ const Services = () => {
             overlay: true,
             overlayTitle: 'Testamentos',
             overlayTitleAction: 'Contáctanos',
-            overLayCallAction: () => goToContact(),
+            overLayCallAction: () => goPage(),
             classes: classesCard,
         },
         {
@@ -250,7 +250,7 @@ const Services = () => {
             overlay: true,
             overlayTitle: 'Trámites ante el Registro de la Propiedad',
             overlayTitleAction: 'Contáctanos',
-            overLayCallAction: () => goToContact(),
+            overLayCallAction: () => goPage(),
             classes: classesCard,
         },
     ]
@@ -355,8 +355,7 @@ const Services = () => {
                         </h3>
                     </div>
                     <div className="row clearfix">
-                        <InlineServices/>
-                        
+                        <InlineServices />
                     </div>
                 </div>
             </section>
@@ -371,11 +370,12 @@ const Services = () => {
                         </h3>
                     </div>
                     <div className="row clearfix p-md-4 mx-auto">
-                    {services.map((service: CardInterface, key: Key) => (
+                        {services.map((service: CardInterface, key: Key) => (
                             <Card card={service} key={key} />
                         ))}
-                    <Accordion>
-                                {otherServices.map((faq: CommonTextInterface, idx: Key) => {
+                        <Accordion>
+                            {otherServices.map(
+                                (faq: CommonTextInterface, idx: Key) => {
                                     return (
                                         <Accordion.Item
                                             eventKey={`${idx}`}
@@ -384,19 +384,19 @@ const Services = () => {
                                             <Accordion.Button className="py-3">
                                                 {faq.title}
                                             </Accordion.Button>
-                                            {
-                                                faq.content && (
-                                                    <Accordion.Body>
-                                                        <strong>Requisitos:</strong> <br/>
-                                                        {faq.content}
-                                                    </Accordion.Body>
-                                                )
-                                            }
+                                            {faq.content && (
+                                                <Accordion.Body>
+                                                    <strong>Requisitos:</strong>{' '}
+                                                    <br />
+                                                    {faq.content}
+                                                </Accordion.Body>
+                                            )}
                                         </Accordion.Item>
                                     )
-                                })}
-                            </Accordion>
-                        </div>
+                                }
+                            )}
+                        </Accordion>
+                    </div>
                 </div>
             </section>
         </Website>

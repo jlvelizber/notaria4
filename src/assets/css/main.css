@@ -7330,3 +7330,27 @@ Auth Menu
 .auth-menu li a a {
     color: #191514 !important;
 }
+
+/**
+ FIN AUTH
+**/
+.requirements-list > li {
+    margin: 10px 0px;
+    list-style: decimal;
+}
+
+.requirements-list > li ul li {
+    list-style: circle;
+    margin-left: 10px;
+}
+
+
+.button-go-to-form {
+    margin: 15px 0px;
+    background-color: #b22831;
+    text-decoration: none;
+}
+
+.button-go-to-form a {
+    color: #ffffff;
+}

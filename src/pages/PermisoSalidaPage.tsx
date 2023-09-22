@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { Key, useEffect } from 'react'
 import Website from '../layouts/Website'
 import PageTitle from '../components/PageTitle/PageTitle'
 
 import ImgTitle from './../assets/images/services/servicios-title.jpg'
 import { ButtonGoForm } from '../components'
+import { useDocFormStore } from '../hooks'
+import { useSelector } from 'react-redux'
+import { RootState } from '../store'
+import { FormDocInterface } from '../interfaces'
 
 const PermisoSalidaPage = () => {
+    const { getListDocs } = useDocFormStore()
+    const docForms = useSelector((state: RootState) => state.docs.docForms)
+
+    useEffect(() => {
+        getListDocs('permiso_salida')
+    }, [])
+
     return (
         <Website>
             <PageTitle title="Trámites en línea" background={ImgTitle} />
@@ -82,18 +93,15 @@ const PermisoSalidaPage = () => {
 
                         <div className="image-column col-lg-6 col-md-8 col-sm-12">
                             <h3>Permisos de salida disponibles</h3>
-                            <ButtonGoForm
-                                label="Padre o Madre autorizando a contraparte (Padre o Madre)"
-                                actionRoute="autoriza-padre-madre"
-                            />
-                            <ButtonGoForm
-                                label="Menor de edad viaja solo"
-                                actionRoute="menor-edad-viaja-solo"
-                            />
-                            <ButtonGoForm
-                                label="Representante con poder especial"
-                                actionRoute="poder-especial"
-                            />
+                            {docForms.map(
+                                (docForm: FormDocInterface, key: Key) => (
+                                    <ButtonGoForm
+                                        key={key}
+                                        label={docForm.name}
+                                        actionRoute={`${docForm.code_name}`}
+                                    />
+                                )
+                            )}
                         </div>
                     </div>
                 </div>

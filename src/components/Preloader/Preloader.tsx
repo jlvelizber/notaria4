@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../store'
 export const Preloader: FC = () => {
     const ref = useRef<HTMLDivElement>(null)
-    const { status } = useSelector((state: RootState) => state.auth)
-
+    const { isLoading } = useSelector((state: RootState) => state.app)
+    console.log(isLoading)
     useEffect(() => {
         // setTimeout(() => {
         ref.current?.classList.add('animate__animated')
@@ -12,9 +12,9 @@ export const Preloader: FC = () => {
         ref.current?.classList.add('animate__delay-3s')
         // ref.current?.classList.remove('preloader')
         // },3000)
-    }, [status])
+    }, [isLoading])
 
-    return status === 'checking' ? (
+    return isLoading  ? (
         <div ref={ref} className="preloader" />
     ) : null
 }

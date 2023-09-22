@@ -7,9 +7,12 @@ export const ButtonGoForm: FC<{ label: string; actionRoute: string }> = ({
     actionRoute,
 }) => {
     return (
-        <div className='m-y'>
-            <Button className='button-go-to-form theme-btn btn-style-one ' variant='link'>
-                <Link to={actionRoute}> {label}</Link>
+        <div className="m-y">
+            <Button
+                className="button-go-to-form theme-btn btn-style-one "
+                variant="link"
+            >
+                <Link to={`${actionRoute}`}> {label} {actionRoute}</Link>
             </Button>
         </div>
     )

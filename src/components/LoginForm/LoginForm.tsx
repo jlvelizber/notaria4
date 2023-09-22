@@ -21,6 +21,7 @@ export const LoginForm = () => {
     const handleSubmit = async (event: SyntheticEvent<HTMLFormElement>) => {
         event.stopPropagation()
         event.preventDefault()
+        
         const wasSuccess = await startLogin(formState)
         if (wasSuccess) navigate('/mi-cuenta')
     }

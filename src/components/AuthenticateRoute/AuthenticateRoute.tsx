@@ -6,5 +6,5 @@ export const AuthenticateRoute: FC<{
     authenticated: boolean
 }> = ({ children, authenticated }): any => {
     if (authenticated) return <>{children}</>
-    return <Navigate to="/" />
+    return <Navigate to="/ingreso" />
 }

@@ -13,6 +13,7 @@ import { AuthenticateRoute, GuestRoute } from './components'
 import { MyAccount } from './pages/MyAccount'
 import { MyRequests } from './pages/MyRequests'
 import PermisoSalidaPage from './pages/PermisoSalidaPage'
+import { FormRquestPage } from './pages/FormRquestPage'
 
 const App: FC = () => {
     const { checkAuthToken, status } = useAuthStore()
@@ -35,9 +36,7 @@ const App: FC = () => {
 
                 <Route path="permiso-salida">
                     <Route path="" element={<PermisoSalidaPage />} />
-                    <Route path="autoriza-padre-madre" element={<PermisoSalidaPage />} />
-                    <Route path="menor-edad-viaja-solo" element={<PermisoSalidaPage />} />
-                    <Route path="poder-especial" element={<PermisoSalidaPage />} />
+                    <Route path=":codeForm" element={<FormRquestPage />} />
                 </Route>
             </Route>
 

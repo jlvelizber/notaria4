@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import {
     RootState,
     onChecking,
+    onLoadingDependency,
     onLogin,
     onLogout,
     onSetErrors,
@@ -20,8 +21,9 @@ export const useAuthStore = () => {
     const dispatch = useDispatch()
 
     const startLogin = async (payload: RegisterUserInterface) => {
-        dispatch(onChecking())
         try {
+            dispatch(onLoadingDependency(true))
+            dispatch(onChecking())
             const { data }: AxiosResponse<AuthTokenDataInterface> =
                 await AuthApi.post('/login', { ...payload })
 
@@ -31,6 +33,7 @@ export const useAuthStore = () => {
                 new Date().getTime().toString()
             )
             await getUserData()
+            dispatch(onLoadingDependency(false))
             dispatch(onLogin(data?.token?.plainTextToken))
             return true
         } catch (error) {
@@ -47,13 +50,15 @@ export const useAuthStore = () => {
             }
             dispatch(onSetFieldsFormValues(payloadCopy)) // Solo si regresa se le envia los valores ingresados
             dispatch(onLogout())
+            dispatch(onLoadingDependency(false))
             return false
         }
     }
 
     const startRegister = async (payload: RegisterUserInterface) => {
-        dispatch(onChecking())
         try {
+            dispatch(onChecking())
+            dispatch(onLoadingDependency(true))
             const { data }: AxiosResponse<AuthTokenDataInterface> =
                 await AuthApi.post('register', {
                     ...payload,
@@ -81,6 +86,7 @@ export const useAuthStore = () => {
             }
             dispatch(onSetFieldsFormValues(payloadCopy)) // Solo si regresa se le envia los valores ingresados
             dispatch(onLogout())
+            dispatch(onLoadingDependency(false))
             return false
         }
     }
@@ -90,12 +96,15 @@ export const useAuthStore = () => {
         if (!token) return dispatch(onLogout())
 
         dispatch(onChecking())
+        dispatch(onLoadingDependency(true))
 
         try {
             await getUserData()
+            dispatch(onLoadingDependency(false))
             dispatch(onLogin(token))
         } catch (error) {
             localStorage.clear()
+            dispatch(onLoadingDependency(false))
             return dispatch(onLogout())
         }
     }
@@ -111,6 +120,7 @@ export const useAuthStore = () => {
             await AuthApi.get('user')
 
         dispatch(onSetUserData(data))
+       
     }
 
     return {

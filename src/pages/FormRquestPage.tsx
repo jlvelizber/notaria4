@@ -1,10 +1,10 @@
 import React, { FC, useEffect } from 'react'
-import { Navigate, useParams } from 'react-router'
+import { useParams } from 'react-router'
 import { FormRequestDocPage } from '../interfaces'
 import { useAuthStore, useDocFormStore } from '../hooks'
 import Website from '../layouts/Website'
 import PageTitle from '../components/PageTitle/PageTitle'
-import { LoginForm } from '../components'
+import { DocRequestForm, LoginForm } from '../components'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { RootState } from '../store'
@@ -53,7 +53,7 @@ export const FormRquestPage: FC = () => {
                             </>
                         )}
 
-                        {status === 'authenticated' && ( activeDoc?.field_requests )}
+                        {status === 'authenticated' && ( <DocRequestForm sections={activeDoc?.field_requests}/> )}
                     </div>
                 </div>
             </section>

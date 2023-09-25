@@ -14,12 +14,16 @@ import { MyAccount } from './pages/MyAccount'
 import { MyRequests } from './pages/MyRequests'
 import PermisoSalidaPage from './pages/PermisoSalidaPage'
 import { FormRquestPage } from './pages/FormRquestPage'
+import { useDispatch } from 'react-redux'
+import { onLoadingDependency } from './store'
 
 const App: FC = () => {
+    const dispatch = useDispatch();
     const { checkAuthToken, status } = useAuthStore()
 
     useEffect(() => {
         checkAuthToken()
+        dispatch(onLoadingDependency(false))
     }, [])
 
     if (status === 'checking') {

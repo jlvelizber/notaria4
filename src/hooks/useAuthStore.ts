@@ -96,15 +96,13 @@ export const useAuthStore = () => {
         if (!token) return dispatch(onLogout())
 
         dispatch(onChecking())
-        dispatch(onLoadingDependency(true))
+        
 
         try {
             await getUserData()
-            dispatch(onLoadingDependency(false))
             dispatch(onLogin(token))
         } catch (error) {
             localStorage.clear()
-            dispatch(onLoadingDependency(false))
             return dispatch(onLogout())
         }
     }

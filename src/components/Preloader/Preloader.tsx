@@ -4,7 +4,6 @@ import { RootState } from '../../store'
 export const Preloader: FC = () => {
     const ref = useRef<HTMLDivElement>(null)
     const { isLoading } = useSelector((state: RootState) => state.app)
-    console.log(isLoading)
     useEffect(() => {
         // setTimeout(() => {
         ref.current?.classList.add('animate__animated')

@@ -8,6 +8,7 @@ export interface RegisterUserInterface {
     email: string
     password?: string
     password_confirmation?: string
+    country_id?:string
 }
 
 export interface ErrorMessagesRegisterUserInterface {

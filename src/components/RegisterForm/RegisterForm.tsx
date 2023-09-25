@@ -1,7 +1,7 @@
-import React, { FC, SyntheticEvent, useEffect } from 'react'
+import React, { FC, Key, SyntheticEvent, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { RegisterUserInterface } from '../../interfaces'
-import { useAuthStore, useForm } from '../../hooks'
+import { CountryInterface, RegisterUserInterface } from '../../interfaces'
+import { useAuthStore, useCollections, useForm } from '../../hooks'
 import { Alert } from 'react-bootstrap'
 
 const RegisterFieldsForm: RegisterUserInterface = {
@@ -14,10 +14,14 @@ const RegisterFieldsForm: RegisterUserInterface = {
     email: '',
     password: '',
     password_confirmation: '',
+    country_id: '',
 }
 
 export const RegisterForm: FC = () => {
     const navigate = useNavigate()
+    const { getListCountries } = useCollections()
+
+    const [countries, setCountries] = useState<CountryInterface[]>([])
 
     const {
         startRegister,
@@ -35,6 +39,16 @@ export const RegisterForm: FC = () => {
     }
 
     // Una vez que hay error registramos en el use form los datos
+
+    const loadCollections = async () => {
+        const countriesData = await getListCountries()
+        if (countriesData?.length) setCountries(countriesData)
+    }
+
+    useEffect(() => {
+        loadCollections()
+    }, [])
+
     useEffect(() => {
         onResetForm(fieldValues)
     }, [fieldValues])
@@ -163,6 +177,35 @@ export const RegisterForm: FC = () => {
                         />
                         <div className="invalid-feedback">
                             {fieldErrors?.second_last_name}
+                        </div>
+                    </div>
+                </div>
+                {/* Otra columna */}
+                <div className="row align-items-start">
+                    <div className="mb-3 col-12 col-md-12 ">
+                        <select
+                            name="country_id"
+                            value={formState?.country_id}
+                            placeholder="Nacionalidad"
+                            required
+                            onChange={onInputChange}
+                            disabled={status === 'checking'}
+                            className={
+                                fieldErrors?.country_id && 'is-invalid error'
+                            }
+                        >
+                            <option value="">Nacionalidad</option>
+                            {countries &&
+                                countries.map(
+                                    (country: CountryInterface, id: Key) => (
+                                        <option value={country.id} key={id}>
+                                            {country.name}
+                                        </option>
+                                    )
+                                )}
+                        </select>
+                        <div className="invalid-feedback">
+                            {fieldErrors?.first_last_name}
                         </div>
                     </div>
                 </div>

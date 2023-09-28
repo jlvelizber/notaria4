@@ -39,7 +39,7 @@ export const FormDataUserApplicant = () => {
                     <label className='fw-semibold mb-1'>Nacionalidad</label>
                         <input
                             type="text"
-                            value={`${user.country_id}`}
+                            value={`${user.country_id ? user.country_id: ''}`}
                             readOnly
                             disabled={true}
                         />
@@ -48,7 +48,7 @@ export const FormDataUserApplicant = () => {
                     <label className='fw-semibold mb-1'>Identificación</label>
                         <input
                             type="text"
-                            value={`${user.identification_num}`}
+                            value={`${user.identification_num ? user.identification_num : '' } `}
                             readOnly
                             disabled={true}
                         />

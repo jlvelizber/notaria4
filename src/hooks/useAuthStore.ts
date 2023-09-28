@@ -70,6 +70,7 @@ export const useAuthStore = () => {
                 new Date().getTime().toString()
             )
             await getUserData()
+            dispatch(onLoadingDependency(false))
             dispatch(onLogin(data?.token?.plainTextToken))
             return true
         } catch (error) {

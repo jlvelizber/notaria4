@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios'
-import { FormDocInterface } from '../interfaces'
+import { FieldDataInterface, FormDocInterface } from '../interfaces'
 import { AuthApi } from '../api'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -54,8 +54,30 @@ export const useDocFormStore = () => {
         }
     }
 
+    const saveRequestFormDoc = async (
+        codeForm: string,
+        dataForm: FieldDataInterface
+    ) => {
+        dispatch(onLoadingDependency(true))
+        try {
+            dispatch(onLoadingDependency(false))
+            const payload = {
+                codeForm,
+                dataForm: JSON.stringify(dataForm),
+            }
+            const { data }: AxiosResponse<FormDocInterface> =
+                await AuthApi.post(`/save-request`, payload)
+
+            console.log(data)
+        } catch (error) {
+            dispatch(onLoadingDependency(false))
+            console.log(error)
+        }
+    }
+
     return {
         getListDocs,
         getDocByCode,
+        saveRequestFormDoc,
     }
 }

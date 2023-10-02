@@ -17,7 +17,6 @@ export const FormRquestPage: FC = () => {
 
     const { activeDoc } = useSelector((state: RootState) => state.docs)
 
-
     useEffect(() => {
         if (codeForm) {
             getDocByCode(codeForm)
@@ -26,11 +25,7 @@ export const FormRquestPage: FC = () => {
 
     return (
         <Website>
-            {/* <!--Page Title--> */}
-            {/* <section className="page-title" style="background-image:url(images/background/4.jpg)"> */}
             <PageTitle title={`${activeDoc?.name}`} />
-            {/* <!--End Page Title--> */}
-            {/* <!-- Contact Page Section --> */}
             <section className="contact-page-section">
                 <div className="container">
                     <div className="inner-container">
@@ -53,7 +48,11 @@ export const FormRquestPage: FC = () => {
                             </>
                         )}
 
-                        {status === 'authenticated' && ( <DocRequestForm sections={activeDoc?.field_requests}/> )}
+                        {status === 'authenticated' && (
+                            <DocRequestForm
+                                sections={activeDoc?.field_requests}
+                            />
+                        )}
                     </div>
                 </div>
             </section>

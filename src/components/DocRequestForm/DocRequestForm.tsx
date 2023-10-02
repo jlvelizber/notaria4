@@ -18,18 +18,14 @@ export const DocRequestForm: FC<{
     const { codeForm } = useParams<FormRequestDocPage>()
     const { saveRequestFormDoc } = useDocFormStore()
 
-
     /**
      * Manda a guardar el muchacho
-     * @param data 
+     * @param data
      */
     const handleSubmitForm = async (data: FieldDataInterface) => {
         console.log(data)
-       
         if (codeForm) await saveRequestFormDoc(codeForm, data)
     }
-
-    if (sections?.length === 0) <></>
 
     return (
         <div className="contact-form">

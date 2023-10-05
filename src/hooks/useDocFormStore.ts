@@ -1,17 +1,28 @@
-import { AxiosResponse } from 'axios'
-import { FieldDataInterface, FormDocInterface } from '../interfaces'
+import { AxiosError, AxiosResponse } from 'axios'
+import {
+    FieldDataInterface,
+    FormDocInterface,
+    MyRequestsInterface,
+} from '../interfaces'
 import { AuthApi } from '../api'
 import { useDispatch, useSelector } from 'react-redux'
 import {
     RootState,
     onLoadingDependency,
+    onSetMyRequestsForm,
     setActiveFormDoc,
     setMyFormDocs,
 } from '../store'
+import { onSetErrorsForm } from '../store'
 
 export const useDocFormStore = () => {
     const dispatch = useDispatch()
-    const { docForms } = useSelector((state: RootState) => state.docs)
+    const { docForms, errors, myRequests } = useSelector(
+        (state: RootState) => state.docs
+    )
+    const {
+        user: { id },
+    } = useSelector((state: RootState) => state.auth)
 
     const getListDocs = async (categoryType: string) => {
         dispatch(onLoadingDependency(true))
@@ -22,7 +33,6 @@ export const useDocFormStore = () => {
             dispatch(onLoadingDependency(false))
         } catch (error) {
             dispatch(onLoadingDependency(false))
-            console.log(error)
         }
     }
 
@@ -49,7 +59,11 @@ export const useDocFormStore = () => {
                 dispatch(onLoadingDependency(false))
             } catch (error) {
                 dispatch(onLoadingDependency(false))
-                console.log(error)
+                if (error instanceof AxiosError) {
+                    if (error.response?.status === 422) {
+                        dispatch(onSetErrorsForm(error.response?.data.message))
+                    }
+                }
             }
         }
     }
@@ -60,18 +74,42 @@ export const useDocFormStore = () => {
     ) => {
         dispatch(onLoadingDependency(true))
         try {
-            dispatch(onLoadingDependency(false))
             const payload = {
                 codeForm,
                 dataForm: JSON.stringify(dataForm),
             }
+
+            dispatch(onSetErrorsForm(''))
+
             const { data }: AxiosResponse<FormDocInterface> =
                 await AuthApi.post(`/save-request`, payload)
-
-            console.log(data)
+            dispatch(onLoadingDependency(false))
+            // return data
         } catch (error) {
             dispatch(onLoadingDependency(false))
-            console.log(error)
+            if (error instanceof AxiosError) {
+                if (error.response?.status === 422) {
+                    dispatch(onSetErrorsForm(error.response?.data.message))
+                }
+            }
+        }
+    }
+
+    const getListMyDocFormRequests = async () => {
+        try {
+            dispatch(onLoadingDependency(true))
+            const { data }: AxiosResponse<MyRequestsInterface[]> =
+                await AuthApi.get(`/mis-solicitudes`)
+
+            dispatch(onSetMyRequestsForm(data))
+            dispatch(onLoadingDependency(false))
+        } catch (error) {
+            dispatch(onLoadingDependency(false))
+            if (error instanceof AxiosError) {
+                if (error.response?.status === 422) {
+                    dispatch(onSetErrorsForm(error.response?.data.message))
+                }
+            }
         }
     }
 
@@ -79,5 +117,8 @@ export const useDocFormStore = () => {
         getListDocs,
         getDocByCode,
         saveRequestFormDoc,
+        getListMyDocFormRequests,
+        myRequests,
+        errors,
     }
 }

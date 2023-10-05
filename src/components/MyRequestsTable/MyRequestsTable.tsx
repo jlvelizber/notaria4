@@ -1,9 +1,12 @@
 import { faPrint } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { FC, Key, useEffect } from 'react'
 import { Button, Table } from 'react-bootstrap'
+import { MyRequestsInterface } from '../../interfaces'
 
-export const MyRequestsTable = () => {
+export const MyRequestsTable: FC<{ myRequests: MyRequestsInterface[] }> = ({
+    myRequests,
+}) => {
     return (
         <Table striped bordered hover>
             <thead>
@@ -14,33 +17,26 @@ export const MyRequestsTable = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Permisos de salida</td>
-                    <td>Procesado</td>
-                    <td className="text-center">
-                        <Button variant="info">
-                            <FontAwesomeIcon icon={faPrint} />
-                        </Button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Permisos de salida</td>
-                    <td>Requerido</td>
-                    <td className="text-center">
-                        {/* <Button variant="info">
-                            <FontAwesomeIcon icon={faPrint} />
-                        </Button> */}
-                    </td>
-                </tr>
-                <tr>
-                    <td>Permisos de salida</td>
-                    <td>En Proceso</td>
-                    <td className="text-center">
-                        {/* <Button variant="info">
-                            <FontAwesomeIcon icon={faPrint} />
-                        </Button> */}
-                    </td>
-                </tr>
+                {myRequests.length > 0 &&
+                    myRequests.map(
+                        (myRequest: MyRequestsInterface, key: Key) => {
+                            return (
+                                <tr key={key}>
+                                    <td>{myRequest.doc}</td>
+                                    <td>{myRequest.status}</td>
+                                    <td className="text-center">
+                                        {myRequest.status_code === 3 && (
+                                            <Button variant="info">
+                                                <FontAwesomeIcon
+                                                    icon={faPrint}
+                                                />
+                                            </Button>
+                                        )}
+                                    </td>
+                                </tr>
+                            )
+                        }
+                    )}
             </tbody>
         </Table>
     )

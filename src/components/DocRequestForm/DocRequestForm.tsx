@@ -8,27 +8,39 @@ import {
 import { FormDataUserApplicant } from '../FormDataUserApplicant'
 import { FieldRequestForm } from '../FieldRequestForm'
 import { useForm, Controller } from 'react-hook-form'
-import { useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import { useDocFormStore } from '../../hooks'
+import { Alert } from 'react-bootstrap'
 
 export const DocRequestForm: FC<{
     sections: SectionDocFormField[] | undefined
 }> = ({ sections }) => {
     const { handleSubmit, control } = useForm<FieldDataInterface>()
     const { codeForm } = useParams<FormRequestDocPage>()
-    const { saveRequestFormDoc } = useDocFormStore()
+    const { saveRequestFormDoc, errors } = useDocFormStore()
+    const navigate = useNavigate()
 
     /**
      * Manda a guardar el muchacho
      * @param data
      */
     const handleSubmitForm = async (data: FieldDataInterface) => {
-        console.log(data)
-        if (codeForm) await saveRequestFormDoc(codeForm, data)
+        if (codeForm) {
+            await saveRequestFormDoc(codeForm, data)
+            if (!errors.message) {
+                navigate(`/tramites-en-linea/gracias`)
+            }
+        }
     }
 
     return (
         <div className="contact-form">
+            {errors.message && (
+                <Alert show={true} variant="danger" dismissible>
+                    {errors.message}
+                </Alert>
+            )}
+
             <form
                 method="post"
                 onSubmit={handleSubmit(handleSubmitForm)}

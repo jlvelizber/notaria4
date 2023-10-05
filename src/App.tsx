@@ -11,11 +11,12 @@ import Login from './pages/Login'
 import { useAuthStore } from './hooks'
 import { AuthenticateRoute, GuestRoute } from './components'
 import { MyAccount } from './pages/MyAccount'
-import { MyRequests } from './pages/MyRequests'
+import { MyRequestsPage } from './pages/MyRequestsPage'
 import PermisoSalidaPage from './pages/PermisoSalidaPage'
 import { FormRquestPage } from './pages/FormRquestPage'
 import { useDispatch } from 'react-redux'
 import { onLoadingDependency } from './store'
+import { ThankyouRequestPage } from './pages/ThankyouRequestPage'
 
 const App: FC = () => {
     const dispatch = useDispatch();
@@ -42,6 +43,8 @@ const App: FC = () => {
                     <Route path="" element={<PermisoSalidaPage />} />
                     <Route path=":codeForm" element={<FormRquestPage />} />
                 </Route>
+
+                <Route path="gracias" element={<ThankyouRequestPage />} />
             </Route>
 
             <Route path="testimonios" element={<Testimonials />} />
@@ -83,7 +86,7 @@ const App: FC = () => {
                     <AuthenticateRoute
                         authenticated={status === 'authenticated'}
                     >
-                        <MyRequests />
+                        <MyRequestsPage />
                     </AuthenticateRoute>
                 }
             />

@@ -32,8 +32,18 @@ export interface FormDocSliceInterface {
     docForms: FormDocInterface[]
     activeDoc: FormDocInterface | null
     isLoadingDocs: boolean
+    errors: {
+        message: string
+    }
+    myRequests: MyRequestsInterface[]
 }
 
 export type FormRequestDocPage = {
     codeForm?: string
+}
+
+export interface MyRequestsInterface {
+    doc: string
+    status: string
+    status_code: number
 }

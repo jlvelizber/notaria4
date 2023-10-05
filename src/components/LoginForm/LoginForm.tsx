@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useEffect } from 'react'
+import React, { FC, SyntheticEvent, useEffect } from 'react'
 import { Alert } from 'react-bootstrap'
 import { useAuthStore, useForm } from '../../hooks'
 import { LoginUserInterface } from '../../interfaces'
@@ -9,9 +9,10 @@ const LoginFieldsForm: LoginUserInterface = {
     password: '',
 }
 
-export const LoginForm = () => {
+export const LoginForm: FC<{ redirectToAccount?: boolean }> = ({
+    redirectToAccount = false,
+}) => {
     const navigate = useNavigate()
-
     const {
         startLogin,
         errors: { message: errorMessage, fieldValues, errors: fieldErrors },
@@ -21,9 +22,11 @@ export const LoginForm = () => {
     const handleSubmit = async (event: SyntheticEvent<HTMLFormElement>) => {
         event.stopPropagation()
         event.preventDefault()
-        
+
         const wasSuccess = await startLogin(formState)
-        if (wasSuccess) navigate('/mi-cuenta')
+        if (wasSuccess) {
+            if (redirectToAccount) navigate('/mi-cuenta')
+        }
     }
 
     // Una vez que hay error registramos en el use form los datos

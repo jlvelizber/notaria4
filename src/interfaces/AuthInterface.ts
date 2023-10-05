@@ -1,4 +1,5 @@
 export interface RegisterUserInterface {
+    id?: number;
     identification_type: string
     identification_num: string
     name: string

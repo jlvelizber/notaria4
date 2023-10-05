@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Website from '../layouts/Website'
 import PageTitle from '../components/PageTitle/PageTitle'
 import { MyRequestsTable } from '../components'
+import { useDocFormStore } from '../hooks'
 
-export const MyRequests = () => {
+export const MyRequestsPage = () => {
+    const { getListMyDocFormRequests, myRequests } = useDocFormStore()
+
+    useEffect(() => {
+        getListMyDocFormRequests()
+    }, [])
+
     return (
         <Website>
             <PageTitle title="Mis solicitudes" background={''} />
@@ -13,11 +20,15 @@ export const MyRequests = () => {
                 <div className="container">
                     <div className="inner-container">
                         {/* <h2 className="text-center">Mis solicitudes</h2> */}
-                        <br/>
+                        <br />
 
                         <div className="row clearfix">
                             <div className="info-column col-12">
-                                <MyRequestsTable />
+                                {myRequests.length > 0 ? (
+                                    <MyRequestsTable myRequests={myRequests} />
+                                ) : (
+                                    <h5>No tiene solicitudes pendientes</h5>
+                                )}
                             </div>
                         </div>
                     </div>

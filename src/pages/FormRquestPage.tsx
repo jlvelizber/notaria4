@@ -25,7 +25,9 @@ export const FormRquestPage: FC = () => {
 
     return (
         <Website>
-            <PageTitle title={`${activeDoc?.name}`} />
+            {status === 'authenticated' && (
+                <PageTitle title={`${activeDoc?.name}`} />
+            )}
             <section className="contact-page-section">
                 <div className="container">
                     <div className="inner-container">
@@ -37,7 +39,7 @@ export const FormRquestPage: FC = () => {
                                 </h2>
                                 <div className="row clearfix">
                                     <div className="contact-form">
-                                        <LoginForm />
+                                        <LoginForm/>
                                     </div>
                                     <p>
                                         No tienes cuenta? puedes crear una

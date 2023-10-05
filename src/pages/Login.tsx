@@ -19,8 +19,8 @@ const Login: FC = () => {
                     <div className="container">
                         <div className="inner-container">
                             <h2 className="text-center">
-                                Ingresa con tu usuario para realizar tus trámites en{' '}
-                                <span>línea</span>
+                                Ingresa con tu usuario para realizar tus
+                                trámites en <span>línea</span>
                             </h2>
                             <div className="row clearfix">
                                 {/* <!-- Info Column --> */}
@@ -45,9 +45,15 @@ const Login: FC = () => {
                                         </div>
 
                                         <div className="contact-form">
-                                            <LoginForm />
+                                            <LoginForm
+                                                redirectToAccount={true}
+                                            />
                                         </div>
-                                        <p>No tienes cuenta? puedes crear una presionando <Link to={'/registro'}>aquí</Link></p>
+                                        <p>
+                                            No tienes cuenta? puedes crear una
+                                            presionando{' '}
+                                            <Link to={'/registro'}>aquí</Link>
+                                        </p>
                                     </div>
                                 </div>
                             </div>

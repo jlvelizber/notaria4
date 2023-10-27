@@ -7,7 +7,7 @@ import {
 } from '../../interfaces'
 import { FormDataUserApplicant } from '../FormDataUserApplicant'
 import { FieldRequestForm } from '../FieldRequestForm'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { useNavigate, useParams } from 'react-router'
 import { useDocFormStore } from '../../hooks'
 import { Alert } from 'react-bootstrap'
@@ -24,9 +24,20 @@ export const DocRequestForm: FC<{
      * Manda a guardar el muchacho
      * @param data
      */
-    const handleSubmitForm = async (data: FieldDataInterface) => {
+    const handleSubmitForm = async (data: any) => {
         if (codeForm) {
-            await saveRequestFormDoc(codeForm, data)
+            const formData = new FormData()
+            for (const key in data) {
+                if (data[key] instanceof File) {
+                    formData.append(`${key}`, data[key])
+                } else {
+                    formData.append(`${key}`, data[key])
+                }
+            }
+            formData.append('codeForm', codeForm)
+
+            await saveRequestFormDoc(formData)
+
             if (!errors.message) {
                 navigate(`/tramites-en-linea/gracias`)
             }
@@ -74,32 +85,11 @@ export const DocRequestForm: FC<{
                                                         key={key}
                                                         className="col-12 col-lg-6"
                                                     >
-                                                        <Controller
-                                                            name={
-                                                                fieldForm.name
+                                                        <FieldRequestForm
+                                                            fieldForm={
+                                                                fieldForm
                                                             }
-                                                            key={key}
                                                             control={control}
-                                                            defaultValue={''}
-                                                            rules={{
-                                                                required:
-                                                                    'Campo requerido',
-                                                            }}
-                                                            render={({
-                                                                field,
-                                                            }) => (
-                                                                <FieldRequestForm
-                                                                    fieldControl={
-                                                                        field
-                                                                    }
-                                                                    fieldDescription={
-                                                                        fieldForm
-                                                                    }
-                                                                    control={
-                                                                        control
-                                                                    }
-                                                                />
-                                                            )}
                                                         />
                                                     </div>
                                                 )

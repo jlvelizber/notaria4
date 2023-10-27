@@ -12,7 +12,7 @@ export const ButtonGoForm: FC<{ label: string; actionRoute: string }> = ({
                 className="button-go-to-form theme-btn btn-style-one "
                 variant="link"
             >
-                <Link to={`${actionRoute}`}> {label} {actionRoute}</Link>
+                <Link to={`${actionRoute}`}> {label}</Link>
             </Button>
         </div>
     )

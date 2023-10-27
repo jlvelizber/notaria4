@@ -1,5 +1,11 @@
-import React, { FC, Key } from 'react'
-import { useController, ControllerFieldState } from 'react-hook-form'
+import React, { ChangeEvent, FC, Key, useRef } from 'react'
+import {
+    Controller,
+    useController,
+    useForm,
+    ControllerRenderProps,
+    Control,
+} from 'react-hook-form'
 import {
     DocFormField,
     DocFormFieldOptions,
@@ -7,29 +13,29 @@ import {
 } from '../../interfaces'
 
 export const FieldRequestForm: FC<{
-    fieldDescription: DocFormField
-    fieldControl: any
-    control: any
-}> = ({ fieldDescription, fieldControl, control }) => {
+    fieldForm: DocFormField
+    control: Control<FieldDataInterface>
+}> = ({ fieldForm, control }) => {
+    const inputFileRef = useRef(null)
+
     const { fieldState } = useController<FieldDataInterface>({
-        name: fieldDescription.name,
+        name: fieldForm.name,
         control: control,
     })
 
     const renderInput = (
-        field: DocFormField,
-        fieldControl: any,
-        fieldState: ControllerFieldState
+        field: ControllerRenderProps,
+        fieldDescription: DocFormField
     ) => {
-        switch (field.type) {
+        switch (fieldDescription.type) {
             case 'select':
                 return (
                     <select
-                        {...fieldControl}
+                        {...field}
                         className={fieldState?.error && 'is-invalid error'}
                     >
                         <option>Seleccione</option>
-                        {field.options?.map(
+                        {fieldDescription.options?.map(
                             (option: DocFormFieldOptions, index: Key) => (
                                 <option key={index} value={option.value}>
                                     {option.label}
@@ -38,26 +44,54 @@ export const FieldRequestForm: FC<{
                         )}
                     </select>
                 )
+            case 'file':
+                return (
+                    <input
+                        {...field}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                            field.onChange(e.target.files?.[0])
+                        }}
+                        type={fieldDescription.type}
+                        className={fieldState?.error && 'is-invalid error'}
+                        value={field.value?.fileName}
+                        ref={inputFileRef}
+                        accept="application/pdf"
+                    />
+                )
             default:
                 return (
                     <input
-                        {...fieldControl}
-                        type={field.type}
+                        {...field}
+                        type={fieldDescription.type}
                         className={fieldState?.error && 'is-invalid error'}
                     />
                 )
         }
     }
-
     return (
         <>
-            <label className="fw-semibold mb-1">{fieldDescription.label}</label>
-            {renderInput(fieldDescription, fieldControl, fieldState)}
-            {fieldState?.error?.message && (
-                <div className="invalid-feedback">
-                    {fieldState?.error?.message}
-                </div>
-            )}
+            <Controller
+                name={fieldForm.name}
+                control={control}
+                rules={{
+                    required: 'Campo requerido',
+                }}
+                render={({ field }) => (
+                    <>
+                        <label className="fw-semibold mb-1">
+                            {fieldForm.label}
+                        </label>
+
+                        {renderInput(field, fieldForm)}
+
+                        {fieldState?.error?.message && (
+                            <div className="invalid-feedback">
+                                {fieldState?.error?.message}
+                            </div>
+                        )}
+                    </>
+                )}
+            />
         </>
     )
 }

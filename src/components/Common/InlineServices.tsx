@@ -53,7 +53,7 @@ export const InlineServices = () => {
         },
         {
             title: 'Copia Certificada',
-            overLayCallAction: () => goPage(),
+            overLayCallAction: () => goPage('/tramites-en-linea/copia-certificada'),
             overlay: true,
             overlayTitle: 'Copia Certificada',
             overlayTitleAction: 'Contactar',

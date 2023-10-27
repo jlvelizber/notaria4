@@ -17,6 +17,7 @@ const PermisoSalidaPage = () => {
         getListDocs('permiso_salida')
     }, [])
 
+
     return (
         <Website>
             <PageTitle title="Trámites en línea" background={ImgTitle} />
@@ -25,7 +26,7 @@ const PermisoSalidaPage = () => {
                     <div className="row clearfix">
                         <div className="section-title text-center text-md-start">
                             <div className="title">Notaría cuarta de Daule</div>
-                            <h3>Permisos de salida</h3>
+                            <h3>Tipos</h3>
                         </div>
 
                         <div className="content-column col-lg-6 col-md-12 col-sm-12">

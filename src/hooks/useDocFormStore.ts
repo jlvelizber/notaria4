@@ -69,22 +69,25 @@ export const useDocFormStore = () => {
     }
 
     const saveRequestFormDoc = async (
-        codeForm: string,
         dataForm: FieldDataInterface
     ) => {
         dispatch(onLoadingDependency(true))
         try {
-            const payload = {
-                codeForm,
-                dataForm: JSON.stringify(dataForm),
-            }
+            // const payload = {
+            //     // dataForm: JSON.stringify(dataForm),
+            //     ...dataForm
+            // }
 
             dispatch(onSetErrorsForm(''))
 
             const { data }: AxiosResponse<FormDocInterface> =
-                await AuthApi.post(`/save-request`, payload)
+                await AuthApi.post(`/save-request`, dataForm, {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    }
+                })
             dispatch(onLoadingDependency(false))
-            // return data
+            return data
         } catch (error) {
             dispatch(onLoadingDependency(false))
             if (error instanceof AxiosError) {

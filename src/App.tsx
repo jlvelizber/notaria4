@@ -17,6 +17,7 @@ import { FormRquestPage } from './pages/FormRquestPage'
 import { useDispatch } from 'react-redux'
 import { onLoadingDependency } from './store'
 import { ThankyouRequestPage } from './pages/ThankyouRequestPage'
+import CopiaCertificadaPage from './pages/CopiaCertificadaPage'
 
 const App: FC = () => {
     const dispatch = useDispatch();
@@ -41,6 +42,11 @@ const App: FC = () => {
 
                 <Route path="permiso-salida">
                     <Route path="" element={<PermisoSalidaPage />} />
+                    <Route path=":codeForm" element={<FormRquestPage />} />
+                </Route>
+                
+                <Route path="copia-certificada">
+                    <Route path="" element={<CopiaCertificadaPage />} />
                     <Route path=":codeForm" element={<FormRquestPage />} />
                 </Route>
 

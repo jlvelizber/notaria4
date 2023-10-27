@@ -18,6 +18,7 @@ import { useDispatch } from 'react-redux'
 import { onLoadingDependency } from './store'
 import { ThankyouRequestPage } from './pages/ThankyouRequestPage'
 import CopiaCertificadaPage from './pages/CopiaCertificadaPage'
+import DeclaracionJuramentadaPage from './pages/DeclaracionJuramentadaPage'
 
 const App: FC = () => {
     const dispatch = useDispatch();
@@ -47,6 +48,12 @@ const App: FC = () => {
                 
                 <Route path="copia-certificada">
                     <Route path="" element={<CopiaCertificadaPage />} />
+                    <Route path=":codeForm" element={<FormRquestPage />} />
+                </Route>
+                
+                
+                <Route path="declaracion-juramentada">
+                    <Route path="" element={<DeclaracionJuramentadaPage />} />
                     <Route path=":codeForm" element={<FormRquestPage />} />
                 </Route>
 

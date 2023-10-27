@@ -9,12 +9,12 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../store'
 import { FormDocInterface } from '../interfaces'
 
-const CopiaCertificadaPage = () => {
+const DeclaracionJuramentadaPage = () => {
     const { getListDocs } = useDocFormStore()
     const docForms = useSelector((state: RootState) => state.docs.docForms)
 
     useEffect(() => {
-        getListDocs('copia_certificada')
+        getListDocs('delcaracion_juramentada')
     }, [])
 
 
@@ -27,7 +27,7 @@ const CopiaCertificadaPage = () => {
                     <div className="row clearfix">
                         <div className="section-title text-center text-md-start">
                             <div className="title">Notaría cuarta de Daule</div>
-                            <h3>Copia Cerificada</h3>
+                            <h3>Declaración Juramentada para Ciudadanos Ecuatorianos y Extranjeros</h3>
                         </div>
 
                         <div className="content-column col-lg-6 col-md-12 col-sm-12">
@@ -68,4 +68,4 @@ const CopiaCertificadaPage = () => {
     )
 }
 
-export default CopiaCertificadaPage
+export default DeclaracionJuramentadaPage

@@ -36,7 +36,7 @@ export const InlineServices = () => {
         },
         {
             title: 'Declaración Juramentada',
-            overLayCallAction: () => goPage(),
+            overLayCallAction: () => goPage('/tramites-en-linea/declaracion-juramentada'),
             overlay: true,
             overlayTitle: 'Declaración Juramentada',
             overlayTitleAction: 'Contactar',

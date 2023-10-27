@@ -24,15 +24,11 @@ export const DocRequestForm: FC<{
      * Manda a guardar el muchacho
      * @param data
      */
-    const handleSubmitForm = async (data: any) => {
+    const handleSubmitForm = async (data: FieldDataInterface) => {
         if (codeForm) {
             const formData = new FormData()
             for (const key in data) {
-                if (data[key] instanceof File) {
-                    formData.append(`${key}`, data[key])
-                } else {
-                    formData.append(`${key}`, data[key])
-                }
+                formData.append(`${key}`, data[key])
             }
             formData.append('codeForm', codeForm)
 

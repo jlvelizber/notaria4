@@ -19,6 +19,7 @@ import { onLoadingDependency } from './store'
 import { ThankyouRequestPage } from './pages/ThankyouRequestPage'
 import CopiaCertificadaPage from './pages/CopiaCertificadaPage'
 import DeclaracionJuramentadaPage from './pages/DeclaracionJuramentadaPage'
+import PoderesGeneralesPage from './pages/PoderesGeneralesPage'
 
 const App: FC = () => {
     const dispatch = useDispatch();
@@ -54,6 +55,11 @@ const App: FC = () => {
                 
                 <Route path="declaracion-juramentada">
                     <Route path="" element={<DeclaracionJuramentadaPage />} />
+                    <Route path=":codeForm" element={<FormRquestPage />} />
+                </Route>
+                
+                <Route path="poderes-generales">
+                    <Route path="" element={<PoderesGeneralesPage />} />
                     <Route path=":codeForm" element={<FormRquestPage />} />
                 </Route>
 

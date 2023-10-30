@@ -70,7 +70,7 @@ export const InlineServices = () => {
         },
         {
             title: 'Poderes Generales',
-            overLayCallAction: () => goPage(),
+            overLayCallAction: () => goPage('/tramites-en-linea/poderes-generales'),
             overlay: true,
             overlayTitle: 'Poderes Generales',
             overlayTitleAction: 'Contactar',

@@ -5785,6 +5785,7 @@ img {
 }
 
 .contact-form input[type='text'],
+.contact-form input[type='tel'],
 .contact-form input[type='email'],
 .contact-form input[type='password'],
 .contact-form input[type='date'],

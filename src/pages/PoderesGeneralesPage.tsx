@@ -9,15 +9,13 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../store'
 import { FormDocInterface } from '../interfaces'
 
-const DeclaracionJuramentadaPage = () => {
+const PoderesGeneralesPage = () => {
     const { getListDocs } = useDocFormStore()
     const docForms = useSelector((state: RootState) => state.docs.docForms)
 
     useEffect(() => {
-        getListDocs('delcaracion_juramentada')
+        getListDocs('poderes_generales')
     }, [])
-
-
 
     return (
         <Website>
@@ -27,7 +25,10 @@ const DeclaracionJuramentadaPage = () => {
                     <div className="row clearfix">
                         <div className="section-title text-center text-md-start">
                             <div className="title">Notaría cuarta de Daule</div>
-                            <h3>Declaración Juramentada para Ciudadanos Ecuatorianos y Extranjeros</h3>
+                            <h3>
+                                Poderes generales para Ciudadanos Ecuatorianos y
+                                Extranjeros
+                            </h3>
                         </div>
 
                         <div className="content-column col-lg-6 col-md-12 col-sm-12">
@@ -35,14 +36,28 @@ const DeclaracionJuramentadaPage = () => {
                                 <div className="text text-justify">
                                     <h3 className="title">Requisitos</h3>
                                     <ol className="requirements-list">
+                                        <li>Datos del solicitante</li>
                                         <li>
                                             Cédula o pasaporte original
                                             ecuatoriano vigente (para
                                             extranjeros: pasaporte original
                                             vigente)
                                         </li>
-                                        <li> 
+                                        <li>
                                             Copia de certificado de votación.
+                                        </li>
+                                        <li>
+                                            Datos del quién recibe los poderes
+                                        </li>
+                                        <li>
+                                            Cédula o pasaporte original
+                                            ecuatoriano vigente (para
+                                            extranjeros: pasaporte original
+                                            vigente) de quién recibe los poderes
+                                        </li>
+                                        <li>
+                                            Copia de certificado de votación de
+                                            quién recibe los poderes
                                         </li>
                                     </ol>
                                 </div>
@@ -68,4 +83,4 @@ const DeclaracionJuramentadaPage = () => {
     )
 }
 
-export default DeclaracionJuramentadaPage
+export default PoderesGeneralesPage

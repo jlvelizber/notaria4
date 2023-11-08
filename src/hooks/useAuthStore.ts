@@ -8,16 +8,16 @@ import {
     onSetErrors,
     onSetFieldsFormValues,
     onSetUserData,
+    onSuccessMessage,
 } from '../store'
 
 import { AxiosError, AxiosResponse } from 'axios'
 import { AuthApi } from '../api'
 import { AuthTokenDataInterface, RegisterUserInterface } from '../interfaces'
 
-
 export const useAuthStore = () => {
-    const { status, errors } = useSelector((state: RootState) => state.auth)
-    
+    const { status, errors, successMessage } = useSelector((state: RootState) => state.auth)
+
     const dispatch = useDispatch()
 
     const startLogin = async (payload: RegisterUserInterface) => {
@@ -72,6 +72,7 @@ export const useAuthStore = () => {
             await getUserData()
             dispatch(onLoadingDependency(false))
             dispatch(onLogin(data?.token?.plainTextToken))
+            
             return true
         } catch (error) {
             if (error instanceof AxiosError) {
@@ -97,7 +98,6 @@ export const useAuthStore = () => {
         if (!token) return dispatch(onLogout())
 
         dispatch(onChecking())
-        
 
         try {
             await getUserData()
@@ -119,7 +119,41 @@ export const useAuthStore = () => {
             await AuthApi.get('user')
 
         dispatch(onSetUserData(data))
-       
+    }
+
+    const updateUserData = async (payload: RegisterUserInterface) => { 
+        try {
+            dispatch(onChecking())
+            dispatch(onLoadingDependency(true))
+            const { data }: AxiosResponse<AuthTokenDataInterface> =
+                await AuthApi.put('user', {
+                    ...payload,
+                })
+
+           
+            await getUserData()
+            dispatch(onLoadingDependency(false))
+            dispatch(onLogin(data?.token?.plainTextToken))
+            dispatch(onSuccessMessage("Perfil actualizado correctamente"))
+            return true
+        } catch (error) {
+            dispatch(onSuccessMessage(""))
+            if (error instanceof AxiosError) {
+                if (error.response?.status === 422) {
+                    dispatch(onSetErrors(error.response?.data))
+                }
+            }
+            // se setea los valores ingresados
+            const payloadCopy = {
+                ...payload,
+                password: '',
+                password_confirmation: '',
+            }
+            dispatch(onSetFieldsFormValues(payloadCopy)) // Solo si regresa se le envia los valores ingresados
+            // dispatch(onLogout())
+            dispatch(onLoadingDependency(false))
+            return false
+        }
     }
 
     return {
@@ -129,5 +163,7 @@ export const useAuthStore = () => {
         startRegister,
         checkAuthToken,
         startLogout,
+        updateUserData,
+        successMessage
     }
 }

@@ -10,6 +10,7 @@ export interface RegisterUserInterface {
     password?: string
     password_confirmation?: string
     country_id?:string
+    country?:string
 }
 
 export interface ErrorMessagesRegisterUserInterface {
@@ -29,6 +30,7 @@ export interface AuthTokenDataInterface {
         plainTextToken: string
     },
     user: RegisterUserInterface,
-    errors: ErrorMessagesRegisterUserInterface
+    errors: ErrorMessagesRegisterUserInterface,
+    successMessage: string
    
 }

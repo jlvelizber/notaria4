@@ -44,6 +44,7 @@ const initialState: AuthTokenDataInterface = {
             password_confirmation: '',
         },
     },
+    successMessage: '',
 }
 
 const authSlice = createSlice({
@@ -104,6 +105,12 @@ const authSlice = createSlice({
         ) {
             state.user = payload
         },
+        onSuccessMessage(
+            state,
+            { payload }: PayloadAction<string>
+        ) {
+            state.successMessage = payload
+        },
     },
 })
 
@@ -114,6 +121,7 @@ export const {
     onSetErrors,
     onSetFieldsFormValues,
     onSetUserData,
+    onSuccessMessage
 } = authSlice.actions
 
 export default authSlice.reducer

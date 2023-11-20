@@ -16,7 +16,9 @@ import { AuthApi } from '../api'
 import { AuthTokenDataInterface, RegisterUserInterface } from '../interfaces'
 
 export const useAuthStore = () => {
-    const { status, errors, successMessage } = useSelector((state: RootState) => state.auth)
+    const { status, errors, successMessage } = useSelector(
+        (state: RootState) => state.auth
+    )
 
     const dispatch = useDispatch()
 
@@ -57,6 +59,7 @@ export const useAuthStore = () => {
 
     const startRegister = async (payload: RegisterUserInterface) => {
         try {
+            dispatch(onSuccessMessage(''))
             dispatch(onChecking())
             dispatch(onLoadingDependency(true))
             const { data }: AxiosResponse<AuthTokenDataInterface> =
@@ -64,15 +67,10 @@ export const useAuthStore = () => {
                     ...payload,
                 })
 
-            localStorage.setItem('token', data?.token?.plainTextToken as string)
-            localStorage.setItem(
-                'token-init-time',
-                new Date().getTime().toString()
-            )
-            await getUserData()
+            dispatch(onSuccessMessage(data.successMessage))
             dispatch(onLoadingDependency(false))
-            dispatch(onLogin(data?.token?.plainTextToken))
-            
+            dispatch(onLogout())
+
             return true
         } catch (error) {
             if (error instanceof AxiosError) {
@@ -121,7 +119,7 @@ export const useAuthStore = () => {
         dispatch(onSetUserData(data))
     }
 
-    const updateUserData = async (payload: RegisterUserInterface) => { 
+    const updateUserData = async (payload: RegisterUserInterface) => {
         try {
             dispatch(onChecking())
             dispatch(onLoadingDependency(true))
@@ -130,14 +128,13 @@ export const useAuthStore = () => {
                     ...payload,
                 })
 
-           
             await getUserData()
             dispatch(onLoadingDependency(false))
             dispatch(onLogin(data?.token?.plainTextToken))
-            dispatch(onSuccessMessage("Perfil actualizado correctamente"))
+            dispatch(onSuccessMessage('Perfil actualizado correctamente'))
             return true
         } catch (error) {
-            dispatch(onSuccessMessage(""))
+            dispatch(onSuccessMessage(''))
             if (error instanceof AxiosError) {
                 if (error.response?.status === 422) {
                     dispatch(onSetErrors(error.response?.data))
@@ -156,6 +153,26 @@ export const useAuthStore = () => {
         }
     }
 
+    const verifyAccount = async (id: string, hash: string) => {
+        console.log(id, hash)
+        dispatch(onLoadingDependency(true))
+        try {
+            const { data }: AxiosResponse<AuthTokenDataInterface> =
+                await AuthApi.get(`email/verify/${id}/${hash}`)
+            dispatch(onLoadingDependency(false))
+            dispatch(onSuccessMessage(data.successMessage))
+            return true
+        } catch (error) {
+            dispatch(onLoadingDependency(false))
+            if (error instanceof AxiosError) {
+                if (error.response?.status === 422) {
+                    dispatch(onSetErrors(error.response?.data))
+                }
+            }
+            return false
+        }
+    }
+
     return {
         status,
         errors,
@@ -164,6 +181,7 @@ export const useAuthStore = () => {
         checkAuthToken,
         startLogout,
         updateUserData,
-        successMessage
+        successMessage,
+        verifyAccount,
     }
 }

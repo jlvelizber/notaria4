@@ -25,7 +25,7 @@ export const LoginForm: FC<{ redirectToAccount?: boolean }> = ({
 
         const wasSuccess = await startLogin(formState)
         if (wasSuccess) {
-            if (redirectToAccount) navigate('/mi-cuenta')
+            if (redirectToAccount) navigate('/')
         }
     }
 

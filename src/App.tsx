@@ -20,6 +20,7 @@ import { ThankyouRequestPage } from './pages/ThankyouRequestPage'
 import CopiaCertificadaPage from './pages/CopiaCertificadaPage'
 import DeclaracionJuramentadaPage from './pages/DeclaracionJuramentadaPage'
 import PoderesGeneralesPage from './pages/PoderesGeneralesPage'
+import { VerifyAccount } from './pages/VerifyAccount'
 
 const App: FC = () => {
     const dispatch = useDispatch();
@@ -84,6 +85,15 @@ const App: FC = () => {
                 element={
                     <GuestRoute authenticated={status === 'not-authenticated'}>
                         <Login />
+                    </GuestRoute>
+                }
+            />
+            
+            <Route
+                path="verificar-cuenta"
+                element={
+                    <GuestRoute authenticated={status === 'not-authenticated'}>
+                        <VerifyAccount />
                     </GuestRoute>
                 }
             />

@@ -1,7 +1,6 @@
-import React, { FC, Key, SyntheticEvent, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router'
+import React, { FC, SyntheticEvent } from 'react'
 import { RegisterUserInterface } from '../../interfaces'
-import { useAuthStore, useForm } from '../../hooks'
+import { useAuthStore } from '../../hooks'
 import { Alert } from 'react-bootstrap'
 import { FormDataUser } from '../FormDataUser/FormDataUser'
 
@@ -19,11 +18,10 @@ const RegisterFieldsForm: RegisterUserInterface = {
 }
 
 export const RegisterForm: FC = () => {
-    const navigate = useNavigate()
-
     const {
         startRegister,
         errors: { message: errorMessage, fieldValues, errors: fieldErrors },
+        successMessage,
     } = useAuthStore()
 
     const handleSubmit = async (
@@ -33,8 +31,7 @@ export const RegisterForm: FC = () => {
         event.stopPropagation()
         event.preventDefault()
 
-        const wasSuccess = await startRegister(formState)
-        if (wasSuccess) navigate('/')
+        await startRegister(formState)
     }
 
     return (
@@ -42,6 +39,12 @@ export const RegisterForm: FC = () => {
             {errorMessage && (
                 <Alert show={true} variant="danger" dismissible>
                     {errorMessage}
+                </Alert>
+            )}
+
+            {successMessage && (
+                <Alert show={true} variant="success" dismissible>
+                    {successMessage}
                 </Alert>
             )}
             <FormDataUser
@@ -52,7 +55,6 @@ export const RegisterForm: FC = () => {
                 ) => handleSubmit(event, postData)}
                 fieldValues={fieldValues}
                 fieldErrors={fieldErrors}
-               
             >
                 <div className="mb-3">
                     <button type="submit" className="theme-btn btn-style-one">

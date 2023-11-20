@@ -22,7 +22,7 @@ export const InlineServices = () => {
             overLayCallAction: () => goPage('/tramites-en-linea/permiso-salida'),
             overlay: true,
             overlayTitle: 'Permisos de Salida',
-            overlayTitleAction: 'Solicitar',
+            overlayTitleAction: 'Solicita aquí',
             icon: faPlane,
             content: (
                 <p className="text-justify">
@@ -39,7 +39,7 @@ export const InlineServices = () => {
             overLayCallAction: () => goPage('/tramites-en-linea/declaracion-juramentada'),
             overlay: true,
             overlayTitle: 'Declaración Juramentada',
-            overlayTitleAction: 'Contactar',
+            overlayTitleAction: 'Solicita aquí',
             icon: faFileCircleCheck,
             content: (
                 <p className="text-justify">
@@ -56,7 +56,7 @@ export const InlineServices = () => {
             overLayCallAction: () => goPage('/tramites-en-linea/copia-certificada'),
             overlay: true,
             overlayTitle: 'Copia Certificada',
-            overlayTitleAction: 'Contactar',
+            overlayTitleAction: 'Solicita aquí',
             icon: faFileCircleCheck,
             content: (
                 <p className="text-justify">
@@ -73,7 +73,7 @@ export const InlineServices = () => {
             overLayCallAction: () => goPage('/tramites-en-linea/poderes-generales'),
             overlay: true,
             overlayTitle: 'Poderes Generales',
-            overlayTitleAction: 'Contactar',
+            overlayTitleAction: 'Solicita aquí',
             icon: faFileCircleCheck,
             content: (
                 <p className="text-justify">

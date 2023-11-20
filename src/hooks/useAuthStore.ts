@@ -14,6 +14,7 @@ import {
 import { AxiosError, AxiosResponse } from 'axios'
 import { AuthApi } from '../api'
 import { AuthTokenDataInterface, RegisterUserInterface } from '../interfaces'
+import { useNavigate } from 'react-router'
 
 export const useAuthStore = () => {
     const { status, errors, successMessage } = useSelector(
@@ -21,6 +22,8 @@ export const useAuthStore = () => {
     )
 
     const dispatch = useDispatch()
+
+    const navigate = useNavigate()
 
     const startLogin = async (payload: RegisterUserInterface) => {
         try {
@@ -154,13 +157,13 @@ export const useAuthStore = () => {
     }
 
     const verifyAccount = async (id: string, hash: string) => {
-        console.log(id, hash)
         dispatch(onLoadingDependency(true))
         try {
             const { data }: AxiosResponse<AuthTokenDataInterface> =
                 await AuthApi.get(`email/verify/${id}/${hash}`)
             dispatch(onLoadingDependency(false))
             dispatch(onSuccessMessage(data.successMessage))
+            navigate('/ingreso')
             return true
         } catch (error) {
             dispatch(onLoadingDependency(false))

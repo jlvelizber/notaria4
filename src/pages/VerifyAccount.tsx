@@ -8,6 +8,7 @@ import { Alert } from 'react-bootstrap'
 
 export const VerifyAccount: FC = () => {
     const [params] = useSearchParams()
+   
     const [existError, setExistError] = useState<boolean>(false)
     const {
         verifyAccount,
@@ -21,6 +22,7 @@ export const VerifyAccount: FC = () => {
     useEffect(() => {
         if (id && hash) {
             verifyAccount(id, hash)
+            
         } else {
             setExistError(true)
         }

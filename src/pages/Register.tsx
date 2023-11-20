@@ -19,8 +19,8 @@ const Contact: FC = () => {
                     <div className="container">
                         <div className="inner-container">
                             <h2 className="text-center">
-                                Crea un usuario para realizar tus trámites en{' '}
-                                <span>línea</span>
+                                Crea tu usuario para realizar tus trámites
+                                notariales en <span>línea</span>
                             </h2>
                             <div className="row clearfix">
                                 {/* <!-- Info Column --> */}
@@ -38,16 +38,21 @@ const Contact: FC = () => {
                                                 personalizada que necesitas.
                                             </p>
                                             <p>
-                                                Por favor, no dudes en
-                                                comunicarte con nosotros a
-                                                través del siguiente formulario:
+                                                Por favor rellena el formulario
+                                                a continuación para la creación
+                                                de tu cuenta en Notaría IV de
+                                                Daule:
                                             </p>
                                         </div>
 
                                         <div className="contact-form">
                                             <RegisterForm />
                                         </div>
-                                        <p>Si ya tienes cuenta puedes acceder presionando  <Link to={'/ingreso'}>aquí</Link></p>
+                                        <p>
+                                            Si ya tienes cuenta puedes acceder
+                                            presionando{' '}
+                                            <Link to={'/ingreso'}>aquí</Link>
+                                        </p>
                                     </div>
                                 </div>
                             </div>

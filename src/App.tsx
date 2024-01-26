@@ -38,6 +38,7 @@ const App: FC = () => {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
+{/*             
             <Route path="quines-somos" element={<AboutUs />} />
 
             <Route path="tramites-en-linea">
@@ -118,7 +119,7 @@ const App: FC = () => {
                         <MyRequestsPage />
                     </AuthenticateRoute>
                 }
-            />
+            /> */}
 
             <Route path="/*" element={<Navigate to="/" />} />
         </Routes>

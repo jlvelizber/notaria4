@@ -35,15 +35,15 @@ const Home: FC = () => {
     ]
 
     return (
-        // <Website>
-        // 	<SliderWrapper slides={slides}/>
-        // 	<Section2/>
-        // 	<Section3/>
-        // 	<Section4/>
-        // 	<Section5/>
-        // 	<Section6/>
-        // </Website>
-        <UnderConstruction />
+        <Website>
+        	<SliderWrapper slides={slides}/>
+        	<Section2/>
+        	<Section3/>
+        	<Section4/>
+        	<Section5/>
+        	<Section6/>
+        </Website>
+        // <UnderConstruction />
     )
 }
 

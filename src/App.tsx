@@ -23,7 +23,7 @@ import PoderesGeneralesPage from './pages/PoderesGeneralesPage'
 import { VerifyAccount } from './pages/VerifyAccount'
 
 const App: FC = () => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
     const { checkAuthToken, status } = useAuthStore()
 
     useEffect(() => {
@@ -38,7 +38,7 @@ const App: FC = () => {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
-{/*             
+
             <Route path="quines-somos" element={<AboutUs />} />
 
             <Route path="tramites-en-linea">
@@ -48,18 +48,17 @@ const App: FC = () => {
                     <Route path="" element={<PermisoSalidaPage />} />
                     <Route path=":codeForm" element={<FormRquestPage />} />
                 </Route>
-                
+
                 <Route path="copia-certificada">
                     <Route path="" element={<CopiaCertificadaPage />} />
                     <Route path=":codeForm" element={<FormRquestPage />} />
                 </Route>
-                
-                
+
                 <Route path="declaracion-juramentada">
                     <Route path="" element={<DeclaracionJuramentadaPage />} />
                     <Route path=":codeForm" element={<FormRquestPage />} />
                 </Route>
-                
+
                 <Route path="poderes-generales">
                     <Route path="" element={<PoderesGeneralesPage />} />
                     <Route path=":codeForm" element={<FormRquestPage />} />
@@ -89,7 +88,7 @@ const App: FC = () => {
                     </GuestRoute>
                 }
             />
-            
+
             <Route
                 path="verificar-cuenta"
                 element={
@@ -119,7 +118,7 @@ const App: FC = () => {
                         <MyRequestsPage />
                     </AuthenticateRoute>
                 }
-            /> */}
+            />
 
             <Route path="/*" element={<Navigate to="/" />} />
         </Routes>

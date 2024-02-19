@@ -9,7 +9,7 @@ import 'swiper/css'
 import 'swiper/css/autoplay'
 import 'swiper/css/pagination'
 
-const SliderWrapper: FC<{ slides: SliderInterface[] }> = ({ slides }) => {
+export const SliderWrapper: FC<{ slides: SliderInterface[] }> = ({ slides }) => {
     return (
         <section className="banner-section">
             <Swiper
@@ -27,5 +27,3 @@ const SliderWrapper: FC<{ slides: SliderInterface[] }> = ({ slides }) => {
         </section>
     )
 }
-
-export default SliderWrapper

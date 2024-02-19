@@ -1,13 +1,16 @@
 import React from 'react'
-import LaAbg from './../../assets/images/home/la-abogada-notaria4.webp'
-import HomeService from './../../assets/images/home/home-section-services.webp'
-import ImgSignature from './../../assets/images/home/signature.png';
-import ImageColumn from '../Common/ImageColumn'
+import LaAbg from '@/images/home/la-abogada-notaria4.webp'
+import HomeService from '@/images/home/home-section-services.webp'
+import ImgSignature from '@/images/home/signature.png'
+import { ImageColumn } from '../Common'
 
-const Section2 = () => {
+export const Section2 = () => {
     return (
         <section className="about-section style-two">
-            <div className="image-layer" style={{backgroundImage:`url(${HomeService})`}}></div>
+            <div
+                className="image-layer"
+                style={{ backgroundImage: `url(${HomeService})` }}
+            ></div>
             <div className="container">
                 <div className="row clearfix">
                     <div className="content-column col-lg-6 col-md-12 col-sm-12">
@@ -33,10 +36,7 @@ const Section2 = () => {
                             </div>
                             <div className="signature  text-center text-md-start">
                                 <div className="signature-img">
-                                    <img
-                                        src={ImgSignature}
-                                        alt=""
-                                    />
+                                    <img src={ImgSignature} alt="" />
                                 </div>
                                 <h5>Abogada Maria del Carmen Carvajal</h5>
                                 <div className="designation">Notaria</div>
@@ -60,5 +60,3 @@ const Section2 = () => {
         </section>
     )
 }
-
-export default Section2

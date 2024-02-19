@@ -1,7 +1,7 @@
 import React from 'react'
 import BgSection6 from './../../assets/images/home/newsletter.jpg'
 
-const Section6 = () => {
+export const Section6 = () => {
     return (
         <section className="subscribe-section">
             <div className="container">
@@ -36,5 +36,3 @@ const Section6 = () => {
         </section>
     )
 }
-
-export default Section6

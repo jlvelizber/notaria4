@@ -1,9 +1,9 @@
 import React from 'react'
-import notaria4 from './../../assets/images/about/notaria4-daule-abogacia.jpg'
-import abogado from './../../assets/images/about/abogado.webp'
-import ImageColumn from '../Common/ImageColumn'
+import notaria4 from '@/images/about/notaria4-daule-abogacia.jpg'
+import abogado from '@/images/about/abogado.webp'
+import { ImageColumn } from '../Common'
 
-const About = () => {
+export const About = () => {
     return (
         <section className="about-section">
             {/* <div className="image-layer" style="background-image:url(images/resource/about-1.jpg)"></div> */}
@@ -77,5 +77,3 @@ const About = () => {
         </section>
     )
 }
-
-export default About

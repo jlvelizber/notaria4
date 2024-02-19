@@ -9,7 +9,7 @@ interface PageTitleInterface {
     background?:string
 }
 
-const PageTitle: FC<PageTitleInterface> = ({title, background}) => {
+export const PageTitle: FC<PageTitleInterface> = ({title, background}) => {
   return (
       <section className="page-title" style={{backgroundImage: `url(${background})`}}>
           <div className="container">
@@ -29,5 +29,3 @@ const PageTitle: FC<PageTitleInterface> = ({title, background}) => {
       </section>
   )
 }
-
-export default PageTitle

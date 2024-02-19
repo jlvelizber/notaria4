@@ -1,26 +1,30 @@
 import React, { FC, useEffect } from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
-import Home from './pages/Home'
-import Contact from './pages/Contact'
-import Register from './pages/Register'
-import AboutUs from './pages/AboutUs'
-import Services from './pages/Services'
-import Testimonials from './pages/Testimonials'
-import Faqs from './pages/Faqs'
-import Login from './pages/Login'
-import { useAuthStore } from './hooks'
-import { AuthenticateRoute, GuestRoute } from './components'
-import { MyAccount } from './pages/MyAccount'
-import { MyRequestsPage } from './pages/MyRequestsPage'
-import PermisoSalidaPage from './pages/PermisoSalidaPage'
-import { FormRquestPage } from './pages/FormRquestPage'
 import { useDispatch } from 'react-redux'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import { useAuthStore } from './hooks'
 import { onLoadingDependency } from './store'
 import { ThankyouRequestPage } from './pages/ThankyouRequestPage'
-import CopiaCertificadaPage from './pages/CopiaCertificadaPage'
-import DeclaracionJuramentadaPage from './pages/DeclaracionJuramentadaPage'
-import PoderesGeneralesPage from './pages/PoderesGeneralesPage'
-import { VerifyAccount } from './pages/VerifyAccount'
+
+import {
+    AboutUs,
+    ContactPage,
+    CopiaCertificadaPage,
+    DeclaracionJuramentadaPage,
+    FaqsPage,
+    FormRquestPage,
+    Home,
+    LoginPage,
+    MyAccountPage,
+    PermisoSalidaPage,
+    PoderesGeneralesPage,
+    RegisterPage,
+    Services,
+    TestimonialsPage,
+    VerifyAccountPage,
+    MyRequestsPage,
+} from './pages'
+
+import { AuthenticateRoute, GuestRoute } from './components'
 
 const App: FC = () => {
     const dispatch = useDispatch()
@@ -63,19 +67,19 @@ const App: FC = () => {
                     <Route path="" element={<PoderesGeneralesPage />} />
                     <Route path=":codeForm" element={<FormRquestPage />} />
                 </Route>
-
                 <Route path="gracias" element={<ThankyouRequestPage />} />
             </Route>
 
-            <Route path="testimonios" element={<Testimonials />} />
-            <Route path="preguntas-frecuentes" element={<Faqs />} />
-            <Route path="contacto" element={<Contact />} />
+            <Route path="testimonios" element={<TestimonialsPage />} />
+
+            <Route path="preguntas-frecuentes" element={<FaqsPage />} />
+            <Route path="contacto" element={<ContactPage />} />
 
             <Route
                 path="registro"
                 element={
                     <GuestRoute authenticated={status === 'not-authenticated'}>
-                        <Register />
+                        <RegisterPage />
                     </GuestRoute>
                 }
             />
@@ -84,7 +88,7 @@ const App: FC = () => {
                 path="ingreso"
                 element={
                     <GuestRoute authenticated={status === 'not-authenticated'}>
-                        <Login />
+                        <LoginPage />
                     </GuestRoute>
                 }
             />
@@ -93,7 +97,7 @@ const App: FC = () => {
                 path="verificar-cuenta"
                 element={
                     <GuestRoute authenticated={status === 'not-authenticated'}>
-                        <VerifyAccount />
+                        <VerifyAccountPage />
                     </GuestRoute>
                 }
             />
@@ -104,7 +108,7 @@ const App: FC = () => {
                     <AuthenticateRoute
                         authenticated={status === 'authenticated'}
                     >
-                        <MyAccount />
+                        <MyAccountPage />
                     </AuthenticateRoute>
                 }
             />

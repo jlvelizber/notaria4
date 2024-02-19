@@ -4,7 +4,7 @@ import ImgPostOne from '../../assets/images/home/post1.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faUser } from '@fortawesome/free-solid-svg-icons'
 
-const Section4 = () => {
+export const Section4 = () => {
     return (
         <section className="news-section style-two">
             <div className="container">
@@ -153,5 +153,3 @@ const Section4 = () => {
         </section>
     )
 }
-
-export default Section4

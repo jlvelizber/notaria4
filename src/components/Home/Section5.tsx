@@ -3,7 +3,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBuilding, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 
-const Section5 = () => {
+export const Section5 = () => {
     return (
         <section
             className="form-section"
@@ -118,5 +118,3 @@ const Section5 = () => {
         </section>
     )
 }
-
-export default Section5

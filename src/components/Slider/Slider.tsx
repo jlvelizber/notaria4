@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { SliderInterface } from './SliderInterface'
 import { Link } from 'react-router-dom'
 
-const Slider : FC<{slide: SliderInterface}> = ({slide}) => {
+export const Slider : FC<{slide: SliderInterface}> = ({slide}) => {
     return (
         <div className="slide" style={{backgroundImage: `url(${slide.img})`}}>
             <div className="container">

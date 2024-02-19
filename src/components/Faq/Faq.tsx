@@ -1,18 +1,18 @@
-import React, { Key } from 'react'
+import React, { FC, Key } from 'react'
+import { Link } from 'react-router-dom'
 import { Accordion } from 'react-bootstrap'
 import { FAQ_DATA, FaqInterface } from './FaqData'
-import { Link } from 'react-router-dom'
 
 const faqs: FaqInterface[] = FAQ_DATA
 
-const Faq = () => {
+export const Faq: FC = () => {
     return (
         <section className="faq-page-section">
             <div className="container">
                 <div className="inner-container">
                     <div className="section-title text-center text-md-start">
                         <h3>
-                        Despejamos todas tus <span>dudas</span>
+                            Despejamos todas tus <span>dudas</span>
                         </h3>
                     </div>
                     <div className="row clearfix p-md-4 mx-auto">
@@ -38,16 +38,17 @@ const Faq = () => {
                         </div>
                     </div>
 
-                    <p className="text" style={{fontSize:'16px', color:'black'}}>
+                    <p
+                        className="text"
+                        style={{ fontSize: '16px', color: 'black' }}
+                    >
                         Esperamos que estas preguntas frecuentes te hayan sido
                         de utilidad. Recuerda que si tienes alguna otra
                         consulta, puedes contactarnos directamente en el
-                        siguiente <Link to={'/contacto'}>enlace</Link> 
+                        siguiente <Link to={'/contacto'}>enlace</Link>
                     </p>
                 </div>
             </div>
         </section>
     )
 }
-
-export default Faq

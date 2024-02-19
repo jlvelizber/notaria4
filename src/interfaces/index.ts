@@ -1,3 +1,5 @@
 export * from './Common.interface'
 export * from './AuthInterface'
 export * from './FormDocs.interface'
+export * from './CommentInterface'
+export * from './CardInterface'

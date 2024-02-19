@@ -1,11 +1,13 @@
 import React from 'react'
-import Card, { CardInterface } from './Card'
-import { faFileCircleCheck, faPlane } from '@fortawesome/free-solid-svg-icons'
-import OverlayPermisoSalida from './../../assets/images/home/permiso-salida-notaria4.webp'
-import OverdeclaracionJurada from './../../assets/images/home/declaracion-jurada.webp'
-import OverCopiaCertificada from './../../assets/images/home/copia-certificada.webp'
-import OverFirmaPoderes from './../../assets/images/home/firma-poderes.webp'
 import { useNavigate } from 'react-router'
+import { Card } from './Card'
+
+import { CardInterface } from '../../interfaces'
+import { faFileCircleCheck, faPlane } from '@fortawesome/free-solid-svg-icons'
+import OverlayPermisoSalida from '@/images/home/permiso-salida-notaria4.webp'
+import OverdeclaracionJurada from '@/images/home/declaracion-jurada.webp'
+import OverCopiaCertificada from '@/images/home/copia-certificada.webp'
+import OverFirmaPoderes from '@/images/home/firma-poderes.webp'
 
 export const InlineServices = () => {
     const navigate = useNavigate()
@@ -19,7 +21,8 @@ export const InlineServices = () => {
     const servicesOnHome: CardInterface[] = [
         {
             title: 'Permisos de Salida',
-            overLayCallAction: () => goPage('/tramites-en-linea/permiso-salida'),
+            overLayCallAction: () =>
+                goPage('/tramites-en-linea/permiso-salida'),
             overlay: true,
             overlayTitle: 'Permisos de Salida',
             overlayTitleAction: 'Solicita aquí',
@@ -36,7 +39,8 @@ export const InlineServices = () => {
         },
         {
             title: 'Declaración Juramentada',
-            overLayCallAction: () => goPage('/tramites-en-linea/declaracion-juramentada'),
+            overLayCallAction: () =>
+                goPage('/tramites-en-linea/declaracion-juramentada'),
             overlay: true,
             overlayTitle: 'Declaración Juramentada',
             overlayTitleAction: 'Solicita aquí',
@@ -53,7 +57,8 @@ export const InlineServices = () => {
         },
         {
             title: 'Copia Certificada',
-            overLayCallAction: () => goPage('/tramites-en-linea/copia-certificada'),
+            overLayCallAction: () =>
+                goPage('/tramites-en-linea/copia-certificada'),
             overlay: true,
             overlayTitle: 'Copia Certificada',
             overlayTitleAction: 'Solicita aquí',
@@ -70,7 +75,8 @@ export const InlineServices = () => {
         },
         {
             title: 'Poderes Generales',
-            overLayCallAction: () => goPage('/tramites-en-linea/poderes-generales'),
+            overLayCallAction: () =>
+                goPage('/tramites-en-linea/poderes-generales'),
             overlay: true,
             overlayTitle: 'Poderes Generales',
             overlayTitleAction: 'Solicita aquí',

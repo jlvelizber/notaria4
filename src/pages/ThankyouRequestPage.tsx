@@ -1,8 +1,8 @@
 import React from 'react'
-import Website from '../layouts/Website'
-import PageTitle from '../components/PageTitle/PageTitle'
 
 import ImgTitle from './../assets/images/services/servicios-title.jpg'
+import { Website } from '../layouts'
+import { PageTitle } from '../components'
 
 export const ThankyouRequestPage = () => {
     return (

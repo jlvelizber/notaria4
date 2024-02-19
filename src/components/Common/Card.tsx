@@ -1,36 +1,46 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import { CardInterface } from '../../interfaces'
 
-export interface CardInterface {
-    icon?: IconProp
-    title: string
-    content?: any;
-    overlay?: boolean | false
-    overlayImg?: string;
-    overlayTitle?: string
-    overlayTitleAction?: string;
-    overLayCallAction?: (param?: any) => void;
-    classes?:string ;
-}
 
-const Card: FC<{ card: CardInterface }> = ({ card }) => {
-    const { content, title, icon, overlay, overlayTitle, overLayCallAction, overlayTitleAction, overlayImg, classes = "col-12 col-sm-6 col-lg-4" } =
-        card
+export const Card: FC<{ card: CardInterface }> = ({ card }) => {
+    const {
+        content,
+        title,
+        icon,
+        overlay,
+        overlayTitle,
+        overLayCallAction,
+        overlayTitleAction,
+        overlayImg,
+        classes = 'col-12 col-sm-6 col-lg-4',
+    } = card
     return (
         <div className={`services-block-two style-two ${classes}`}>
             <div className="inner-box">
                 <div className="icon-box">
-                    {icon && (<FontAwesomeIcon className='icon' icon={icon}/>)}
+                    {icon && <FontAwesomeIcon className="icon" icon={icon} />}
                 </div>
                 <h3>{title}</h3>
                 <div className="text text-start">{content}</div>
 
                 {overlay && (
-                    <div className="overlay-box"  style={{backgroundImage: overlayImg ? `url(${overlayImg})` : undefined}}>
+                    <div
+                        className="overlay-box"
+                        style={{
+                            backgroundImage: overlayImg
+                                ? `url(${overlayImg})`
+                                : undefined,
+                        }}
+                    >
                         <div className="overlay-inner">
                             <div className="content">
-                                {icon && (<FontAwesomeIcon className='icon' icon={icon}/>)}
+                                {icon && (
+                                    <FontAwesomeIcon
+                                        className="icon"
+                                        icon={icon}
+                                    />
+                                )}
                                 <h4>
                                     <a onClick={overLayCallAction}>
                                         {overlayTitle}
@@ -50,5 +60,3 @@ const Card: FC<{ card: CardInterface }> = ({ card }) => {
         </div>
     )
 }
-
-export default Card

@@ -4,6 +4,10 @@
     .page-wrapper {
         overflow: hidden;
     }
+
+    .page-title{
+        background: top;
+    }
 }
 
 @media only screen and (max-width: 1340px) {
@@ -150,6 +154,10 @@
         display: block !important;
         visibility: hidden;
         opacity: 0;
+    }
+
+    .page-title {
+        background-position: top center;
     }
 }
 

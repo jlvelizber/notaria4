@@ -1,5 +1,5 @@
 import React from 'react'
-import BgSection6 from './../../assets/images/home/newsletter.jpg'
+import BgSection6 from '@/images/home/newsletter.jpg'
 
 export const Section6 = () => {
     return (

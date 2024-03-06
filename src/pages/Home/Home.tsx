@@ -11,7 +11,7 @@ import {
     SliderWrapper,
 } from '../../components'
 import slider1 from '@/images/main-slider/notaria-slider.jpg'
-import slider2 from '@/images/main-slider/notaria-slider-2.jpg'
+import slider2 from '@/images/main-slider/notaria-slider-2.webp'
 export const Home: FC = () => {
     const navigate = useNavigate()
 

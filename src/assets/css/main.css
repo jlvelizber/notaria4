@@ -2084,14 +2084,17 @@ img {
 .about-section {
     position: relative;
     padding: 110px 0px 20px;
+    background-size: contain;
 }
 
 .about-section .image-layer {
     position: absolute;
     right: 0px;
     top: 0px;
-    width: 846px;
-    height: 638px;
+    width: 900px;
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .about-section .image-layer:before {
@@ -2222,7 +2225,7 @@ img {
 
 .about-section .image-column .inner-column .image {
     position: relative;
-    max-width: 322px;
+    max-width: 275px;
     width: 100%;
 }
 
@@ -2245,7 +2248,7 @@ img {
 
 .about-section .image-column .inner-column .image .overlay-box .content {
     position: absolute;
-    left: 20px;
+    left: 10px;
     bottom: 0px;
 }
 
@@ -4789,10 +4792,10 @@ img {
 
 .page-title {
     position: relative;
-    padding: 210px 0px 90px;
+    padding: 330px 0px 90px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     background-position: center top;
 }
 

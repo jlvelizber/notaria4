@@ -5,7 +5,7 @@
         overflow: hidden;
     }
 
-    .page-title{
+    .page-title {
         background: top;
     }
 }
@@ -106,7 +106,6 @@
     .banner-section-two .content-column h2 {
         font-size: 44px;
     }
-    
 
     .about-section .image-column {
         display: flex;
@@ -558,7 +557,7 @@
         border: 1px solid #ffffff;
     }
 
-        .main-menu .navbar-header .navbar-toggler .icon-bar .navbar-toggler-icon {
+    .main-menu .navbar-header .navbar-toggler .icon-bar .navbar-toggler-icon {
         position: relative;
         background: #ffffff;
         height: 2px;
@@ -671,7 +670,11 @@
     }
 
     .banner-section .slide {
-        padding: 150px 0px 150px;
+        /* padding: 150px 0px 150px; */
+        padding: 0px;
+        min-height: 350px;
+        margin-top: 80px;
+        padding-top: 135px;
     }
 
     .banner-section .content h1 {
@@ -709,8 +712,7 @@
         margin-right: 0px;
     }
 
-
-    .about-section .image-column .inner-column .image{
+    .about-section .image-column .inner-column .image {
         margin: 0 auto;
     }
 }

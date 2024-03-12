@@ -43,14 +43,28 @@ const Footer = () => {
                                                     className="icon"
                                                     icon={faPhone}
                                                 />
-                                                +593 042145544
+                                                +593 46050320
+                                            </li>
+                                            <li>
+                                                <FontAwesomeIcon
+                                                    className="icon"
+                                                    icon={faPhone}
+                                                />
+                                                +593 46008538
+                                            </li>
+                                            <li>
+                                                <FontAwesomeIcon
+                                                    className="icon"
+                                                    icon={faPhone}
+                                                />
+                                                +593 910447812
                                             </li>
                                             <li>
                                                 <FontAwesomeIcon
                                                     className="icon"
                                                     icon={faEnvelope}
                                                 />
-                                               <Link to={"mailto:info@notaria4daule.com"}> info@notaria4daule.com</Link>
+                                               <Link to={"mailto:admin@notaria4daule.com"}> admin@notaria4daule.com</Link>
                                             </li>
                                             <li>
                                                 <FontAwesomeIcon

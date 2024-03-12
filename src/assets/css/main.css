@@ -2503,8 +2503,9 @@ img {
 
 .services-section-two .lower-section .image {
     position: absolute;
-    right: -50px;
-    bottom: 0px;
+    left: 845px;
+    top: 110px;
+    width: 47%;
 }
 
 .services-section-two .lower-section .carousel-box {

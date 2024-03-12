@@ -3,7 +3,7 @@ import Comment from '../Common/Comment'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper'
 import { CommentInterface } from '../../interfaces'
-import ClienteSatisfechoImg from '@/images/home/cliente_satisfecho.png'
+import ClienteSatisfechoImg from '@/images/home/cliente_satisfecho.webp'
 import TestimonialImg1 from '@/images/home/testimonial1.jpg'
 import TestimonialImg2 from '@/images/home/testimonial2.jpg'
 import TestimonialImg3 from '@/images/home/testimonial3.jpg'
@@ -82,7 +82,7 @@ const Comments = () => {
             </div>
 
             <div className="image d-none d-lg-block">
-                <img src={ClienteSatisfechoImg} alt="" />
+                <img src={ClienteSatisfechoImg} alt='Notaria IV de Daule' />
             </div>
         </div>
     )

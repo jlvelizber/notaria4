@@ -22,13 +22,13 @@ export const Home: FC = () => {
     const slides: SliderInterface[] = [
         {
             title: 'Notaria IV de Daule',
-            description: 'Trámites en línea',
+            description: 'Servicios en línea',
             img: slider1,
             callToAction: () => goToContact(),
         },
         {
             title: 'Notaria IV de Daule',
-            description: 'Trámites en línea',
+            description: 'Servicios en línea',
             img: slider2,
             callToAction: () => goToContact(),
         },

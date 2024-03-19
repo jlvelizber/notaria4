@@ -7,7 +7,7 @@ import { PageTitle } from '../components'
 export const ThankyouRequestPage = () => {
     return (
         <Website>
-            <PageTitle title="Trámites en línea" background={ImgTitle} />
+            <PageTitle title="Servicios en línea" background={ImgTitle} />
             <section className="services-section-four">
                 <div className="container">
                     <div className="row clearfix">

@@ -45,7 +45,7 @@ const App: FC = () => {
 
             <Route path="quines-somos" element={<AboutUs />} />
 
-            <Route path="tramites-en-linea">
+            <Route path="servicios-en-linea">
                 <Route path="" element={<Services />} />
 
                 <Route path="permiso-salida">

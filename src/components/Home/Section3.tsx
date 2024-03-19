@@ -13,7 +13,7 @@ export const Section3 = () => {
         >
             <div className="container">
                 <div className="section-title centered text-center text-md-start">
-                    <div className="title">Trámites en línea</div>
+                    <div className="title">Servicios en línea</div>
                     <h3>
                         {tramitesEnLInea?.title}{' '}
                         <span>{tramitesEnLInea?.titleEnphasis}</span>

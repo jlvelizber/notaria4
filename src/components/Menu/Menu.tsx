@@ -1,7 +1,6 @@
-import React, { FC, useEffect, useRef } from 'react'
+import React, { FC, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Container, Nav, Navbar } from 'react-bootstrap'
-import logo from './../../assets/images/logo-notaria4-daule.png'
 import logoSmall from './../../assets/images/logo-small.png'
 import { useAuthStore } from '../../hooks'
 import { GuestMenu } from '../GuestMenu'
@@ -48,8 +47,8 @@ export const Menu: FC<MenuInterface> = ({ onOpenSidebar }) => {
             path: '/quines-somos',
         },
         {
-            name: 'Trámites en línea',
-            path: '/tramites-en-linea',
+            name: 'Servicios en línea',
+            path: '/servicios-en-linea',
         },
         {
             name: 'Preguntas frecuentes',

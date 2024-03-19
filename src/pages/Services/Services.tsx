@@ -342,11 +342,11 @@ export const Services = () => {
 
     return (
         <Website>
-            <PageTitle title="Trámites en línea" background={ImgTitle} />
+            <PageTitle title="Servicios en línea" background={ImgTitle} />
             <section className="services-section-four">
                 <div className="container">
                     <div className="section-title centered">
-                        <div className="title">Trámites en línea</div>
+                        <div className="title">Servicios en línea</div>
                         <h3>
                             ofrecemos una gran variedad de <br />
                             servicios con nuestra <span>experiencia</span>
@@ -364,7 +364,7 @@ export const Services = () => {
                         <div className="title">Otros servicios</div>
                         <h3>
                             En la Notaría IV de Daule <br /> se realizan los
-                            siguientes <span>trámites</span>
+                            siguientes <span>servicios</span>
                         </h3>
                     </div>
                     <div className="row clearfix p-md-4 mx-auto">

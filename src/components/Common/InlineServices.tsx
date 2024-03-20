@@ -22,7 +22,7 @@ export const InlineServices = () => {
         {
             title: 'Permisos de Salida',
             overLayCallAction: () =>
-                goPage('/tramites-en-linea/permiso-salida'),
+                goPage('/servicios-en-linea/permiso-salida'),
             overlay: true,
             overlayTitle: 'Permisos de Salida',
             overlayTitleAction: 'Solicita aquí',
@@ -40,7 +40,7 @@ export const InlineServices = () => {
         {
             title: 'Declaración Juramentada',
             overLayCallAction: () =>
-                goPage('/tramites-en-linea/declaracion-juramentada'),
+                goPage('/servicios-en-linea/declaracion-juramentada'),
             overlay: true,
             overlayTitle: 'Declaración Juramentada',
             overlayTitleAction: 'Solicita aquí',
@@ -58,7 +58,7 @@ export const InlineServices = () => {
         {
             title: 'Copia Certificada',
             overLayCallAction: () =>
-                goPage('/tramites-en-linea/copia-certificada'),
+                goPage('/servicios-en-linea/copia-certificada'),
             overlay: true,
             overlayTitle: 'Copia Certificada',
             overlayTitleAction: 'Solicita aquí',
@@ -76,7 +76,7 @@ export const InlineServices = () => {
         {
             title: 'Poderes Generales',
             overLayCallAction: () =>
-                goPage('/tramites-en-linea/poderes-generales'),
+                goPage('/servicios-en-linea/poderes-generales'),
             overlay: true,
             overlayTitle: 'Poderes Generales',
             overlayTitleAction: 'Solicita aquí',

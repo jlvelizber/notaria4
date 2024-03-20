@@ -11,6 +11,7 @@ import {
     DocFormFieldOptions,
     FieldDataInterface,
 } from '../../interfaces'
+import { FieldRequestFormStyles } from './FieldRequestFormStyles'
 
 export const FieldRequestForm: FC<{
     fieldForm: DocFormField
@@ -46,17 +47,26 @@ export const FieldRequestForm: FC<{
                 )
             case 'file':
                 return (
-                    <input
-                        {...field}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                            field.onChange(e.target.files?.[0])
-                        }}
-                        type={fieldDescription.type}
-                        className={fieldState?.error && 'is-invalid error'}
-                        value={field.value?.fileName}
-                        ref={inputFileRef}
-                        accept="application/pdf"
-                    />
+                    <div style={FieldRequestFormStyles.customFileUpload}>
+                        <label
+                            htmlFor="file-upload"
+                            style={FieldRequestFormStyles.fileUploadLabel}
+                        >
+                            Subir archivo
+                        </label>
+                        <input
+                            {...field}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                                field.onChange(e.target.files?.[0])
+                            }}
+                            type={fieldDescription.type}
+                            className={fieldState?.error && 'is-invalid error'}
+                            value={field.value?.fileName}
+                            ref={inputFileRef}
+                            accept="application/pdf"
+                            style={FieldRequestFormStyles.fileUploadInput}
+                        />
+                    </div>
                 )
             default:
                 return (

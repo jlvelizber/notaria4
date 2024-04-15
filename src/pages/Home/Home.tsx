@@ -15,8 +15,8 @@ import slider2 from '@/images/main-slider/notaria-slider-2.webp'
 export const Home: FC = () => {
     const navigate = useNavigate()
 
-    const goToContact = () => {
-        return navigate('/contacto')
+    const goToLink = (path: string) => {
+        return navigate(`${path}`)
     }
 
     const slides: SliderInterface[] = [
@@ -24,13 +24,19 @@ export const Home: FC = () => {
             title: 'Notaria IV de Daule',
             description: 'Servicios en línea',
             img: slider1,
-            callToAction: () => goToContact(),
+            actions: {
+                label: 'Ingresar',
+                path: `/servicios-en-linea`
+            }
         },
         {
             title: 'Notaria IV de Daule',
             description: 'Servicios en línea',
             img: slider2,
-            callToAction: () => goToContact(),
+            actions: {
+                label: 'Contacto',
+                path: `/contacto`
+            }
         },
     ]
 

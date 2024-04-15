@@ -2225,7 +2225,7 @@ img {
 
 .about-section .image-column .inner-column .image {
     position: relative;
-    max-width: 275px;
+    max-width: 325px;
     width: 100%;
 }
 
@@ -2233,7 +2233,7 @@ img {
     position: relative;
     width: 100%;
     display: block;
-    height: 386px;
+    height: 436px;
 }
 
 .about-section .image-column .inner-column .image .overlay-box {
@@ -2503,14 +2503,14 @@ img {
 
 .services-section-two .lower-section .image {
     position: absolute;
-    left: 845px;
-    top: 110px;
-    width: 47%;
+    left: 711px;
+    top: 80px;
+    width: 50%;
 }
 
 .services-section-two .lower-section .carousel-box {
     position: relative;
-    max-width: 780px;
+    max-width: 55%;
     width: 100%;
     display: block;
     z-index: 1;
@@ -2518,7 +2518,8 @@ img {
 
 .services-section-two .lower-section .carousel-box .content {
     position: relative;
-    padding: 60px 70px 70px;
+    padding: 40px;
+    /* padding: 60px 70px 70px; */
     /* background-image: -ms-linear-gradient(left, #0f0f0f 0%, #383838 100%);
     background-image: -moz-linear-gradient(left, #0f0f0f 0%, #383838 100%);
     background-image: -o-linear-gradient(left, #0f0f0f 0%, #383838 100%);

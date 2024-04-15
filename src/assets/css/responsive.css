@@ -685,6 +685,7 @@
         font-size: 18px;
     }
 
+  
     .services-section-two .lower-section .carousel-box .content {
         padding-left: 15px;
         padding-right: 15px;
@@ -714,6 +715,10 @@
 
     .about-section .image-column .inner-column .image {
         margin: 0 auto;
+    }
+
+    .services-section-two .lower-section .carousel-box {
+        max-width: 100%;
     }
 }
 
@@ -811,6 +816,10 @@
         width: 100%;
         margin-bottom: 1px;
     }
+
+    .services-section-two .lower-section .carousel-box {
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 479px) {
@@ -879,4 +888,9 @@
     .portfolio-section-two .filters li {
         margin-bottom: 12px;
     }
+
+    .services-section-two .lower-section .carousel-box {
+        width: 100%;
+    }
+
 }

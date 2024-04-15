@@ -1,7 +1,11 @@
 import React from 'react'
 // import BgSection5 from './../../assets/images/home/home-section-contact.webp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBuilding, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
+import {
+    faBuilding,
+    faEnvelope,
+    faPhone,
+} from '@fortawesome/free-solid-svg-icons'
 
 export const Section5 = () => {
     return (
@@ -17,9 +21,11 @@ export const Section5 = () => {
                                 <div className="section-title  text-center text-md-start">
                                     <div className="title ">Contacto</div>
                                     <h3>
-                                        Sientete en libertad de escribirnos{' '}
-                                        <br />
-                                        estamos <span>aquí</span> para ti
+                                        En la Notaría Cuarta de Daule{' '}
+                                        <span>trabajamos</span> para resolver
+                                        tus <span>trámites</span>. Llena el
+                                        siguiente formulario y nos pondremos en
+                                        contacto pronto
                                     </h3>
                                 </div>
                             </div>
@@ -42,7 +48,7 @@ export const Section5 = () => {
                                     </div>
                                     <div className="column col-lg-6 col-md-6 col-sm-12">
                                         <ul className="list-style-two">
-                                        <li>
+                                            <li>
                                                 <FontAwesomeIcon
                                                     icon={faPhone}
                                                 />

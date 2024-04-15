@@ -1,6 +1,9 @@
 export interface SliderInterface {
     title: string
     description: string
-    img: string
-    callToAction: any
+    img: string;
+    actions: {
+        label: string;
+        path: string;
+    }
 }

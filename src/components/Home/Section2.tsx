@@ -1,6 +1,5 @@
 import React from 'react'
 import LaAbg from '@/images/home/la-abogada-notaria4.webp'
-import HomeService from '@/images/home/home-section-services.webp'
 import ImgSignature from '@/images/home/signature.png'
 import { ImageColumn } from '../Common'
 
@@ -9,7 +8,6 @@ export const Section2 = () => {
         <section className="about-section style-two">
             <div
                 className="image-layer"
-                style={{ backgroundImage: `url(${HomeService})` }}
             ></div>
             <div className="container">
                 <div className="row clearfix">

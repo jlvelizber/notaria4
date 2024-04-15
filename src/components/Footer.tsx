@@ -9,8 +9,7 @@ import {
     faAngleRight,
 } from '@fortawesome/free-solid-svg-icons'
 const Footer = () => {
-
-    const year = (new Date()).getFullYear();
+    const year = new Date().getFullYear()
 
     return (
         <footer className="main-footer">
@@ -64,14 +63,23 @@ const Footer = () => {
                                                     className="icon"
                                                     icon={faEnvelope}
                                                 />
-                                               <Link to={"mailto:admin@notaria4daule.com"}> admin@notaria4daule.com</Link>
+                                                <Link
+                                                    to={
+                                                        'mailto:admin@notaria4daule.com'
+                                                    }
+                                                >
+                                                    {' '}
+                                                    admin@notaria4daule.com
+                                                </Link>
                                             </li>
                                             <li>
                                                 <FontAwesomeIcon
                                                     className="icon"
                                                     icon={faHome}
                                                 />
-                                                Avenida León Febres Cordero Ribadeneyra, Edificio Platinium II, Daule 091910
+                                                Avenida León Febres Cordero
+                                                Ribadeneyra, Edificio Platinium
+                                                II, Daule 091910
                                             </li>
                                         </ul>
                                     </div>
@@ -138,49 +146,39 @@ const Footer = () => {
                                         <h4>Servicios</h4>
                                         <ul className="list-link">
                                             <li>
-                                                <Link to="/servicios">
+                                                <Link to="/servicios-en-linea/permiso-salida">
                                                     {' '}
                                                     <FontAwesomeIcon
                                                         icon={faAngleRight}
                                                     />
-                                                    Escrituras públicas
+                                                    Permisos de Salida
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to="/servicios">
+                                                <Link to="/servicios-en-linea/declaracion-juramentada">
                                                     {' '}
                                                     <FontAwesomeIcon
                                                         icon={faAngleRight}
                                                     />
-                                                    Constitución de compañías
+                                                    Declaración juramentada
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to="/servicios">
+                                                <Link to="/servicios-en-linea/copia-certificada">
                                                     {' '}
                                                     <FontAwesomeIcon
                                                         icon={faAngleRight}
                                                     />
-                                                    Poderes
+                                                    Copia Certificada
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to="/servicios">
+                                                <Link to="/servicios-en-linea/poderes-generales">
                                                     {' '}
                                                     <FontAwesomeIcon
                                                         icon={faAngleRight}
                                                     />
-                                                    Testamentos
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link to="/servicios">
-                                                    {' '}
-                                                    <FontAwesomeIcon
-                                                        icon={faAngleRight}
-                                                    />
-                                                    Trámites ante el Registro de
-                                                    la Propiedad
+                                                    Poderes generales
                                                 </Link>
                                             </li>
                                         </ul>

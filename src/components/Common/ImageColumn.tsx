@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-export const ImageColumn: FC<{ image: string; content: any }> = ({ image, content }) => {
+export const ImageColumn: FC<{ image?: string; content: any }> = ({ image, content }) => {
     return (
         <div
             className="inner-column wow fadeInRight"

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, Key, useRef } from 'react'
+import React, { ChangeEvent, FC, Key, useRef, useState } from 'react'
 import {
     Controller,
     useController,
@@ -17,7 +17,7 @@ export const FieldRequestForm: FC<{
     control: Control<FieldDataInterface>
 }> = ({ fieldForm, control }) => {
     const inputFileRef = useRef(null)
-
+    const [fileName, setFileName] = useState<string | undefined>('')
     const { fieldState } = useController<FieldDataInterface>({
         name: fieldForm.name,
         control: control,
@@ -51,11 +51,12 @@ export const FieldRequestForm: FC<{
                             htmlFor="file-upload"
                             style={FieldRequestFormStyles.fileUploadLabel}
                         >
-                            Subir archivo
+                            <span>Subir Archivo</span>
                         </label>
                         <input
                             {...field}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                                setFileName(e.target.files?.[0].name)
                                 field.onChange(e.target.files?.[0])
                             }}
                             type={fieldDescription.type}
@@ -65,6 +66,9 @@ export const FieldRequestForm: FC<{
                             accept="application/pdf"
                             style={FieldRequestFormStyles.fileUploadInput}
                         />
+                        {field?.value && (
+                            <small>Archivo Cargado {fileName}</small>
+                        )}
                     </div>
                 )
             default:

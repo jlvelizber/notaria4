@@ -35,7 +35,7 @@ export const DocRequestForm: FC<{
             await saveRequestFormDoc(formData)
 
             if (!errors.message) {
-                navigate(`/tramites-en-linea/gracias`)
+                navigate(`/servicios-en-linea/gracias`)
             }
         }
     }

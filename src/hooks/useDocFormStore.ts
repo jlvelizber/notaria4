@@ -73,11 +73,6 @@ export const useDocFormStore = () => {
     ) => {
         dispatch(onLoadingDependency(true))
         try {
-            // const payload = {
-            //     // dataForm: JSON.stringify(dataForm),
-            //     ...dataForm
-            // }
-
             dispatch(onSetErrorsForm(''))
 
             const { data }: AxiosResponse<FormDocInterface> =
